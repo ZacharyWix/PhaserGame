@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9610883}
-  - component: {fileID: 9610884}
   m_Layer: 5
   m_Name: VVW3
   m_TagString: Untagged
@@ -156,18 +155,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9610884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9610882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69e11f94a288c149a49c65f426a4534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &34210355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246015684}
-  - component: {fileID: 246015685}
   m_Layer: 5
   m_Name: VVW2
   m_TagString: Untagged
@@ -1278,18 +1264,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &246015685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246015683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69e11f94a288c149a49c65f426a4534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &259446902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2517,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 439183149}
-  - component: {fileID: 439183150}
   m_Layer: 5
   m_Name: BLW1
   m_TagString: Untagged
@@ -2578,18 +2551,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &439183150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439183148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69e11f94a288c149a49c65f426a4534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &465531007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,7 +2712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50.500015}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 103.3, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473496645
@@ -4909,7 +4870,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917359861}
-  - component: {fileID: 917359862}
   m_Layer: 5
   m_Name: VVW1
   m_TagString: Untagged
@@ -4950,18 +4910,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &917359862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917359860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69e11f94a288c149a49c65f426a4534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &951253464
 GameObject:
   m_ObjectHideFlags: 0
@@ -9927,7 +9875,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -11399,7 +11347,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -12844,7 +12792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 19}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 160.9, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720298574
@@ -13201,7 +13149,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -13427,7 +13375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 91}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 103.3, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823871746
