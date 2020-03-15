@@ -32,12 +32,12 @@ public class deathCounter : MonoBehaviour
             lowestDeathsText.text = "Unfinished";
         }
         totalDeathsText.text = level.getTotalDeaths().ToString();
-        lowestDeathsText1.text = lowestDeathsText.text;
+        //lowestDeathsText.text = lowestDeathsText.text; //lowestDeathsText1.text = lowestDeathsText.text;
         int d = 0;
         if (level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex) != 13084723)
         {
             d = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex);
         }
-        totalDeathsText1.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
+        totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString(); //totalDeathsText1.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
     }
 }
