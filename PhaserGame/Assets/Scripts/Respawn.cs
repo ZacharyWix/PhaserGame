@@ -55,6 +55,10 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
+            //Plays death particles and makes the player disappear
+            deathParticles.Play();
+            sr.enabled = false;
+
             //disables controls and disables physics for the player
             moveScript.setControls(false);
             rb.simulated = false;
@@ -64,9 +68,6 @@ public class Respawn : MonoBehaviour
             //increases the death counter and updates the text
             gm.incDeathCount();
             deathCount.updateDeathCounter();
-
-            deathParticles.Play();
-            sr.enabled = false;
 
         }
     }
