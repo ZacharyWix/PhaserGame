@@ -12,8 +12,11 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
-        Button[] buttons = canvas.GetComponentsInChildren<Button>(true);
-        updateButtons(buttons);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Button[] buttons = canvas.GetComponentsInChildren<Button>(true);
+            updateButtons(buttons);
+        }
     }
     public void PlayGame ()
     {

@@ -75,14 +75,11 @@ public class Respawn : MonoBehaviour
     {
         if (collision.transform.CompareTag("Finish"))
         {
-            //SceneManager.LoadScene(0);
             pauseScript.togglePause();
             level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
             CreateLevel(false);
             deathCount.updateDeathCounter();
             endgame.gameObject.SetActive(true);
-            Button[] buttons = canvas.GetComponentsInChildren<Button>(true);
-            MainMenu.updateButtons(buttons);
         }
     
         if (collision.transform.CompareTag("Checkpoint"))
