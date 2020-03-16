@@ -29,7 +29,7 @@ public class deathCounter : MonoBehaviour
         }
         else
         {
-            lowestDeathsText.text = "Unfinished";
+            lowestDeathsText.text = "";
         }
         totalDeathsText.text = level.getTotalDeaths().ToString();
         //lowestDeathsText.text = lowestDeathsText.text; //lowestDeathsText1.text = lowestDeathsText.text;
@@ -39,5 +39,7 @@ public class deathCounter : MonoBehaviour
             d = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex);
         }
         totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString(); //totalDeathsText1.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
+        lowestDeathsText1.text = lowestDeathsText.text;
+        totalDeathsText1.text = totalDeathsText.text;
     }
 }

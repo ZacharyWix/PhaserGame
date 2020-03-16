@@ -87,7 +87,7 @@ public class level : MonoBehaviour
         int numDeaths = 13084723;
         for (int i = 0; i < levels.Count; i++)
         {
-            if (levels[i].levelNum == num)
+            if (levels[i].levelNum == num && levels[i].active == false)
             {
                 numDeaths = levels[i].deaths;
             }
