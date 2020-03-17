@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using UnityEngine;
 
 public class level : MonoBehaviour
@@ -9,6 +11,11 @@ public class level : MonoBehaviour
     public bool active;
     public static List<level> levels = new List<level>();
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod()
+    {
+        LoadGame();
+    }
     public level(int l, int d, bool a)
     {
         levelNum = l;
@@ -29,7 +36,6 @@ public class level : MonoBehaviour
     }
     public void addLevel()
     {
-        print("hits part 1");
         int index = 0;
         bool exists = false;
         if (this.active == false)
@@ -55,12 +61,10 @@ public class level : MonoBehaviour
         {
             bool existsa = false;
             int indexa = 0;
-            print("hits part 2");
             for (int i = 0; i < levels.Count; i++)
             {
                 if (levels[i].levelNum == this.levelNum && levels[i].active == true)
                 {
-                    print("hits part 3");
                     existsa = true;
                     indexa = i;
                 }
@@ -74,17 +78,12 @@ public class level : MonoBehaviour
                 levels[index].deaths = this.deaths;
             }
         }
-        for (int i = 0; i < levels.Count; i++)
-        {
-            print("Level Number: " + levels[i].levelNum);
-            print("Deaths: " + levels[i].deaths);
-            print("Active: " + levels[i].active);
-        }
+        SaveGame();
     }
 
     public static int getLevelDeaths(int num)
     {
-        int numDeaths = 13084723;
+        int numDeaths = -1;
         for (int i = 0; i < levels.Count; i++)
         {
             if (levels[i].levelNum == num && levels[i].active == false)
@@ -92,7 +91,7 @@ public class level : MonoBehaviour
                 numDeaths = levels[i].deaths;
             }
         }
-            return numDeaths;
+        return numDeaths;
     }
 
     public static int getTotalDeaths()
@@ -137,4 +136,68 @@ public class level : MonoBehaviour
         return max;
     }
 
+    public void SaveGame()
+    {
+        saveGame save = CreateSaveGameObject();
+        BinaryFormatter bf = new BinaryFormatter();
+        print(Application.persistentDataPath + "/gamesave.save");
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, save);
+        file.Close();
+    }
+    private saveGame CreateSaveGameObject()
+    {
+        saveGame save = new saveGame();
+        for (int i = 0; i < levels.Count; i++)
+        {
+            List<int> temp = new List<int>();
+            print("i: " + i);
+            temp.Add(levels[i].levelNum);
+            print("a");
+            temp.Add(levels[i].deaths);
+            print("b");
+            if (levels[i].active == true)
+            {
+                temp.Add(1);
+            }
+            else
+            {
+                temp.Add(0);
+            }
+            save.levelSave.Add(temp);
+        }
+        return save;
+    }
+
+    public static void LoadGame()
+    {
+        print("runs");
+        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        {
+            print("finds");
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            saveGame save = (saveGame)bf.Deserialize(file);
+            file.Close();
+
+            // 3
+            foreach (List<int> i in save.levelSave)
+            {
+                bool activity;
+                if (i[2] == 1)
+                {
+                    activity = true;
+                }
+                else
+                {
+                    activity = false;
+                }
+                level lv = new level(i[0], i[1], activity);
+            }
+        }
+        else
+        {
+            Debug.Log("No game saved!");
+        }
+    }
 }

@@ -2,17 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class saveGame : MonoBehaviour
+[System.Serializable]
+public class saveGame
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<List<int>> levelSave = new List<List<int>>();
 }
