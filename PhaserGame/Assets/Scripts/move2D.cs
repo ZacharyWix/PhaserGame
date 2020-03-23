@@ -53,6 +53,7 @@ public class move2D : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isTouchingGround)
             {
+                SoundPlayer.PlaySound("jump");
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);

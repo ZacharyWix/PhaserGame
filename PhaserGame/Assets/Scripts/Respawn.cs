@@ -55,6 +55,9 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
+            //Plays the death sound
+            SoundPlayer.PlaySound("death");
+
             //Plays death particles and makes the player disappear
             deathParticles.Play();
             sr.enabled = false;
