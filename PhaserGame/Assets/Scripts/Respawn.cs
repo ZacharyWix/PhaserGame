@@ -22,7 +22,7 @@ public class Respawn : MonoBehaviour
     private move2D moveScript; //used to enable and disable controls
     private bool isDead = false;
 
-    private ParticleSystem deathParticles;
+    public ParticleSystem deathParticles;
 
     private void Start()
     {
