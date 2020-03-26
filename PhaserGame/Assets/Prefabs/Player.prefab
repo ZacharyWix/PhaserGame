@@ -255,6 +255,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpTime: 0.1
+  jumpParticles: {fileID: 0}
   controlsEnabled: 1
 --- !u!114 &393268325
 MonoBehaviour:
@@ -287,6 +288,7 @@ MonoBehaviour:
   deathCount: {fileID: 5234937416589037907}
   canvas: {fileID: 0}
   respawnDelay: 0.3
+  deathParticles: {fileID: 0}
 --- !u!198 &3536829064941810664
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5325,7 +5327,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -7725,6 +7727,7 @@ MonoBehaviour:
   deathCount: {fileID: 5234937416589037907}
   canvas: {fileID: 0}
   respawnDelay: 0
+  deathParticles: {fileID: 0}
 --- !u!1 &5336724124839147866
 GameObject:
   m_ObjectHideFlags: 0
