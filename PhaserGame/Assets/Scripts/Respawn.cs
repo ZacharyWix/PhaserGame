@@ -22,7 +22,7 @@ public class Respawn : MonoBehaviour
     private move2D moveScript; //used to enable and disable controls
     private bool isDead = false;
 
-    private ParticleSystem deathParticles;
+    public ParticleSystem deathParticles;
 
     private void Start()
     {
@@ -55,6 +55,9 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
+            //Plays the death sound
+            SoundPlayer.PlaySound("death");
+
             //Plays death particles and makes the player disappear
             deathParticles.Play();
             sr.enabled = false;

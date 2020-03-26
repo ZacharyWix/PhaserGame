@@ -19,6 +19,8 @@ public class move2D : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping = false;
+    private bool jumped = false;
+    public ParticleSystem jumpParticles;
 
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
@@ -27,6 +29,7 @@ public class move2D : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        jumpParticles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,11 @@ public class move2D : MonoBehaviour
         if (controlsEnabled)
         {
             isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+            if (jumped && isTouchingGround)
+            {
+                jumped = false;
+                jumpParticles.Play();
+            }
             movement = Input.GetAxis("Horizontal");
             if (movement > 0f)
             {
@@ -53,7 +61,9 @@ public class move2D : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isTouchingGround)
             {
+                SoundPlayer.PlaySound("jump");
                 isJumping = true;
+                jumped = true;
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
             }
