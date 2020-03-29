@@ -71,7 +71,6 @@ public class Respawn : MonoBehaviour
             //increases the death counter and updates the text
             gm.incDeathCount();
             deathCount.updateDeathCounter();
-
         }
     }
 
@@ -102,7 +101,6 @@ public class Respawn : MonoBehaviour
 
     public void CreateLevel(bool active)
     {
-        print("method is properly called");
         lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active);
     }
     public void resetDeaths()

@@ -11,6 +11,7 @@ public class deathCounter : MonoBehaviour
     public Text lowestDeathsText1;
     public Text totalDeathsText;
     public Text totalDeathsText1;
+
     private phaserManager gm;
 
     void Start()
@@ -22,7 +23,6 @@ public class deathCounter : MonoBehaviour
     public void updateDeathCounter()
     {
         deathCountText.text = gm.getDeathCount().ToString();
-        //lowestDeathsText.text = "Hello";
         if (level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex) != -1)
         {
             lowestDeathsText.text = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex).ToString();
@@ -32,13 +32,12 @@ public class deathCounter : MonoBehaviour
             lowestDeathsText.text = "";
         }
         totalDeathsText.text = level.getTotalDeaths().ToString();
-        //lowestDeathsText.text = lowestDeathsText.text; //lowestDeathsText1.text = lowestDeathsText.text;
         int d = 0;
         if (level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex) != -1)
         {
             d = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex);
         }
-        totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString(); //totalDeathsText1.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
+        totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
         lowestDeathsText1.text = lowestDeathsText.text;
         totalDeathsText1.text = totalDeathsText.text;
     }

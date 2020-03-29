@@ -42,7 +42,7 @@ public class level : MonoBehaviour
         {
             for (int i = 0; i < levels.Count; i++)
             {
-                if (levels[i].levelNum == this.levelNum)
+                if (levels[i].levelNum == this.levelNum && levels[i].active == false)
                 {
                     exists = true;
                     index = i;
@@ -56,6 +56,7 @@ public class level : MonoBehaviour
             {
                 levels[index].deaths = this.deaths;
             }
+            removeActiveLevel(this.levelNum);
         }
         else
         {
@@ -83,14 +84,19 @@ public class level : MonoBehaviour
 
     public static int getLevelDeaths(int num)
     {
+        print("Level Count: " + levels.Count);
         int numDeaths = -1;
         for (int i = 0; i < levels.Count; i++)
         {
+            print("for" + i);
+            print(levels[i].levelNum);
+            print(levels[i].active);
             if (levels[i].levelNum == num && levels[i].active == false)
             {
                 numDeaths = levels[i].deaths;
             }
         }
+        print("finish" + numDeaths);
         return numDeaths;
     }
 
@@ -199,5 +205,9 @@ public class level : MonoBehaviour
         {
             Debug.Log("No game saved!");
         }
+    }
+
+    public static int numLevels() {
+        return levels.Count;
     }
 }
