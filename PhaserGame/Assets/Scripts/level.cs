@@ -34,6 +34,11 @@ public class level : MonoBehaviour
             }
         }
     }
+
+    public static void clear()
+    {
+        levels.Clear();
+    }
     public void addLevel()
     {
         int index = 0;
@@ -84,19 +89,14 @@ public class level : MonoBehaviour
 
     public static int getLevelDeaths(int num)
     {
-        print("Level Count: " + levels.Count);
         int numDeaths = -1;
         for (int i = 0; i < levels.Count; i++)
         {
-            print("for" + i);
-            print(levels[i].levelNum);
-            print(levels[i].active);
             if (levels[i].levelNum == num && levels[i].active == false)
             {
                 numDeaths = levels[i].deaths;
             }
         }
-        print("finish" + numDeaths);
         return numDeaths;
     }
 
@@ -126,7 +126,10 @@ public class level : MonoBehaviour
         {
             return levels[index].deaths;
         }
-        else return 0;
+        else 
+        {
+            return 0;
+        }
     }
 
     public static int getMaxLevel(bool active)
@@ -157,11 +160,8 @@ public class level : MonoBehaviour
         for (int i = 0; i < levels.Count; i++)
         {
             List<int> temp = new List<int>();
-            print("i: " + i);
             temp.Add(levels[i].levelNum);
-            print("a");
             temp.Add(levels[i].deaths);
-            print("b");
             if (levels[i].active == true)
             {
                 temp.Add(1);
@@ -177,10 +177,8 @@ public class level : MonoBehaviour
 
     public static void LoadGame()
     {
-        print("runs");
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
-            print("finds");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
             saveGame save = (saveGame)bf.Deserialize(file);

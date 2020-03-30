@@ -53,6 +53,7 @@ public class phaserManager : MonoBehaviour
 
     public void setDeathCount(int d)
     {
+        print("hits");
         deathCount = d;
     }
     public void incDeathCount()

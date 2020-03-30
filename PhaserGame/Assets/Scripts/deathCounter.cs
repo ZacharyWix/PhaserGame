@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class deathCounter : MonoBehaviour
 {
-    public Text deathCountText;
-    public Text lowestDeathsText;
-    public Text lowestDeathsText1;
-    public Text totalDeathsText;
-    public Text totalDeathsText1;
+    public TextMeshProUGUI deathCountText;
+    public TextMeshProUGUI lowestDeathsText;
+    public TextMeshProUGUI lowestDeathsText1;
+    public TextMeshProUGUI totalDeathsText;
+    public TextMeshProUGUI totalDeathsText1;
 
     private phaserManager gm;
 
