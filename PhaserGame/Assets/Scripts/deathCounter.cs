@@ -30,7 +30,7 @@ public class deathCounter : MonoBehaviour
         }
         else
         {
-            lowestDeathsText.text = "";
+            lowestDeathsText.text = "X";
         }
         totalDeathsText.text = level.getTotalDeaths().ToString();
         int d = 0;
