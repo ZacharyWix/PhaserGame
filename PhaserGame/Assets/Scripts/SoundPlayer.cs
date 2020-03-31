@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
 {
-    public static AudioClip jumpSound;
-    public static AudioClip deathSound;
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
-        jumpSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Music/jump_11.wav", typeof(AudioClip));
-        deathSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Music/crumble.wav", typeof(AudioClip));
-
         audioSrc = GetComponent<AudioSource>();
     }
 
@@ -23,7 +20,7 @@ public class SoundPlayer : MonoBehaviour
         
     }
 
-    public static void PlaySound (string clip)
+    public void PlaySound (string clip)
     {
         switch (clip) {
             case "jump":
