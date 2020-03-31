@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4.5
   jumpSpeed: 5.75
+  soundPlay: {fileID: 7347905298962990944}
   groundCheckPoint: {fileID: 1213900161}
   groundCheckRadius: 0.2
   groundLayer:
@@ -288,6 +289,7 @@ MonoBehaviour:
   endgame: {fileID: 7240019304810809812}
   respawnPoint: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
+  soundPlay: {fileID: 7347905298962990944}
   canvas: {fileID: 0}
   respawnDelay: 0.3
   deathParticles: {fileID: 3536829064941810664}
@@ -11167,6 +11169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f629fd1cb946842a36417de790a769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: f39a055ad0fdccb4daf09229ad4d67de, type: 3}
+  deathSound: {fileID: 8300000, guid: 2934b8ca864f116499ad54134faa43c9, type: 3}
 --- !u!1 &1408305175499917082
 GameObject:
   m_ObjectHideFlags: 0
@@ -17530,6 +17534,7 @@ MonoBehaviour:
   endgame: {fileID: 7240019304810809812}
   respawnPoint: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
+  soundPlay: {fileID: 0}
   canvas: {fileID: 0}
   respawnDelay: 0
   deathParticles: {fileID: 0}

@@ -9,6 +9,7 @@ public class Respawn : MonoBehaviour
     public GameObject endgame;
     public Transform respawnPoint;
     public deathCounter deathCount;
+    public SoundPlayer soundPlay;
     private Rigidbody2D rb;
     private phaserManager gm;
     private SpriteRenderer sr;
@@ -56,7 +57,7 @@ public class Respawn : MonoBehaviour
         if (col.transform.CompareTag("Death"))
         {
             //Plays the death sound
-            SoundPlayer.PlaySound("death");
+            soundPlay.PlaySound("death");
 
             //Plays death particles and makes the player disappear
             deathParticles.Play();

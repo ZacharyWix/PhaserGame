@@ -11,6 +11,7 @@ public class move2D : MonoBehaviour
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
 
+    public SoundPlayer soundPlay;
     public Transform groundCheckPoint;
     public float groundCheckRadius;
     public LayerMask groundLayer;
@@ -59,7 +60,7 @@ public class move2D : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isTouchingGround)
             {
-                SoundPlayer.PlaySound("jump");
+                soundPlay.PlaySound("jump");
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
