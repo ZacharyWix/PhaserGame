@@ -7,10 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8344826429745498799, guid: 0e46aef537c447749a8f34140c0c5b4c,
+    - target: {fileID: 8344826428728603390, guid: 0e46aef537c447749a8f34140c0c5b4c,
         type: 3}
-      propertyPath: m_Name
-      value: Yellow Spike Shooter VV_2_4 (1)
+      propertyPath: m_LocalPosition.x
+      value: -0.0000024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344826428728603390, guid: 0e46aef537c447749a8f34140c0c5b4c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.120003
       objectReference: {fileID: 0}
     - target: {fileID: 8344826429745427794, guid: 0e46aef537c447749a8f34140c0c5b4c,
         type: 3}
@@ -67,16 +72,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 8344826428728603390, guid: 0e46aef537c447749a8f34140c0c5b4c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0000024414062
-      objectReference: {fileID: 0}
-    - target: {fileID: 8344826428728603390, guid: 0e46aef537c447749a8f34140c0c5b4c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 21.120003
-      objectReference: {fileID: 0}
     - target: {fileID: 8344826429745498796, guid: 0e46aef537c447749a8f34140c0c5b4c,
         type: 3}
       propertyPath: shootDelay
@@ -86,6 +81,17 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344826429745498797, guid: 0e46aef537c447749a8f34140c0c5b4c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e77724927138f2b479ab0fa52993b5d2,
+        type: 3}
+    - target: {fileID: 8344826429745498799, guid: 0e46aef537c447749a8f34140c0c5b4c,
+        type: 3}
+      propertyPath: m_Name
+      value: Yellow Spike Shooter VV_2_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e46aef537c447749a8f34140c0c5b4c, type: 3}

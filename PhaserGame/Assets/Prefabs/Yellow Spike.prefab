@@ -87,6 +87,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -98,6 +99,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -169,6 +171,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -180,6 +183,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -192,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08d22f4db35db7a418edd87d5fcac99a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50b82fef072acbe4b967dc5efb99fe90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,8 +224,8 @@ MonoBehaviour:
   green: 0
   yellow: 1
   isSpike: 1
-  onSprite: {fileID: 21300000, guid: 08d22f4db35db7a418edd87d5fcac99a, type: 3}
-  offSprite: {fileID: 21300000, guid: 830ca1bf5b4ebc04c9075b05afba0a39, type: 3}
+  onSprite: {fileID: 21300000, guid: 50b82fef072acbe4b967dc5efb99fe90, type: 3}
+  offSprite: {fileID: 21300000, guid: 9bfbe46a85ed9474a962d31000099253, type: 3}
 --- !u!68 &8611772788702684916
 EdgeCollider2D:
   m_ObjectHideFlags: 0
