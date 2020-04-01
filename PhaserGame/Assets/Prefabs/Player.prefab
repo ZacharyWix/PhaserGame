@@ -190,6 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 5336724124009372917}
+  eventSys: {fileID: 1126049307034816756}
+  resume: {fileID: 5336724123518620138}
 --- !u!61 &393268328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -291,6 +293,8 @@ MonoBehaviour:
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 7347905298962990944}
   canvas: {fileID: 0}
+  eventSys: {fileID: 1126049307034816756}
+  nextLevel: {fileID: 4157844010754917202}
   respawnDelay: 0.3
   deathParticles: {fileID: 3536829064941810664}
 --- !u!198 &3536829064941810664
@@ -5257,7 +5261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123726889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2749522, y: -19.725613, z: -9.940871}
+  m_LocalPosition: {x: -5.744048, y: -2.9386117, z: -9.940871}
   m_LocalScale: {x: 1, y: 1, z: 1.5625}
   m_Children:
   - {fileID: 675830652}
@@ -10945,6 +10949,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1126049307034816756}
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5336724123518620138}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1051969745191333708
 GameObject:
   m_ObjectHideFlags: 0
@@ -11291,6 +11306,7 @@ GameObject:
   - component: {fileID: 2732544787231498496}
   - component: {fileID: 693618186847059543}
   - component: {fileID: 7745727779696689887}
+  - component: {fileID: 7983500541720568771}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -11376,6 +11392,8 @@ MonoBehaviour:
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 0}
   canvas: {fileID: 0}
+  eventSys: {fileID: 0}
+  nextLevel: {fileID: 0}
   respawnDelay: 0
   deathParticles: {fileID: 0}
 --- !u!114 &7745727779696689887
@@ -11392,6 +11410,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffectsMixer: {fileID: 24100000, guid: 959a6926c03167d4882ff744ee96654f, type: 2}
   musicMixer: {fileID: 24100000, guid: f41c3f9da87aa224e94d1d724f4baa06, type: 2}
+--- !u!114 &7983500541720568771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376895495341994041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 4157844010754917202}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1399304481246931735
 GameObject:
   m_ObjectHideFlags: 0
@@ -12998,7 +13031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -18635,6 +18668,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1126049307034816756}
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 999344576671924369}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5336724123321572492
 GameObject:
   m_ObjectHideFlags: 0
@@ -19010,6 +19054,8 @@ MonoBehaviour:
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 0}
   canvas: {fileID: 0}
+  eventSys: {fileID: 0}
+  nextLevel: {fileID: 0}
   respawnDelay: 0
   deathParticles: {fileID: 0}
 --- !u!1 &5336724124839147866
@@ -19025,8 +19071,8 @@ GameObject:
   - component: {fileID: 5336724124839147863}
   - component: {fileID: 5336724124839147864}
   - component: {fileID: 5336724124839147865}
-  - component: {fileID: 1640410345}
   - component: {fileID: 1640410344}
+  - component: {fileID: 1126049307034816756}
   m_Layer: 5
   m_Name: LevelUI
   m_TagString: Untagged
@@ -19132,21 +19178,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1640410345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5336724124839147866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &1640410344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19166,6 +19197,21 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &1126049307034816756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5336724124839147866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &5512786898097399075
 GameObject:
   m_ObjectHideFlags: 0

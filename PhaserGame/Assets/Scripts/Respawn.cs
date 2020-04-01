@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class Respawn : MonoBehaviour
     private SpriteRenderer sr;
     private level lv;
     public Canvas canvas;
+    public EventSystem eventSys;
+    public GameObject nextLevel;
     private pause pauseScript;
 
     public float respawnDelay; //in seconds
@@ -85,6 +88,7 @@ public class Respawn : MonoBehaviour
             CreateLevel(false);
             deathCount.updateDeathCounter();
             endgame.gameObject.SetActive(true);
+            eventSys.SetSelectedGameObject(nextLevel);
         }
     
         if (collision.transform.CompareTag("Checkpoint"))

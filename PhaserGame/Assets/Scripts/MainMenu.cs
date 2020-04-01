@@ -64,6 +64,7 @@ public class MainMenu : MonoBehaviour
         unlocked = false;
         Start();
     }
+
     public static void updateButtons(UnityEngine.UI.Button[] buttons, bool unlocked)
     {
         if (unlocked == false) {
