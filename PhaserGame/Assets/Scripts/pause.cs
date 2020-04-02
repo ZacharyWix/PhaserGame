@@ -6,6 +6,7 @@ using UnityEngine;
 public class pause : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject optionsMenu;
     public EventSystem eventSys;
     private bool isPaused = false;
     private move2D moveScript;
@@ -24,9 +25,18 @@ public class pause : MonoBehaviour
     { 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            togglePause();
-            pauseMenu.SetActive(!pauseMenu.gameObject.activeSelf);
-            eventSys.SetSelectedGameObject(resume);
+            if (!optionsMenu.gameObject.activeSelf)
+            {
+                togglePause();
+                pauseMenu.SetActive(!pauseMenu.gameObject.activeSelf);
+                eventSys.SetSelectedGameObject(resume);
+            }
+            else
+            {
+                optionsMenu.SetActive(false);
+                pauseMenu.SetActive(true);
+                eventSys.SetSelectedGameObject(resume);
+            }
         }
     }
 

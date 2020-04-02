@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 5336724124009372917}
+  optionsMenu: {fileID: 1376895495341994041}
   eventSys: {fileID: 1126049307034816756}
   resume: {fileID: 5336724123518620138}
 --- !u!61 &393268328
@@ -5261,7 +5262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123726889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2649518, y: -19.785612, z: -9.940871}
+  m_LocalPosition: {x: -5.744048, y: -2.9386117, z: -9.940871}
   m_LocalScale: {x: 1, y: 1, z: 1.5625}
   m_Children:
   - {fileID: 675830652}
@@ -11408,8 +11409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ac7536155541848aa0623e6bfd876f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffectsMixer: {fileID: 24100000, guid: 959a6926c03167d4882ff744ee96654f, type: 2}
-  musicMixer: {fileID: 24100000, guid: f41c3f9da87aa224e94d1d724f4baa06, type: 2}
 --- !u!114 &7983500541720568771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12412,7 +12411,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.03137255, g: 0.09803922, b: 0.30980393, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12464,7 +12463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSoundEffects: 1
   isMusic: 0
-  optionsMenu: {fileID: 7745727779696689887}
 --- !u!1 &2932395354600352614
 GameObject:
   m_ObjectHideFlags: 0
@@ -19447,7 +19445,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.03137255, g: 0.09803922, b: 0.30980393, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -19499,7 +19497,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSoundEffects: 0
   isMusic: 1
-  optionsMenu: {fileID: 7745727779696689887}
 --- !u!1 &6267256417740783046
 GameObject:
   m_ObjectHideFlags: 0
