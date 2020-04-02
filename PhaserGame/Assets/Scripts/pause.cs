@@ -28,8 +28,16 @@ public class pause : MonoBehaviour
             if (!optionsMenu.gameObject.activeSelf)
             {
                 togglePause();
-                pauseMenu.SetActive(!pauseMenu.gameObject.activeSelf);
-                eventSys.SetSelectedGameObject(resume);
+                if (!pauseMenu.gameObject.activeSelf)
+                {
+                    pauseMenu.SetActive(true);
+                    eventSys.SetSelectedGameObject(resume);
+                }
+                else
+                {
+                    pauseMenu.SetActive(false);
+                    eventSys.SetSelectedGameObject(null);
+                }
             }
             else
             {
