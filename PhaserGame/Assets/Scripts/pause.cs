@@ -22,7 +22,8 @@ public class pause : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        UnityEngine.Cursor.visible = false;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!optionsMenu.gameObject.activeSelf)
@@ -45,6 +46,10 @@ public class pause : MonoBehaviour
                 pauseMenu.SetActive(true);
                 eventSys.SetSelectedGameObject(resume);
             }
+        }
+        if (isPaused)
+        {
+            UnityEngine.Cursor.visible = true;
         }
     }
 
