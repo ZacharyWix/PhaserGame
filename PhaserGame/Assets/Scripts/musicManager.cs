@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class musicManager : MonoBehaviour
 {
@@ -14,11 +15,16 @@ public class musicManager : MonoBehaviour
     public AudioClip mainMenuMusic;
     public AudioClip blandLandMusic;
     public AudioClip vibrantValleyMusic;
+    public AudioMixer soundEffectsMixer;
+    public AudioMixer musicMixer;
+    private float soundEffectsSliderVal;
+    private float musicSliderVal;
 
     private void Awake()
     {
         currScene = SceneManager.GetActiveScene().buildIndex;
         chooseSong();
+        defaultVolume();
     }
 
     private void chooseSong()
@@ -56,5 +62,33 @@ public class musicManager : MonoBehaviour
     {
         musicPlayer.clip = song;
         musicPlayer.Play();
+    }
+
+    private void defaultVolume()
+    {
+        musicSliderVal = 1f;
+        soundEffectsSliderVal = 1f;
+    }
+
+    public float getSoundEffectsValue()
+    {
+        return soundEffectsSliderVal;
+    }
+
+    public float getMusicValue()
+    {
+        return musicSliderVal;
+    }
+
+    public void setSoundEffectsValue(float volume, float sliderValue)
+    {
+        soundEffectsMixer.SetFloat("SoundEffects", Mathf.Log10(volume) * 20);
+        soundEffectsSliderVal = sliderValue;
+    }
+
+    public void setMusicValue(float volume, float sliderValue)
+    {
+        musicMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+        musicSliderVal = sliderValue;
     }
 }

@@ -5,16 +5,13 @@ using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public AudioMixer soundEffectsMixer;
-    public AudioMixer musicMixer;
-
     public void SetSoundEffectsVolume(float volume)
     {
-        soundEffectsMixer.SetFloat("SoundEffects", Mathf.Log10(volume) * 20);
+        GameObject.Find("Game Manager").GetComponent<musicManager>().setSoundEffectsValue(volume, volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        musicMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+        GameObject.Find("Game Manager").GetComponent<musicManager>().setMusicValue(volume, volume);
     }
 }

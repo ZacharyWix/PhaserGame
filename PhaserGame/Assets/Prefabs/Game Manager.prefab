@@ -161,3 +161,5 @@ MonoBehaviour:
   mainMenuMusic: {fileID: 8300000, guid: afaa87de8be20df47876b08a9469c447, type: 3}
   blandLandMusic: {fileID: 8300000, guid: ee45b63666b00544492e6632b557b370, type: 3}
   vibrantValleyMusic: {fileID: 8300000, guid: 758370a1f7550c84fac829c160e0eec7, type: 3}
+  soundEffectsMixer: {fileID: 24100000, guid: 959a6926c03167d4882ff744ee96654f, type: 2}
+  musicMixer: {fileID: 24100000, guid: f41c3f9da87aa224e94d1d724f4baa06, type: 2}

@@ -5261,7 +5261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123726889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.744048, y: -2.9386117, z: -9.940871}
+  m_LocalPosition: {x: 1.2649518, y: -19.785612, z: -9.940871}
   m_LocalScale: {x: 1, y: 1, z: 1.5625}
   m_Children:
   - {fileID: 675830652}
@@ -12359,6 +12359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9212295879817178681}
   - component: {fileID: 5035008573960768155}
+  - component: {fileID: 8647000015902778024}
   m_Layer: 5
   m_Name: SoundEffectsSlider
   m_TagString: Untagged
@@ -12449,6 +12450,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8647000015902778024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921407737263831167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7392ed862e14b47b87e49e2cba2a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSoundEffects: 1
+  isMusic: 0
+  optionsMenu: {fileID: 7745727779696689887}
 --- !u!1 &2932395354600352614
 GameObject:
   m_ObjectHideFlags: 0
@@ -19378,6 +19394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3608368444471001409}
   - component: {fileID: 8003324886547145514}
+  - component: {fileID: 8225772357823174381}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -19468,6 +19485,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8225772357823174381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825713532260703762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7392ed862e14b47b87e49e2cba2a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSoundEffects: 0
+  isMusic: 1
+  optionsMenu: {fileID: 7745727779696689887}
 --- !u!1 &6267256417740783046
 GameObject:
   m_ObjectHideFlags: 0
