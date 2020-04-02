@@ -7,6 +7,7 @@ public class SoundPlayer : MonoBehaviour
 {
     public AudioClip jumpSound;
     public AudioClip deathSound;
+    public AudioClip winSound;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,9 @@ public class SoundPlayer : MonoBehaviour
                 break;
             case "death":
                 audioSrc.PlayOneShot(deathSound, 0.5f);
+                break;
+            case "win":
+                audioSrc.PlayOneShot(winSound, 0.5f);
                 break;
         }
     }

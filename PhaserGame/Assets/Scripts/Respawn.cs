@@ -84,6 +84,7 @@ public class Respawn : MonoBehaviour
         if (collision.transform.CompareTag("Finish"))
         {
             pauseScript.togglePause();
+            soundPlay.PlaySound("win");
             level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
             CreateLevel(false);
             deathCount.updateDeathCounter();

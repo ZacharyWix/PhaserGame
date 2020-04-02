@@ -11567,6 +11567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: f39a055ad0fdccb4daf09229ad4d67de, type: 3}
   deathSound: {fileID: 8300000, guid: 2934b8ca864f116499ad54134faa43c9, type: 3}
+  winSound: {fileID: 8300000, guid: 5e11d8c518b6550408b0a30be11ad690, type: 3}
 --- !u!1 &1408305175499917082
 GameObject:
   m_ObjectHideFlags: 0
