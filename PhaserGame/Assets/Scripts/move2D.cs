@@ -12,7 +12,8 @@ public class move2D : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public SoundPlayer soundPlay;
-    public Transform groundCheckPoint;
+    public Transform groundCheckPointLeft;
+    public Transform groundCheckPointRight;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
@@ -22,6 +23,8 @@ public class move2D : MonoBehaviour
     private bool isJumping = false;
     private bool previous;
     public ParticleSystem jumpParticles;
+    public float coyoteTimeMax;
+    private float coyoteTimer;
 
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
@@ -37,7 +40,14 @@ public class move2D : MonoBehaviour
     {
         if (controlsEnabled)
         {
-            isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+            isTouchingGround = checkGrounded();
+            if(isTouchingGround)
+            {
+                coyoteTimer = coyoteTimeMax;
+            } else
+            {
+                coyoteTimer -= Time.deltaTime;
+            }
             if (!previous && isTouchingGround)
             {
                 jumpParticles.Play();
@@ -58,7 +68,7 @@ public class move2D : MonoBehaviour
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
 
-            if (Input.GetButtonDown("Jump") && isTouchingGround)
+            if (Input.GetButtonDown("Jump") && (isTouchingGround || coyoteTimer > 0f))
             {
                 soundPlay.PlaySound("jump");
                 isJumping = true;
@@ -85,5 +95,12 @@ public class move2D : MonoBehaviour
     public void setControls(bool controls)
     {
         controlsEnabled = controls;
+    }
+
+    private bool checkGrounded()
+    {
+        bool leftCircle = Physics2D.OverlapCircle(groundCheckPointLeft.position, groundCheckRadius, groundLayer);
+        bool rightCircle = Physics2D.OverlapCircle(groundCheckPointRight.position, groundCheckRadius, groundLayer);
+        return (leftCircle || rightCircle);
     }
 }
