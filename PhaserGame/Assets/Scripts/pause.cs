@@ -24,6 +24,7 @@ public class pause : MonoBehaviour
     void Update()
     {
         UnityEngine.Cursor.visible = false;
+        Time.timeScale = 1;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!optionsMenu.gameObject.activeSelf)
@@ -50,6 +51,7 @@ public class pause : MonoBehaviour
         if (isPaused)
         {
             UnityEngine.Cursor.visible = true;
+            Time.timeScale = 0;
         }
     }
 
