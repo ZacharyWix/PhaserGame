@@ -22,7 +22,7 @@ namespace WaypointsFree
         // Start is called before the first frame update
         void Start()
         {
-
+            print("Path Length = " + GetPathLength());
         }
 
         // Update is called once per frame
@@ -59,6 +59,21 @@ namespace WaypointsFree
             else
                 waypoints.Insert(ndx, wp);
             wp.SetWaypointGroup(this);
+        }
+
+        private float GetPathLength()
+        {
+            float length = 0;
+            if(waypoints.Count > 1)
+            {
+                for(int i = 0; i < waypoints.Count - 1; i++)
+                {
+                    float dist = Vector3.Distance(waypoints[i].GetPosition(), waypoints[i + 1].GetPosition());
+                    //print("Line " + (i + 1) + " Distance = " + dist + ". Total before this line = " + length);
+                    length += dist;
+                }
+            }
+            return length;
         }
 
     }
