@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class TextTrigger : MonoBehaviour
 {
-    public TextMeshProUGUI colors;
     public TextMeshProUGUI welcome;
     public TextMeshProUGUI jump;
     public TextMeshProUGUI spike;
@@ -16,6 +15,13 @@ public class TextTrigger : MonoBehaviour
     public TextMeshProUGUI spikeShooters;
     public TextMeshProUGUI end;
     public TextMeshProUGUI colorful;
+    public TextMeshProUGUI colors;
+    public TextMeshProUGUI red;
+    public TextMeshProUGUI blue;
+    public TextMeshProUGUI green;
+    public TextMeshProUGUI yellow;
+    public TextMeshProUGUI colorSpike;
+    public TextMeshProUGUI colorSpike2;
     private bool checkp = false;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +29,14 @@ public class TextTrigger : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             setupOne();
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            setupTwo();
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            setupThree();
         }
     }
 
@@ -43,15 +57,26 @@ public class TextTrigger : MonoBehaviour
         end.enabled = false;
         colorful.enabled = false;
     }
+    private void setupTwo()
+    {
+        print("setup2");
+        colors.enabled = true;
+        red.enabled = false;
+        blue.enabled = false;
+        green.enabled = false;
+        yellow.enabled = false;
+    }
+
+    private void setupThree()
+    {
+        colorSpike.enabled = true;
+        colorSpike2.enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Text Trigger"))
         {
-            if (collision.gameObject.name == "Colors")
-            {
-                colors.enabled = false;
-            }
             if (collision.gameObject.name == "Welcome")
             {
                 welcome.enabled = false;
@@ -90,11 +115,48 @@ public class TextTrigger : MonoBehaviour
                 end.enabled = true;
                 colorful.enabled = true;
             }
+            if (collision.gameObject.name == "Colors")
+            {
+                colors.enabled = false;
+                red.enabled = true;
+
+            }
+            if (collision.gameObject.name == "Red")
+            {
+                red.enabled = false;
+                blue.enabled = true;
+            }
+            if (collision.gameObject.name == "Blue")
+            {
+                blue.enabled = false;
+                green.enabled = true;
+            }
+            if (collision.gameObject.name == "Green")
+            {
+                green.enabled = false;
+                yellow.enabled = true;
+            }
+            if (collision.gameObject.name == "Yellow")
+            {
+                yellow.enabled = false;
+            }
+            if (collision.gameObject.name == "ColorSpikes")
+            {
+                colorSpike.enabled = false;
+                colorSpike2.enabled = true;
+            }
+            if (collision.gameObject.name == "Off")
+            {
+                colorSpike2.enabled = false;
+            }
         }
         if (collision.transform.CompareTag("Finish"))
         {
-            end.enabled = false;
-            colorful.enabled = false;
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                end.enabled = false;
+                colorful.enabled = false;
+            }
         }
     }
 
@@ -105,6 +167,7 @@ public class TextTrigger : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
+                setupOne();
                 if (checkp)
                 {
                     welcome.enabled = false;
@@ -115,7 +178,14 @@ public class TextTrigger : MonoBehaviour
                     welcome.enabled = true;
                 }
             }
-            
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                setupTwo();
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                setupThree();
+            }
         }
     }
 }
