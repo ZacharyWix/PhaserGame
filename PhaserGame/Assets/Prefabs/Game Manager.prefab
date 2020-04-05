@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSceneNumber: 0
   blandLandSceneNumber: 1
-  vibrantValleySceneNumber: 6
+  vibrantValleySceneNumber: 2
   musicPlayer: {fileID: 1974197184}
   mainMenuMusic: {fileID: 8300000, guid: afaa87de8be20df47876b08a9469c447, type: 3}
   blandLandMusic: {fileID: 8300000, guid: ee45b63666b00544492e6632b557b370, type: 3}
