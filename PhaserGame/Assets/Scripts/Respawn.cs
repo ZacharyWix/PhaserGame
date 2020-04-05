@@ -20,6 +20,7 @@ public class Respawn : MonoBehaviour
     public EventSystem eventSys;
     public GameObject nextLevel;
     private pause pauseScript;
+    private string name = "none";
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -94,7 +95,12 @@ public class Respawn : MonoBehaviour
     
         if (collision.transform.CompareTag("Checkpoint"))
         {
+            if(name != collision.gameObject.name)
+              {
+                 soundPlay.PlaySound("checkpoint");
+              }
             respawnPoint = collision.transform;
+            name = collision.gameObject.name;
         }
     }
 
