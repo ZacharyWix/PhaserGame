@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class TextTrigger : MonoBehaviour
@@ -19,6 +20,20 @@ public class TextTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            setupOne();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void setupOne()
+    {
         jump.enabled = false;
         spike.enabled = false;
         spikeBack.enabled = false;
@@ -29,25 +44,10 @@ public class TextTrigger : MonoBehaviour
         colorful.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //private void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    if (col.transform.CompareTag("Text Trigger"))
-    //    {
-    //        colors.enabled = true;
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Text Trigger"))
         {
-            print(collision.gameObject.name);
             if (collision.gameObject.name == "Colors")
             {
                 colors.enabled = false;
@@ -102,17 +102,20 @@ public class TextTrigger : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
-            print("died");
-            Start();
-            if (checkp)
+
+            if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                welcome.enabled = false;
-                checkpoint.enabled = true;
+                if (checkp)
+                {
+                    welcome.enabled = false;
+                    checkpoint.enabled = true;
+                }
+                else
+                {
+                    welcome.enabled = true;
+                }
             }
-            else
-            {
-                welcome.enabled = true;
-            }
+            
         }
     }
 }
