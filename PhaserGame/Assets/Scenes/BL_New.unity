@@ -5275,7 +5275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa69ab4edbc8d643a53b76523a5f6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors: {fileID: 0}
   welcome: {fileID: 116796972}
   jump: {fileID: 1092792122}
   spike: {fileID: 492477990}
@@ -5285,6 +5284,13 @@ MonoBehaviour:
   spikeShooters: {fileID: 581078012}
   end: {fileID: 1000160174}
   colorful: {fileID: 508164954}
+  colors: {fileID: 0}
+  red: {fileID: 0}
+  blue: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  colorSpike: {fileID: 0}
+  colorSpike2: {fileID: 0}
 --- !u!4 &879124094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3998579776027436592, guid: a4b16dfe41988b24d8879149b2017d5b,
@@ -10224,7 +10230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upside down spikes can be a safe surface if you're careful!
+  m_text: The flat side of spikes can be a safe surface if you're careful!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -10270,7 +10276,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 23
+  m_firstOverflowCharacterIndex: 24
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -10294,10 +10300,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1766548055}
-    characterCount: 59
+    characterCount: 64
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 11
+    spaceCount: 12
+    wordCount: 13
     linkCount: 0
     lineCount: 3
     pageCount: 1
