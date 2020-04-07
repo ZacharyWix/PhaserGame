@@ -21,6 +21,8 @@ public class Respawn : MonoBehaviour
     public GameObject nextLevel;
     private pause pauseScript;
     private string name = "none";
+    public GameObject tutorial;
+    public GameObject next;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -89,8 +91,16 @@ public class Respawn : MonoBehaviour
             level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
             CreateLevel(false);
             deathCount.updateDeathCounter();
-            endgame.gameObject.SetActive(true);
-            eventSys.SetSelectedGameObject(nextLevel);
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                tutorial.gameObject.SetActive(true);
+                eventSys.SetSelectedGameObject(next);
+            }
+            else
+            {
+                endgame.gameObject.SetActive(true);
+                eventSys.SetSelectedGameObject(nextLevel);
+            }
         }
     
         if (collision.transform.CompareTag("Checkpoint"))
