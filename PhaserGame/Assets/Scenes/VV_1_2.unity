@@ -1926,7 +1926,7 @@ PrefabInstance:
     - target: {fileID: 5336724123518620136, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5336724123518620136, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
@@ -1972,6 +1972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893373491295217305, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: pauseTimer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7755056129492987122, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}

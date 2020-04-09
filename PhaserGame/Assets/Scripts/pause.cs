@@ -12,7 +12,7 @@ public class pause : MonoBehaviour
     private move2D moveScript;
     private Rigidbody2D rb;
     public GameObject resume;
-
+    private bool isResuming;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,7 @@ public class pause : MonoBehaviour
                 else
                 {
                     pauseMenu.SetActive(false);
+                    rb.WakeUp();
                     eventSys.SetSelectedGameObject(null);
                 }
             }
@@ -53,6 +54,13 @@ public class pause : MonoBehaviour
             UnityEngine.Cursor.visible = true;
             Time.timeScale = 0;
         }
+        if (isResuming)
+        {
+                pauseMenu.SetActive(false);
+                rb.WakeUp();
+                togglePause();
+                isResuming = false;
+        }
     }
 
     public void togglePause()
@@ -60,10 +68,16 @@ public class pause : MonoBehaviour
         rb.velocity = new Vector2(0, rb.velocity.y);
         moveScript.setControls(isPaused);
         isPaused = !isPaused;
+        Time.timeScale = 1;
     }
 
     public bool getPause()
     {
         return isPaused;
+    }
+
+    public void space()
+    {
+        isResuming = true;
     }
 }
