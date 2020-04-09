@@ -22,7 +22,10 @@ public class TextTrigger : MonoBehaviour
     public TextMeshProUGUI yellow;
     public TextMeshProUGUI colorSpike;
     public TextMeshProUGUI colorSpike2;
-    private bool checkp = false;
+    public OptionsMenu options;
+    public pause pause;
+    private bool tutorials;
+    private bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +43,25 @@ public class TextTrigger : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (tutorials != options.getIsOn())
+        {
+            tutorials = options.getIsOn();
+            Start();
+        }
+        isPaused = pause.getPause();
+        if (isPaused)
+        {
+            Start();
+        }
     }
 
     private void setupOne()
     {
+        welcome.enabled = false;
         jump.enabled = false;
         spike.enabled = false;
         spikeBack.enabled = false;
@@ -59,8 +73,7 @@ public class TextTrigger : MonoBehaviour
     }
     private void setupTwo()
     {
-        print("setup2");
-        colors.enabled = true;
+        colors.enabled = false;
         red.enabled = false;
         blue.enabled = false;
         green.enabled = false;
@@ -69,87 +82,79 @@ public class TextTrigger : MonoBehaviour
 
     private void setupThree()
     {
-        colorSpike.enabled = true;
+        colorSpike.enabled = false;
         colorSpike2.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Text Trigger"))
+        if (collision.transform.CompareTag("Text Trigger") && tutorials && !isPaused)
         {
             if (collision.gameObject.name == "Welcome")
             {
-                welcome.enabled = false;
-                jump.enabled = true;
-                checkp = false;
+                welcome.enabled = true;
+            }
+            if (collision.gameObject.name == "Jump")
+            {
+                jump.enabled = true; ;
             }
             if (collision.gameObject.name == "Spike")
             {
-                jump.enabled = false;
                 spike.enabled = true;
             }
             if (collision.gameObject.name == "SpikeBack")
             {
-                spike.enabled = false;
                 spikeBack.enabled = true;
             }
             if (collision.gameObject.name == "Checkpoint")
             {
-                spikeBack.enabled = false;
                 checkpoint.enabled = true;
-                checkp = true;
             }
             if (collision.gameObject.name == "Moving Platform")
             {
-                checkpoint.enabled = false;
                 platforms.enabled = true;
             }
             if (collision.gameObject.name == "Spike Shooters")
             {
-                platforms.enabled = false;
                 spikeShooters.enabled = true;
             }
             if (collision.gameObject.name == "End")
             {
-                spikeShooters.enabled = false;
                 end.enabled = true;
                 colorful.enabled = true;
             }
             if (collision.gameObject.name == "Colors")
             {
-                colors.enabled = false;
-                red.enabled = true;
-
+                colors.enabled = true;
             }
             if (collision.gameObject.name == "Red")
             {
-                red.enabled = false;
-                blue.enabled = true;
+                red.enabled = true;
             }
             if (collision.gameObject.name == "Blue")
             {
-                blue.enabled = false;
-                green.enabled = true;
+                blue.enabled = true;
             }
             if (collision.gameObject.name == "Green")
             {
-                green.enabled = false;
-                yellow.enabled = true;
+                green.enabled = true;
             }
             if (collision.gameObject.name == "Yellow")
             {
-                yellow.enabled = false;
+                yellow.enabled = true;
             }
             if (collision.gameObject.name == "ColorSpikes")
             {
-                colorSpike.enabled = false;
-                colorSpike2.enabled = true;
+                colorSpike.enabled = true;
             }
             if (collision.gameObject.name == "Off")
             {
-                colorSpike2.enabled = false;
+                colorSpike2.enabled = true;
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.transform.CompareTag("Finish"))
         {
             if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -160,6 +165,73 @@ public class TextTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Text Trigger") && tutorials)
+        {
+            if (collision.gameObject.name == "Welcome")
+            {
+                welcome.enabled = false;
+            }
+            if (collision.gameObject.name == "Jump")
+            {
+                jump.enabled = false;
+            }
+            if (collision.gameObject.name == "Spike")
+            {
+                spike.enabled = false;
+            }
+            if (collision.gameObject.name == "SpikeBack")
+            {
+                spikeBack.enabled = false;
+            }
+            if (collision.gameObject.name == "Checkpoint")
+            {
+                checkpoint.enabled = false;
+            }
+            if (collision.gameObject.name == "Moving Platform")
+            {
+                platforms.enabled = false;
+            }
+            if (collision.gameObject.name == "Spike Shooters")
+            {
+                spikeShooters.enabled = false;
+            }
+            if (collision.gameObject.name == "End")
+            {
+                end.enabled = false;
+                colorful.enabled = false;
+            }
+            if (collision.gameObject.name == "Colors")
+            {
+                colors.enabled = false;
+            }
+            if (collision.gameObject.name == "Red")
+            {
+                red.enabled = false;
+            }
+            if (collision.gameObject.name == "Blue")
+            {
+                blue.enabled = false;
+            }
+            if (collision.gameObject.name == "Green")
+            {
+                green.enabled = false;
+            }
+            if (collision.gameObject.name == "Yellow")
+            {
+                yellow.enabled = false;
+            }
+            if (collision.gameObject.name == "ColorSpikes")
+            {
+                colorSpike.enabled = false;
+            }
+            if (collision.gameObject.name == "Off")
+            {
+                colorSpike2.enabled = false;
+            }
+        }
+    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.transform.CompareTag("Death"))
@@ -168,15 +240,6 @@ public class TextTrigger : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 setupOne();
-                if (checkp)
-                {
-                    welcome.enabled = false;
-                    checkpoint.enabled = true;
-                }
-                else
-                {
-                    welcome.enabled = true;
-                }
             }
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {

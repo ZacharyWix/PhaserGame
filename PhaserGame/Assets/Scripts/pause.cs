@@ -61,4 +61,9 @@ public class pause : MonoBehaviour
         moveScript.setControls(isPaused);
         isPaused = !isPaused;
     }
+
+    public bool getPause()
+    {
+        return isPaused;
+    }
 }
