@@ -12,6 +12,7 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI lowestDeathsText1;
     public TextMeshProUGUI totalDeathsText;
     public TextMeshProUGUI totalDeathsText1;
+    public TextMeshProUGUI levelNum;
 
     private phaserManager gm;
 
@@ -41,5 +42,17 @@ public class deathCounter : MonoBehaviour
         totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
         lowestDeathsText1.text = lowestDeathsText.text;
         totalDeathsText1.text = totalDeathsText.text;
+        string number = SceneManager.GetActiveScene().buildIndex.ToString();
+        char[] split = number.ToCharArray();
+        if (split.Length == 2)
+        {
+            int world = split[0] + 1;
+            int level = split[1];
+            levelNum.text = "World " + world.ToString() + " Level " + level.ToString();
+        }
+        else if (split.Length == 1)
+        {
+            levelNum.text = "World 1 Level " + split[0].ToString();
+        }
     }
 }
