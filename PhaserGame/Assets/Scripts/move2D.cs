@@ -50,7 +50,9 @@ public class move2D : MonoBehaviour
             }
             if (!previous && isTouchingGround)
             {
+                soundPlay.PlaySound("land");
                 jumpParticles.Play();
+
             }
             movement = Input.GetAxis("Horizontal");
             if (movement > 0f)

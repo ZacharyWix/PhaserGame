@@ -5266,7 +5266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123726889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.735046, y: -19.747103, z: -9.940871}
+  m_LocalPosition: {x: -5.744048, y: -2.9386117, z: -9.940871}
   m_LocalScale: {x: 1, y: 1, z: 1.5625}
   m_Children:
   - {fileID: 675830652}
@@ -7012,6 +7012,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 2934b8ca864f116499ad54134faa43c9, type: 3}
   winSound: {fileID: 8300000, guid: 5e11d8c518b6550408b0a30be11ad690, type: 3}
   checkpointSound: {fileID: 8300000, guid: 87c9e28e119d09641aeefc1cbb45a2e4, type: 3}
+  jumpLandSound: {fileID: 8300000, guid: 4a19805e7f01f244a8942fc936fe3683, type: 3}
 --- !u!1 &1408305175499917082
 GameObject:
   m_ObjectHideFlags: 0

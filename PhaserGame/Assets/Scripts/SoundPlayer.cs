@@ -9,6 +9,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip deathSound;
     public AudioClip winSound;
     public AudioClip checkpointSound;
+    public AudioClip jumpLandSound;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,9 @@ public class SoundPlayer : MonoBehaviour
                 break;
             case "checkpoint":
                 audioSrc.PlayOneShot(checkpointSound, 0.5f);
+                break;
+            case "land":
+                audioSrc.PlayOneShot(jumpLandSound, 0.5f);
                 break;
         }
     }
