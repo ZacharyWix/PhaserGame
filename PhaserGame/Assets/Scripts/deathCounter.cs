@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class deathCounter : MonoBehaviour
 {
@@ -44,15 +45,23 @@ public class deathCounter : MonoBehaviour
         totalDeathsText1.text = totalDeathsText.text;
         string number = SceneManager.GetActiveScene().buildIndex.ToString();
         char[] split = number.ToCharArray();
+
         if (split.Length == 2)
         {
-            int world = split[0] + 1;
-            int level = split[1];
-            levelNum.text = "World " + world.ToString() + " Level " + level.ToString();
+            print("two");
+            if (split[1] != '0')
+            {
+                print("!=0");
+                levelNum.text = "World " + (Convert.ToInt32(split[0].ToString()) + 1) + " Level " + split[1];
+            }
+            else
+            {
+                levelNum.text = "World " + split[0] + " Level 10";
+            }
         }
         else if (split.Length == 1)
         {
-            levelNum.text = "World 1 Level " + split[0].ToString();
+            levelNum.text = "World 1 Level " + split[0];
         }
     }
 }
