@@ -14,13 +14,26 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI totalDeathsText;
     public TextMeshProUGUI totalDeathsText1;
     public TextMeshProUGUI levelNum;
-
+    public TextMeshProUGUI timer;
+    public TextMeshProUGUI decimals;
+    private float time;
+    private int timeInt;
+    private int hours;
+    private int minutes;
+    private float seconds;
     private phaserManager gm;
 
     void Start()
     {
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
+        time = 0;
         updateDeathCounter();
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        setupTimeString();
     }
 
     public void updateDeathCounter()
@@ -60,6 +73,46 @@ public class deathCounter : MonoBehaviour
         else if (split.Length == 1)
         {
             levelNum.text = "World 1 Level " + split[0];
+        }
+    }
+
+    public void setupTimeString()
+    {
+        timeInt = (int)time;
+        seconds = time % 60;
+        seconds = (float)Math.Round(seconds * 100f) / 100f;
+        String doubleAsString = seconds.ToString();
+        int indexOfDecimal = doubleAsString.IndexOf(".");
+        string second;
+        if (seconds <  10)
+        {
+            second = "0" + doubleAsString.Substring(0, indexOfDecimal + 1);
+        }
+        else
+        {
+            second = doubleAsString.Substring(0, indexOfDecimal + 1);
+        }
+        string dec = doubleAsString.Substring(indexOfDecimal + 1);
+        minutes = (timeInt / 60) % 60;
+        string min;
+        if (minutes < 10)
+        {
+            min = "0" + minutes.ToString();
+        }
+        else
+        {
+            min = minutes.ToString();
+        }
+        hours = (timeInt / 3600);
+        if (hours > 0)
+        {
+            timer.text = hours.ToString() + ":" + min + ":" + second;
+            decimals.text = dec;
+        }
+        else
+        {
+            timer.text = min + ":" + second;
+            decimals.text = dec;
         }
     }
 }
