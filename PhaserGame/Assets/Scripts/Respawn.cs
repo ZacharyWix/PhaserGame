@@ -64,16 +64,13 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
-            print("normally killed");
             killPlayer();
         }
 
         if (col.transform.CompareTag("SpikePlayerKillers"))
         {
-            print("collided with side killers");
             if(!platformStatus) //Only kill the player if they aren't on a moving platform
             {
-                print("killed by side killers");
                 killPlayer();
             }
         }
