@@ -8,6 +8,7 @@ TagManager:
   - Death
   - Checkpoint
   - Text Trigger
+  - SpikePlayerKillers
   layers:
   - Default
   - TransparentFX
