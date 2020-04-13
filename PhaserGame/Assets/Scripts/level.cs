@@ -9,6 +9,7 @@ public class level : MonoBehaviour
 
     public int levelNum, deaths;
     public bool active;
+    public float time;
     public static List<level> levels = new List<level>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -16,11 +17,12 @@ public class level : MonoBehaviour
     {
         LoadGame();
     }
-    public level(int l, int d, bool a)
+    public level(int l, int d, bool a, float t)
     {
         levelNum = l;
         deaths = d;
         active = a;
+        time = t;
         addLevel();
     }
 
@@ -61,6 +63,10 @@ public class level : MonoBehaviour
             {
                 levels[index].deaths = this.deaths;
             }
+            if (exists == true && levels[index].time > this.time)
+            {
+                levels[index].time = this.time;
+            }
             removeActiveLevel(this.levelNum);
         }
         else
@@ -82,6 +88,7 @@ public class level : MonoBehaviour
             else
             {
                 levels[index].deaths = this.deaths;
+                levels[index].time = this.time;
             }
         }
         SaveGame();
@@ -98,6 +105,19 @@ public class level : MonoBehaviour
             }
         }
         return numDeaths;
+    }
+
+    public static float getLevelTime(int num)
+    {
+        float time = -1;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i].levelNum == num && levels[i].active == false)
+            {
+                time = levels[i].time;
+            }
+        }
+        return time;
     }
 
     public static int getTotalDeaths()
@@ -159,7 +179,7 @@ public class level : MonoBehaviour
         saveGame save = new saveGame();
         for (int i = 0; i < levels.Count; i++)
         {
-            List<int> temp = new List<int>();
+            List<float> temp = new List<float>();
             temp.Add(levels[i].levelNum);
             temp.Add(levels[i].deaths);
             if (levels[i].active == true)
@@ -170,6 +190,7 @@ public class level : MonoBehaviour
             {
                 temp.Add(0);
             }
+            temp.Add(levels[i].time);
             save.levelSave.Add(temp);
         }
         return save;
@@ -185,7 +206,7 @@ public class level : MonoBehaviour
             file.Close();
 
             // 3
-            foreach (List<int> i in save.levelSave)
+            foreach (List<float> i in save.levelSave)
             {
                 bool activity;
                 if (i[2] == 1)
@@ -196,7 +217,7 @@ public class level : MonoBehaviour
                 {
                     activity = false;
                 }
-                level lv = new level(i[0], i[1], activity);
+                level lv = new level((int)i[0], (int)i[1], activity, i[3]);
             }
         }
         else

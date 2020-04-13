@@ -16,6 +16,13 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI levelNum;
     public TextMeshProUGUI timer;
     public TextMeshProUGUI decimals;
+    public TextMeshProUGUI bestTime;
+    public TextMeshProUGUI bestDec;
+    public TextMeshProUGUI bestTime1;
+    public TextMeshProUGUI bestDec1;
+    public pause pause;
+    private bool paused = false;
+    private bool finished;
     private float time;
     private int timeInt;
     private int hours;
@@ -27,13 +34,33 @@ public class deathCounter : MonoBehaviour
     {
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         time = 0;
+        finished = false;
         updateDeathCounter();
     }
 
     private void Update()
     {
-        time += Time.deltaTime;
-        setupTimeString();
+        paused = pause.getPause();
+        if (!paused && !finished)
+        {
+            time += Time.deltaTime;
+        }
+        string secondTemp = setupTimeString(time);
+        if (secondTemp.Contains("."))
+        {
+            int index = secondTemp.IndexOf(".");
+            timer.text = secondTemp.Substring(0, index + 1);
+            decimals.text = secondTemp.Substring(index + 1);
+            if (decimals.text.Length == 1)
+            {
+                decimals.text += "0";
+            }
+        }
+        else
+        {
+            timer.text = secondTemp + ".";
+            decimals.text = "00";
+        }
     }
 
     public void updateDeathCounter()
@@ -74,25 +101,52 @@ public class deathCounter : MonoBehaviour
         {
             levelNum.text = "World 1 Level " + split[0];
         }
-    }
-
-    public void setupTimeString()
-    {
-        timeInt = (int)time;
-        seconds = time % 60;
-        seconds = (float)Math.Round(seconds * 100f) / 100f;
-        String doubleAsString = seconds.ToString();
-        int indexOfDecimal = doubleAsString.IndexOf(".");
-        string second;
-        if (seconds <  10)
+        if (level.getLevelTime(SceneManager.GetActiveScene().buildIndex) != -1)
         {
-            second = "0" + doubleAsString.Substring(0, indexOfDecimal + 1);
+            float preTime = level.getLevelTime(SceneManager.GetActiveScene().buildIndex);
+            print("pretime: " + preTime);
+            string thirdTemp = setupTimeString(preTime);
+            print("third: " + thirdTemp);
+            if (thirdTemp.Contains("."))
+            {
+                int index = thirdTemp.IndexOf(".");
+                bestTime.text = thirdTemp.Substring(0, index + 1);
+                bestDec.text = thirdTemp.Substring(index + 1);
+                if (bestDec.text.Length == 1)
+                {
+                    bestDec.text += "0";
+                }
+            }
+            else
+            {
+                bestTime.text = thirdTemp + ".";
+                bestDec.text = "00";
+            }
         }
         else
         {
-            second = doubleAsString.Substring(0, indexOfDecimal + 1);
+            bestTime.text = "X";
+            bestDec.text = "";
         }
-        string dec = doubleAsString.Substring(indexOfDecimal + 1);
+        bestTime1.text = bestTime.text;
+        bestDec1.text = bestDec.text;
+    }
+
+    public string setupTimeString(float timeIn)
+    {
+        timeInt = (int)timeIn;
+        seconds = timeIn % 60;
+        seconds = (float)Math.Round(seconds * 100f) / 100f;
+        string second;
+        string temp;
+        if (seconds <  10)
+        {
+            second = "0" + seconds;
+        }
+        else
+        {
+            second = seconds.ToString();
+        }
         minutes = (timeInt / 60) % 60;
         string min;
         if (minutes < 10)
@@ -106,13 +160,26 @@ public class deathCounter : MonoBehaviour
         hours = (timeInt / 3600);
         if (hours > 0)
         {
-            timer.text = hours.ToString() + ":" + min + ":" + second;
-            decimals.text = dec;
+            temp = hours.ToString() + ":" + min + ":" + second;
         }
         else
         {
-            timer.text = min + ":" + second;
-            decimals.text = dec;
+            temp = min + ":" + second;
         }
+
+        return temp;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Finish"))
+        {
+            finished = true;
+        }
+    }
+
+    public float getTime()
+    {
+        return time;
     }
 }

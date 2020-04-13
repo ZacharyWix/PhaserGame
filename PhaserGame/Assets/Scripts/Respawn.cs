@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -138,7 +139,9 @@ public class Respawn : MonoBehaviour
 
     public void CreateLevel(bool active)
     {
-        lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active);
+        float time = deathCount.getTime();
+        time = (float)Math.Round(time * 100f) / 100f;
+        lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active, time);
     }
     public void resetDeaths()
     {
