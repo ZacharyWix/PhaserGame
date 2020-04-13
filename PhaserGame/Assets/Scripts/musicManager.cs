@@ -29,8 +29,8 @@ public class musicManager : MonoBehaviour
 
     private void chooseSong()
     {
-        print("Current Scene number:" + currScene);
-        print("Previous Scene number:" + prevScene);
+        //print("Current Scene number:" + currScene);
+        //print("Previous Scene number:" + prevScene);
         if (currScene >= vibrantValleySceneNumber && prevScene < vibrantValleySceneNumber)
         {
             transitionMusic(vibrantValleyMusic);

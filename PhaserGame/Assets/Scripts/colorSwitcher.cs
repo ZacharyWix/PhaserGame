@@ -96,16 +96,22 @@ public class colorSwitcher : MonoBehaviour
 
     void ToggleBlock(BoxCollider2D[] boxColliders, EdgeCollider2D[] edgeColliders, bool isActive, Sprite switchSprite)
     {
-        int numBoxColliders = boxColliders.Length;
-        for(int x = 0; x < numBoxColliders; x++)
+        if (boxColliders != null)
         {
-            boxColliders[x].enabled = isActive;
+            int numBoxColliders = boxColliders.Length;
+            for (int x = 0; x < numBoxColliders; x++)
+            {
+                boxColliders[x].enabled = isActive;
+            }
         }
 
-        int numEdgeColliders = edgeColliders.Length;
-        for (int x = 0; x < numEdgeColliders; x++)
+        if (edgeColliders != null)
         {
-            edgeColliders[x].enabled = isActive;
+            int numEdgeColliders = edgeColliders.Length;
+            for (int x = 0; x < numEdgeColliders; x++)
+            {
+                edgeColliders[x].enabled = isActive;
+            }
         }
         spriteRen.sprite = switchSprite;
     }

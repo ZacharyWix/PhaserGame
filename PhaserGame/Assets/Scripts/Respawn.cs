@@ -23,6 +23,7 @@ public class Respawn : MonoBehaviour
     private string name = "none";
     public GameObject tutorial;
     public GameObject next;
+    private bool platformStatus; //True if player is on a moving platform
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -63,23 +64,39 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
-            //Plays the death sound
-            soundPlay.PlaySound("death");
-
-            //Plays death particles and makes the player disappear
-            deathParticles.Play();
-            sr.enabled = false;
-
-            //disables controls and disables physics for the player
-            moveScript.setControls(false);
-            rb.simulated = false;
-            isDead = true;
-            respawnTimer = respawnDelay;
-
-            //increases the death counter and updates the text
-            gm.incDeathCount();
-            deathCount.updateDeathCounter();
+            print("normally killed");
+            killPlayer();
         }
+
+        if (col.transform.CompareTag("SpikePlayerKillers"))
+        {
+            print("collided with side killers");
+            if(!platformStatus) //Only kill the player if they aren't on a moving platform
+            {
+                print("killed by side killers");
+                killPlayer();
+            }
+        }
+    }
+
+    private void killPlayer()
+    {
+        //Plays the death sound
+        soundPlay.PlaySound("death");
+
+        //Plays death particles and makes the player disappear
+        deathParticles.Play();
+        sr.enabled = false;
+
+        //disables controls and disables physics for the player
+        moveScript.setControls(false);
+        rb.simulated = false;
+        isDead = true;
+        respawnTimer = respawnDelay;
+
+        //increases the death counter and updates the text
+        gm.incDeathCount();
+        deathCount.updateDeathCounter();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -129,5 +146,10 @@ public class Respawn : MonoBehaviour
     public void resetDeaths()
     {
         gm.resetDeathCount();
+    }
+
+    public void setPlatformStatus(bool status)
+    {
+        platformStatus = status;
     }
 }

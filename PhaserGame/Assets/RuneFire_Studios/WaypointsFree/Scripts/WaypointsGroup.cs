@@ -22,7 +22,7 @@ namespace WaypointsFree
         // Start is called before the first frame update
         void Start()
         {
-            print("Path Length = " + GetPathLength());
+            //print("Path Length = " + GetPathLength());
         }
 
         // Update is called once per frame

@@ -25,8 +25,8 @@ public class movingPlatformPlayerMover : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.GetComponent<Respawn>().setPlatformStatus(true);
             collision.transform.SetParent(transform);
-            print("Trigger Collided");
         }
     }
 
@@ -34,8 +34,8 @@ public class movingPlatformPlayerMover : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.GetComponent<Respawn>().setPlatformStatus(false);
             collision.transform.SetParent(GameObject.Find("Player").transform);
-            print("Trigger Left");
         }
     }
 

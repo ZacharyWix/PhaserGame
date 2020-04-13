@@ -149,7 +149,7 @@ public class level : MonoBehaviour
     {
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
-        print(Application.persistentDataPath + "/gamesave.save");
+        //print(Application.persistentDataPath + "/gamesave.save");
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         bf.Serialize(file, save);
         file.Close();

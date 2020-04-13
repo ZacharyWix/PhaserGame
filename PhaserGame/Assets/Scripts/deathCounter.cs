@@ -48,10 +48,8 @@ public class deathCounter : MonoBehaviour
 
         if (split.Length == 2)
         {
-            print("two");
             if (split[1] != '0')
             {
-                print("!=0");
                 levelNum.text = "World " + (Convert.ToInt32(split[0].ToString()) + 1) + " Level " + split[1];
             }
             else
