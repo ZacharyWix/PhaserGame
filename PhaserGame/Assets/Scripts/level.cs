@@ -152,6 +152,28 @@ public class level : MonoBehaviour
         }
     }
 
+    public static float getActiveTime(int l)
+    {
+        bool exists = false;
+        int index = 0;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i].levelNum == l && levels[i].active == true)
+            {
+                exists = true;
+                index = i;
+            }
+        }
+        if (exists == true)
+        {
+            return levels[index].time;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     public static int getMaxLevel(bool active)
     {
         int max = 0;

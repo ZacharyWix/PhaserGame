@@ -33,7 +33,7 @@ public class deathCounter : MonoBehaviour
     void Start()
     {
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
-        time = 0;
+        time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
         updateDeathCounter();
     }
@@ -56,10 +56,15 @@ public class deathCounter : MonoBehaviour
                 decimals.text += "0";
             }
         }
-        else
+        else if (time < 3600)
         {
             timer.text = secondTemp + ".";
             decimals.text = "00";
+        }
+        else
+        {
+            timer.text = secondTemp;
+            decimals.text = "";
         }
     }
 
@@ -104,9 +109,7 @@ public class deathCounter : MonoBehaviour
         if (level.getLevelTime(SceneManager.GetActiveScene().buildIndex) != -1)
         {
             float preTime = level.getLevelTime(SceneManager.GetActiveScene().buildIndex);
-            print("pretime: " + preTime);
             string thirdTemp = setupTimeString(preTime);
-            print("third: " + thirdTemp);
             if (thirdTemp.Contains("."))
             {
                 int index = thirdTemp.IndexOf(".");
@@ -117,10 +120,15 @@ public class deathCounter : MonoBehaviour
                     bestDec.text += "0";
                 }
             }
-            else
+            else if (time < 3600)
             {
                 bestTime.text = thirdTemp + ".";
                 bestDec.text = "00";
+            }
+            else
+            {
+                bestTime.text = thirdTemp;
+                bestDec.text = "";
             }
         }
         else
@@ -138,16 +146,32 @@ public class deathCounter : MonoBehaviour
         seconds = timeIn % 60;
         seconds = (float)Math.Round(seconds * 100f) / 100f;
         string second;
+        minutes = (timeInt / 60) % 60;
+        hours = (timeInt / 3600);
         string temp;
         if (seconds <  10)
         {
-            second = "0" + seconds;
+            if (time < 3600)
+            {
+                second = "0" + seconds;
+            }
+            else
+            {
+                second = "0" + (int)seconds;
+            }
         }
         else
         {
-            second = seconds.ToString();
+            if (time < 3600)
+            {
+                second = seconds.ToString();
+            }
+            else
+            {
+                int secondInt = (int)seconds;
+                second = secondInt.ToString();
+            }
         }
-        minutes = (timeInt / 60) % 60;
         string min;
         if (minutes < 10)
         {
@@ -157,7 +181,7 @@ public class deathCounter : MonoBehaviour
         {
             min = minutes.ToString();
         }
-        hours = (timeInt / 3600);
+        
         if (hours > 0)
         {
             temp = hours.ToString() + ":" + min + ":" + second;
@@ -181,5 +205,10 @@ public class deathCounter : MonoBehaviour
     public float getTime()
     {
         return time;
+    }
+
+    public void setTime(float timer)
+    {
+        time = timer;
     }
 }

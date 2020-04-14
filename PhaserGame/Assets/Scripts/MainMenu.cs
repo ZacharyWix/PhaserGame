@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public deathStats deathStat;
+    public deathCounter deathCount;
     private phaserManager gm;
     public Canvas canvas;
     public bool unlocked = false;
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame ()
     {
+        deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
         gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

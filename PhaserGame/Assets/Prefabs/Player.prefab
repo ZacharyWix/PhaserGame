@@ -5266,7 +5266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123726889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2849518, y: -19.719536, z: -9.940871}
+  m_LocalPosition: {x: 1.2849518, y: -19.715612, z: -9.940871}
   m_LocalScale: {x: 1, y: 1, z: 1.5625}
   m_Children:
   - {fileID: 675830652}
@@ -15506,6 +15506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathStat: {fileID: 0}
+  deathCount: {fileID: 5234937416589037907}
   canvas: {fileID: 0}
   unlocked: 0
 --- !u!223 &5336724124839147863

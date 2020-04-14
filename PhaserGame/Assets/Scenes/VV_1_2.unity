@@ -2133,6 +2133,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1141739066}
+    - target: {fileID: 5336724124009372915, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd7ad896ba954104ba703771bee53fa1,
+        type: 3}
     - target: {fileID: 5440504388177392393, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_textInfo.characterCount
