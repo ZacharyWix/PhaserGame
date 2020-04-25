@@ -14,6 +14,9 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1T1, W1T2, W1T3, W1T4, W1T5, W1T6, W1T7, W1T8, W1T9, W1T10;
     public TextMeshProUGUI W2T1, W2T2, W2T3, W2T4, W2T5, W2T6, W2T7, W2T8, W2T9, W2T10;
     public TextMeshProUGUI W3T1, W3T2, W3T3, W3T4, W3T5, W3T6, W3T7, W3T8, W3T9, W3T10;
+    public TextMeshProUGUI W1D1, W1D2, W1D3, W1D4, W1D5, W1D6, W1D7, W1D8, W1D9, W1D10;
+    public TextMeshProUGUI W2D1, W2D2, W2D3, W2D4, W2D5, W2D6, W2D7, W2D8, W2D9, W2D10;
+    public TextMeshProUGUI W3D1, W3D2, W3D3, W3D4, W3D5, W3D6, W3D7, W3D8, W3D9, W3D10;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,37 @@ public class deathStats : MonoBehaviour
         W3T8.text = getTimeText(28);
         W3T9.text = getTimeText(29);
         W3T10.text = getTimeText(30);
+        W1D1.text = getDecimalText(1);
+        W1D2.text = getDecimalText(2);
+        W1D3.text = getDecimalText(3);
+        W1D4.text = getDecimalText(4);
+        W1D5.text = getDecimalText(5);
+        W1D6.text = getDecimalText(6);
+        W1D7.text = getDecimalText(7);
+        W1D8.text = getDecimalText(8);
+        W1D9.text = getDecimalText(9);
+        W1D10.text = getDecimalText(10);
+        W2D1.text = getDecimalText(11);
+        W2D2.text = getDecimalText(12);
+        W2D3.text = getDecimalText(13);
+        W2D4.text = getDecimalText(14);
+        W2D5.text = getDecimalText(15);
+        W2D6.text = getDecimalText(16);
+        W2D7.text = getDecimalText(17);
+        W2D8.text = getDecimalText(18);
+        W2D9.text = getDecimalText(19);
+        W2D10.text = getDecimalText(20);
+        W3D1.text = getDecimalText(21);
+        W3D2.text = getDecimalText(22);
+        W3D3.text = getDecimalText(23);
+        W3D4.text = getDecimalText(24);
+        W3D5.text = getDecimalText(25);
+        W3D6.text = getDecimalText(26);
+        W3D7.text = getDecimalText(27);
+        W3D8.text = getDecimalText(28);
+        W3D9.text = getDecimalText(29);
+        W3D10.text = getDecimalText(30);
+
     }
 
     public string getDeathText(int num) {
@@ -94,11 +128,53 @@ public class deathStats : MonoBehaviour
     public string getTimeText(int num)
     {
         string text = "X";
+        string seconds = "X" + "\u00A0\u00A0";
         if (level.getLevelTime(num) != -1)
         {
             text = setupTimeString(level.getLevelTime(num));
+            if (text.Contains("."))
+            {
+                int index = text.IndexOf(".");
+                seconds = text.Substring(0, index + 1);
+            }
+            else if (level.getLevelTime(num) < 3600)
+            {
+                seconds = text + ".";
+            }
+            else
+            {
+                seconds = text;
+            }
         }
-        return text;
+        return seconds;
+    }
+
+    public string getDecimalText(int num)
+    {
+        string text = "X";
+        string decimals = "";
+        if (level.getLevelTime(num) != -1)
+        {
+            text = setupTimeString(level.getLevelTime(num));
+            if (text.Contains("."))
+            {
+                int index = text.IndexOf(".");
+                decimals = text.Substring(index + 1);
+                if (decimals.Length == 1)
+                {
+                    decimals += "0";
+                }
+            }
+            else if (level.getLevelTime(num) < 3600)
+            {
+                decimals = "00";
+            }
+            else
+            {
+                decimals = "";
+            }
+        }
+        return decimals;
     }
 
     public string setupTimeString(float timeIn)
