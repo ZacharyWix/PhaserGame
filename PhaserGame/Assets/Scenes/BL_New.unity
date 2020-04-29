@@ -240,6 +240,31 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 2131886055334981191, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131886055334981191, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131886055334981191, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131886055334981191, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131886055334981191, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2629031025955199461, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_IsActive

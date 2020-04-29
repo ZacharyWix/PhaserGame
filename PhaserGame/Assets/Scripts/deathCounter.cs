@@ -20,6 +20,7 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI bestDec;
     public TextMeshProUGUI bestTime1;
     public TextMeshProUGUI bestDec1;
+    public TextMeshProUGUI complete;
     public pause pause;
     private bool paused = false;
     private bool finished;
@@ -90,22 +91,26 @@ public class deathCounter : MonoBehaviour
         totalDeathsText1.text = totalDeathsText.text;
         string number = SceneManager.GetActiveScene().buildIndex.ToString();
         char[] split = number.ToCharArray();
-
+        string thing = "";
         if (split.Length == 2)
         {
             if (split[1] != '0')
             {
                 levelNum.text = "World " + (Convert.ToInt32(split[0].ToString()) + 1) + " Level " + split[1];
+                thing = split[1].ToString();
             }
             else
             {
                 levelNum.text = "World " + split[0] + " Level 10";
+                thing = "10";
             }
         }
         else if (split.Length == 1)
         {
             levelNum.text = "World 1 Level " + split[0];
+            thing = split[0].ToString();
         }
+        complete.text = "Level " + thing + " Complete!";
         if (level.getLevelTime(SceneManager.GetActiveScene().buildIndex) != -1)
         {
             float preTime = level.getLevelTime(SceneManager.GetActiveScene().buildIndex);
