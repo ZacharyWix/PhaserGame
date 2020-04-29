@@ -170,7 +170,7 @@ public class level : MonoBehaviour
         }
         else
         {
-            return 3650;
+            return 0;
         }
     }
 
