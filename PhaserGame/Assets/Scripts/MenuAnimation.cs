@@ -8,9 +8,9 @@ public class MenuAnimation : MonoBehaviour
     public GameObject blocks;
     public GameObject clouds;
     private float bpos = 0.0f;
-    private float cpos = 19f;
+    private float cpos = 0.0f;
     private float bspeed = 0.0025f;
-    private float cspeed = 0.025f;
+    private float cspeed = 0.0025f;
     // Start is called before the first frame update
     void Start()
     {
