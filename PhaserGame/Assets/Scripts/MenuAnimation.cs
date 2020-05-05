@@ -33,8 +33,8 @@ public class MenuAnimation : MonoBehaviour
         {
             cpos = 0;
         }
-        bpos += bspeed;
-        cpos += cspeed;
+        bpos += bspeed * Time.deltaTime;
+        cpos += cspeed * Time.deltaTime;
         blocks.transform.position = new Vector2(0, bpos);
         clouds.transform.position = new Vector2(cpos, 0);
     }
