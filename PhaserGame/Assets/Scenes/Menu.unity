@@ -615,8 +615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks: {fileID: 1513706756}
   clouds: {fileID: 2099011472}
-  bspeed: 0.0025
-  cspeed: 0.0025
+  bspeed: 0.0005
+  cspeed: 0.0008
 --- !u!114 &35651146 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691427777804741013, guid: 0645b71a360ac7541b3751b2012e861a,
