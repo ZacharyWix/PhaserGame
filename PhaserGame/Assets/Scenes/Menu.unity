@@ -615,6 +615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks: {fileID: 1513706756}
   clouds: {fileID: 2099011472}
+  bspeed: 0.0025
+  cspeed: 0.0025
 --- !u!114 &35651146 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691427777804741013, guid: 0645b71a360ac7541b3751b2012e861a,
@@ -12103,6 +12105,7 @@ GameObject:
   - component: {fileID: 1469748922}
   - component: {fileID: 1469748924}
   - component: {fileID: 1469748923}
+  - component: {fileID: 1469748925}
   m_Layer: 5
   m_Name: PHASER
   m_TagString: Untagged
@@ -12249,6 +12252,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469748921}
   m_CullTransparentMesh: 0
+--- !u!114 &1469748925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469748921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e52d8460b4050479b2c283c8686a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 1469748921}
 --- !u!114 &1469937166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691427778241428672, guid: 0645b71a360ac7541b3751b2012e861a,

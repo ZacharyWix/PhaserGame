@@ -9,8 +9,8 @@ public class MenuAnimation : MonoBehaviour
     public GameObject clouds;
     private float bpos = 0.0f;
     private float cpos = 0.0f;
-    private float bspeed = 0.0025f;
-    private float cspeed = 0.0025f;
+    public float bspeed;
+    public float cspeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,6 @@ public class MenuAnimation : MonoBehaviour
         }
         bpos += bspeed;
         cpos += cspeed;
-        print(cpos);
         blocks.transform.position = new Vector2(0, bpos);
         clouds.transform.position = new Vector2(cpos, 0);
     }
