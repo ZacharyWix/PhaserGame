@@ -138,7 +138,7 @@ public class deathCounter : MonoBehaviour
         }
         else
         {
-            bestTime.text = "X";
+            bestTime.text = "X" + "\u00A0\u00A0\u00A0\u00A0";
             bestDec.text = "";
         }
         bestTime1.text = bestTime.text;
