@@ -33,6 +33,7 @@ public class phaserManager : MonoBehaviour
 public class phaserManager : MonoBehaviour
 {
     private static int deathCount = 0;
+    private static float time;
     private static phaserManager _instance;
 
     public static phaserManager Instance { get { return _instance; } }
@@ -68,5 +69,15 @@ public class phaserManager : MonoBehaviour
     public void resetDeathCount()
     {
         deathCount = 0;
+    }
+
+    public float getTime()
+    {
+        return time;
+    }
+
+    public void setTime(float t)
+    {
+        time = t;
     }
 }

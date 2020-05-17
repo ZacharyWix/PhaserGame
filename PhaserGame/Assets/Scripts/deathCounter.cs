@@ -36,36 +36,42 @@ public class deathCounter : MonoBehaviour
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
-        updateDeathCounter();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            updateDeathCounter();
+        }
     }
 
     private void Update()
     {
-        paused = pause.getPause();
-        if (!paused && !finished)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            time += Time.deltaTime;
-        }
-        string secondTemp = setupTimeString(time);
-        if (secondTemp.Contains("."))
-        {
-            int index = secondTemp.IndexOf(".");
-            timer.text = secondTemp.Substring(0, index + 1);
-            decimals.text = secondTemp.Substring(index + 1);
-            if (decimals.text.Length == 1)
+            paused = pause.getPause();
+            if (!paused && !finished)
             {
-                decimals.text += "0";
+                time += Time.deltaTime;
             }
-        }
-        else if (time < 3600)
-        {
-            timer.text = secondTemp + ".";
-            decimals.text = "00";
-        }
-        else
-        {
-            timer.text = secondTemp;
-            decimals.text = "";
+            string secondTemp = setupTimeString(time);
+            if (secondTemp.Contains("."))
+            {
+                int index = secondTemp.IndexOf(".");
+                timer.text = secondTemp.Substring(0, index + 1);
+                decimals.text = secondTemp.Substring(index + 1);
+                if (decimals.text.Length == 1)
+                {
+                    decimals.text += "0";
+                }
+            }
+            else if (time < 3600)
+            {
+                timer.text = secondTemp + ".";
+                decimals.text = "00";
+            }
+            else
+            {
+                timer.text = secondTemp;
+                decimals.text = "";
+            }
         }
     }
 

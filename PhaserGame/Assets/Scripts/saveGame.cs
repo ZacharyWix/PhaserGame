@@ -6,4 +6,5 @@ using UnityEngine;
 public class saveGame
 {
     public List<List<float>> levelSave = new List<List<float>>();
+    public List<int> achievementSave = new List<int>();
 }

@@ -10,17 +10,23 @@ public class MainMenu : MonoBehaviour
 {
     public deathStats deathStat;
     public deathCounter deathCount;
+    public AchievementMenu achievementMenu;
     private phaserManager gm;
     public Canvas canvas;
-    public bool unlocked = false;
+    private bool unlocked = false;
+    public SteamAchievements sa;
 
     private void Start()
     {
-        gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
+        print("start");
+         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+            print("level 0");
             Button[] buttons = canvas.GetComponentsInChildren<Button>(true);
             updateButtons(buttons, unlocked);
+            deathStat.updateDeathStats();
+            achievementMenu.updateIcons();
         }
     }
     public void PlayGame ()
@@ -38,10 +44,8 @@ public class MainMenu : MonoBehaviour
     public void LoadScene(int l)
     {
         gm.setDeathCount(level.getActiveDeaths(l));
+        deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
-        if (l == 0) {
-            deathStat.updateDeathStats();
-        }
     }
 
     public void QuitGame()
@@ -52,6 +56,8 @@ public class MainMenu : MonoBehaviour
     {
         File.Delete(Application.persistentDataPath + "/gamesave.save");
         level.clear();
+        //sa.DEBUG_LockSteamAchievement("achievement_00");
+        sa.resetAll();
         Start();
     }
 

@@ -11,6 +11,7 @@ public class level : MonoBehaviour
     public bool active;
     public float time;
     public static List<level> levels = new List<level>();
+    static bool loading = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoadRuntimeMethod()
@@ -91,7 +92,10 @@ public class level : MonoBehaviour
                 levels[index].time = this.time;
             }
         }
-        SaveGame();
+        if (!loading)
+        {
+            SaveGame();
+        }
     }
 
     public static int getLevelDeaths(int num)
@@ -189,6 +193,7 @@ public class level : MonoBehaviour
 
     public void SaveGame()
     {
+        print("saving");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         //print(Application.persistentDataPath + "/gamesave.save");
@@ -215,11 +220,18 @@ public class level : MonoBehaviour
             temp.Add(levels[i].time);
             save.levelSave.Add(temp);
         }
+        save.achievementSave = Achievement.getList();
+        for (int i = 0; i < save.achievementSave.Count; i++)
+        {
+            print(save.achievementSave[i]);
+        }
         return save;
     }
 
     public static void LoadGame()
     {
+        print("loading");
+        loading = true;
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -241,11 +253,17 @@ public class level : MonoBehaviour
                 }
                 level lv = new level((int)i[0], (int)i[1], activity, i[3]);
             }
+            foreach (int i in save.achievementSave)
+            {
+                print("Loading Achievement: " + i);
+                Achievement achievement = new Achievement(i);
+            }
         }
         else
         {
             Debug.Log("No game saved!");
         }
+        loading = false;
     }
 
     public static int numLevels() {

@@ -24,6 +24,7 @@ public class Respawn : MonoBehaviour
     private string name = "none";
     public GameObject tutorial;
     public GameObject next;
+    public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
 
     public float respawnDelay; //in seconds
@@ -104,6 +105,8 @@ public class Respawn : MonoBehaviour
             pauseScript.togglePause();
             soundPlay.PlaySound("win");
             level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
+            CreateLevel(false);
+            unlocker.updateUnlocks();
             CreateLevel(false);
             deathCount.updateDeathCounter();
             if (SceneManager.GetActiveScene().buildIndex == 1)
