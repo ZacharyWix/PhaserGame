@@ -45,7 +45,6 @@ public class Unlocker : MonoBehaviour
         }
         if (level.getLevelDeaths(3) != -1 && level.getLevelDeaths(3) < 5)
         {
-            print("unlocking 2");
             achievement = new Achievement(2);
         }
     }

@@ -16,7 +16,7 @@ public class level : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBeforeSceneLoadRuntimeMethod()
     {
-        LoadGame();
+        //LoadGame();
     }
     public level(int l, int d, bool a, float t)
     {
@@ -24,6 +24,7 @@ public class level : MonoBehaviour
         deaths = d;
         active = a;
         time = t;
+        print("Level: " + l + ", Deaths: " + d + ", Active: " + a + ", Time: " + t);
         addLevel();
     }
 
@@ -88,14 +89,31 @@ public class level : MonoBehaviour
             }
             else
             {
-                levels[index].deaths = this.deaths;
-                levels[index].time = this.time;
+                levels[indexa].deaths = this.deaths;
+                levels[indexa].time = this.time;
             }
         }
         if (!loading)
         {
-            SaveGame();
+            //SaveGame();
         }
+    }
+
+    public static int getLevelNum(int num)
+    {
+        return levels[num].levelNum;
+    }
+
+    public static bool getActive(int num)
+    {
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i].levelNum == num)
+            {
+                return levels[i].active;
+            }
+        }
+        return false;
     }
 
     public static int getLevelDeaths(int num)
@@ -193,7 +211,7 @@ public class level : MonoBehaviour
 
     public void SaveGame()
     {
-        print("saving");
+        print("OLD SAVE");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         //print(Application.persistentDataPath + "/gamesave.save");
@@ -221,16 +239,21 @@ public class level : MonoBehaviour
             save.levelSave.Add(temp);
         }
         save.achievementSave = Achievement.getList();
-        for (int i = 0; i < save.achievementSave.Count; i++)
-        {
-            print(save.achievementSave[i]);
-        }
+        //save.optionsSave[0] = OptionsMenu.getSFXVolume();
+        //save.optionsSave[1] = OptionsMenu.getMusicVolume();
+        //if (OptionsMenu.getIsOn())
+        //{
+           // save.optionsSave[2] = 1f;
+        //}
+        //else
+        //{
+            //save.optionsSave[2] = 0f;
+        //}
         return save;
     }
 
     public static void LoadGame()
     {
-        print("loading");
         loading = true;
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
@@ -257,6 +280,16 @@ public class level : MonoBehaviour
             {
                 print("Loading Achievement: " + i);
                 Achievement achievement = new Achievement(i);
+            }
+            //OptionsMenu.setSFX(save.optionsSave[0]);
+            //OptionsMenu.setMusic(save.optionsSave[1]);
+            if(save.optionsSave[2] == 1)
+            {
+                OptionsMenu.setIsOn(true);
+            }
+            else
+            {
+                OptionsMenu.setIsOn(false);
             }
         }
         else

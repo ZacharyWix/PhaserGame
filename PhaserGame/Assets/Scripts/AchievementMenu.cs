@@ -12,7 +12,6 @@ public class AchievementMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("trying");
         Image[] images = canvas.GetComponentsInChildren<Image>(true);
         for (int i = 0; i < images.Length; i++)
         {
@@ -35,13 +34,10 @@ public class AchievementMenu : MonoBehaviour
 
     public void updateIcons()
     {
-        print("starts updating");
         for (int i = 0; i < locked.Count; i++)
         {
-            print("i: " + i);
             if (Achievement.getUnlocked(i))
             {
-                print("hits");
                 locked[i].enabled = false;
                 unlocked[i].enabled = true;
             }

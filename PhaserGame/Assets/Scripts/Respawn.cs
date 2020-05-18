@@ -9,7 +9,10 @@ using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
+    public GameObject nl, rl, e, td, t;
+    public OptionsMenu options;
     public GameObject endgame;
+    public MainMenu menu;
     public Transform respawnPoint;
     public deathCounter deathCount;
     public SoundPlayer soundPlay;
@@ -107,10 +110,15 @@ public class Respawn : MonoBehaviour
             level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
             CreateLevel(false);
             unlocker.updateUnlocks();
-            CreateLevel(false);
             deathCount.updateDeathCounter();
-            if (SceneManager.GetActiveScene().buildIndex == 1)
+            menu.SaveGame();
+            if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
             {
+                nl.SetActive(false);
+                rl.SetActive(false);
+                e.SetActive(false);
+                td.SetActive(false);
+                t.SetActive(false);
                 tutorial.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }

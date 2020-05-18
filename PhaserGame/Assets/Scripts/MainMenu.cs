@@ -5,20 +5,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class MainMenu : MonoBehaviour
 {
     public deathStats deathStat;
     public deathCounter deathCount;
     public AchievementMenu achievementMenu;
+    public OptionsMenu options;
     private phaserManager gm;
     public Canvas canvas;
     private bool unlocked = false;
     public SteamAchievements sa;
+    private static bool loaded = false;
+
+
 
     private void Start()
     {
-        print("start");
+        if (!loaded)
+        {
+            LoadGame();
+            loaded = true;
+        }
          gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -46,6 +55,16 @@ public class MainMenu : MonoBehaviour
         gm.setDeathCount(level.getActiveDeaths(l));
         deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
+        if (l == 0)
+        {
+            SaveGame();
+        }
+    }
+
+    public void Exit()
+    {
+        SaveGame();
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
@@ -102,5 +121,103 @@ public class MainMenu : MonoBehaviour
                  }
              }
          }
+    }
+
+    public void SaveGame()
+    {
+        print("saving");
+        saveGame save = CreateSaveGameObject();
+        BinaryFormatter bf = new BinaryFormatter();
+        //print(Application.persistentDataPath + "/gamesave.save");
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, save);
+        file.Close();
+    }
+    private saveGame CreateSaveGameObject()
+    {
+        saveGame save = new saveGame();
+        for (int i = 0; i < level.numLevels(); i++)
+        {
+            List<float> temp = new List<float>();
+            
+            
+            if (level.getActive(level.getLevelNum(i)))
+            {
+                temp.Add(level.getLevelNum(i));
+                temp.Add(level.getActiveDeaths(level.getLevelNum(i)));
+                temp.Add(1);
+                temp.Add(level.getActiveTime(level.getLevelNum(i)));
+
+            }
+            else
+            {
+                temp.Add(level.getLevelNum(i));
+                temp.Add(level.getLevelDeaths(level.getLevelNum(i)));
+                temp.Add(0);
+                temp.Add(level.getLevelTime(level.getLevelNum(i)));
+            }
+            
+            save.levelSave.Add(temp);
+        }
+        save.achievementSave = Achievement.getList();
+        save.optionsSave.Add(options.getSFXVolume());
+        print("SFX: " + options.getSFXVolume());
+        print("Saved SFX: " + save.optionsSave[0]);
+        save.optionsSave.Add(options.getMusicVolume());
+        print("Music: " + options.getMusicVolume());
+        if (options.getIsOn())
+        {
+            save.optionsSave.Add(1f);
+        }
+        else
+        {
+            save.optionsSave.Add(0f);
+        }
+        return save;
+    }
+
+    public void LoadGame()
+    {
+        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            saveGame save = (saveGame)bf.Deserialize(file);
+            file.Close();
+
+            // 3
+            foreach (List<float> i in save.levelSave)
+            {
+                bool activity;
+                if (i[2] == 1)
+                {
+                    activity = true;
+                }
+                else
+                {
+                    activity = false;
+                }
+                level lv = new level((int)i[0], (int)i[1], activity, i[3]);
+            }
+            foreach (int i in save.achievementSave)
+            {
+                Achievement achievement = new Achievement(i);
+            }
+            print("Loading SFX: " + save.optionsSave[0]);
+            options.SetSoundEffectsVolume(save.optionsSave[0]);
+            options.SetMusicVolume(save.optionsSave[1]);
+            if (save.optionsSave[2] == 1)
+            {
+                options.Toggle(true);
+            }
+            else
+            {
+                options.Toggle(false);
+            }
+        }
+        else
+        {
+            Debug.Log("No game saved!");
+        }
     }
 }

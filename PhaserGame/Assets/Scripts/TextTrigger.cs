@@ -22,10 +22,10 @@ public class TextTrigger : MonoBehaviour
     public TextMeshProUGUI yellow;
     public TextMeshProUGUI colorSpike;
     public TextMeshProUGUI colorSpike2;
-    public OptionsMenu options;
     public pause pause;
     private bool tutorials;
     private bool isPaused;
+    public OptionsMenu options;
     // Start is called before the first frame update
     void Start()
     {

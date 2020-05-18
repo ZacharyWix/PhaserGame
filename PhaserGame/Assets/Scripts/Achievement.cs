@@ -52,11 +52,9 @@ public class Achievement : MonoBehaviour
     }
     public static List<int> getList()
     {
-        print("hits getlist: " + achievements.Count);
         List<int> temp = new List<int>();
         for(int i = 0; i < achievements.Count; i++)
         {
-            print("getlist: " + achievements[i].achievementNum);
             temp.Add(achievements[i].achievementNum);
         }
         return temp;

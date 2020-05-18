@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endgame: {fileID: 7240019304810809812}
+  menu: {fileID: 5336724124839147861}
   respawnPoint: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 7347905298962990944}
@@ -7147,6 +7148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endgame: {fileID: 7240019304810809812}
+  menu: {fileID: 5336724124839147861}
   respawnPoint: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 0}
@@ -7170,6 +7172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ac7536155541848aa0623e6bfd876f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 5336724124839147861}
   on: {fileID: 585130142774532866}
   off: {fileID: 7761803082577433805}
 --- !u!114 &7983500541720568771
@@ -15505,8 +15508,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 5336724124839147861}
-        m_MethodName: LoadScene
-        m_Mode: 3
+        m_MethodName: Exit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15748,6 +15751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endgame: {fileID: 7240019304810809812}
+  menu: {fileID: 0}
   respawnPoint: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
   soundPlay: {fileID: 0}
@@ -15820,6 +15824,7 @@ MonoBehaviour:
   deathStat: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
   achievementMenu: {fileID: 0}
+  options: {fileID: 7745727779696689887}
   canvas: {fileID: 0}
   sa: {fileID: 0}
 --- !u!223 &5336724124839147863
@@ -16747,6 +16752,17 @@ MonoBehaviour:
       - m_Target: {fileID: 7745727779696689887}
         m_MethodName: Toggle
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7745727779696689887}
+        m_MethodName: create
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18219,6 +18235,17 @@ MonoBehaviour:
       - m_Target: {fileID: 7745727779696689887}
         m_MethodName: Toggle
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7745727779696689887}
+        m_MethodName: create
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
