@@ -17,6 +17,9 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1D1, W1D2, W1D3, W1D4, W1D5, W1D6, W1D7, W1D8, W1D9, W1D10;
     public TextMeshProUGUI W2D1, W2D2, W2D3, W2D4, W2D5, W2D6, W2D7, W2D8, W2D9, W2D10;
     public TextMeshProUGUI W3D1, W3D2, W3D3, W3D4, W3D5, W3D6, W3D7, W3D8, W3D9, W3D10;
+    public TextMeshProUGUI W1L, W2L, W3L;
+    public TextMeshProUGUI W1T, W2T, W3T;
+    public TextMeshProUGUI W1D, W2D, W3D;
     // Start is called before the first frame update
     void Start()
     {
@@ -114,7 +117,15 @@ public class deathStats : MonoBehaviour
         W3D8.text = getDecimalText(28);
         W3D9.text = getDecimalText(29);
         W3D10.text = getDecimalText(30);
-
+        W1L.text = getWorldDeathText(1);
+       // W2L.text = getWorldDeathText(2);
+       // W3L.text = getWorldDeathText(3);
+        W1T.text = getWorldTimeText(1);
+       // W2T.text = getWorldTimeText(2);
+       // W3T.text = getWorldTimeText(3);
+        W1D.text = getWorldDecimalText(1);
+        //W2D.text = getWorldDecimalText(2);
+       // W3D.text = getWorldDecimalText(3);
     }
 
     public string getDeathText(int num) {
@@ -125,54 +136,90 @@ public class deathStats : MonoBehaviour
         return text;
     }
 
-    public string getTimeText(int num)
+    public string getWorldDeathText(int num)
     {
         string text = "X";
+        text = level.getWorldDeaths(num).ToString();
+        return text;
+    }
+
+    public string getWorldTimeText(int num)
+    {
+        return getTimeHelper(level.getWorldTime(num));
+    }
+
+    public string getWorldDecimalText(int num)
+    {
+        return getDecimalHelper(level.getWorldTime(num));
+    }
+
+    public string getTimeText(int num)
+    {
         string seconds = "X" + "\u00A0\u00A0";
         if (level.getLevelTime(num) != -1)
         {
-            text = setupTimeString(level.getLevelTime(num));
-            if (text.Contains("."))
-            {
-                int index = text.IndexOf(".");
-                seconds = text.Substring(0, index + 1);
-            }
-            else if (level.getLevelTime(num) < 3600)
-            {
-                seconds = text + ".";
-            }
-            else
-            {
-                seconds = text;
-            }
+            return getTimeHelper(level.getLevelTime(num));
+        }
+        else
+        {
+            return seconds;
+        }
+    }
+
+    public string getTimeHelper(float num)
+    {
+        string text = "X";
+        string seconds = "X" + "\u00A0\u00A0";
+        text = setupTimeString(num);
+        if (text.Contains("."))
+        {
+            int index = text.IndexOf(".");
+            seconds = text.Substring(0, index + 1);
+        }
+        else if (num < 3600)
+        {
+            seconds = text + ".";
+        }
+        else
+        {
+            seconds = text;
         }
         return seconds;
     }
 
     public string getDecimalText(int num)
     {
+        string decimals = "";
+        if(level.getLevelTime(num) != -1)
+        {
+            return getDecimalHelper(level.getLevelTime(num));
+        }
+        else
+        {
+            return decimals;
+        }
+    }
+    public string getDecimalHelper(float num)
+    {
         string text = "X";
         string decimals = "";
-        if (level.getLevelTime(num) != -1)
+        text = setupTimeString(num);
+        if (text.Contains("."))
         {
-            text = setupTimeString(level.getLevelTime(num));
-            if (text.Contains("."))
+            int index = text.IndexOf(".");
+            decimals = text.Substring(index + 1);
+            if (decimals.Length == 1)
             {
-                int index = text.IndexOf(".");
-                decimals = text.Substring(index + 1);
-                if (decimals.Length == 1)
-                {
-                    decimals += "0";
-                }
+                decimals += "0";
             }
-            else if (level.getLevelTime(num) < 3600)
-            {
-                decimals = "00";
-            }
-            else
-            {
-                decimals = "";
-            }
+        }
+        else if (num < 3600)
+        {
+            decimals = "00";
+        }
+        else
+        {
+            decimals = "";
         }
         return decimals;
     }

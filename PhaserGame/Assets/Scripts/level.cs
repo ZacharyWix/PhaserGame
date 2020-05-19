@@ -209,6 +209,74 @@ public class level : MonoBehaviour
         return max;
     }
 
+    public static int getWorldDeaths(int world)
+    {
+        int one = 0;
+        int two = 0;
+        int three = 0;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i].levelNum <= 10 && !levels[i].active)
+            {
+                one += levels[i].deaths;
+            }
+            if (levels[i].levelNum <= 20 && levels[i].levelNum > 10 && !levels[i].active)
+            {
+                two += levels[i].deaths;
+            }
+            if (levels[i].levelNum > 20 && !levels[i].active)
+            {
+                three += levels[i].deaths;
+            }
+        }
+        if (world == 1)
+        {
+            return one;
+        }
+        else if(world == 2)
+        {
+            return two;
+        }
+        else
+        {
+            return three;
+        }
+    }
+
+    public static float getWorldTime(int world)
+    {
+        float one = 0;
+        float two = 0;
+        float three = 0;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i].levelNum <= 10 && !levels[i].active)
+            {
+                one += levels[i].time;
+            }
+            if (levels[i].levelNum <= 20 && levels[i].levelNum > 10 && !levels[i].active)
+            {
+                two += levels[i].time;
+            }
+            if (levels[i].levelNum > 20 && !levels[i].active)
+            {
+                three += levels[i].time;
+            }
+        }
+        if (world == 1)
+        {
+            return one;
+        }
+        else if (world == 2)
+        {
+            return two;
+        }
+        else
+        {
+            return three;
+        }
+    }
+
     public void SaveGame()
     {
         print("OLD SAVE");

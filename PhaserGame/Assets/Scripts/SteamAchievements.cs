@@ -42,7 +42,6 @@ public class SteamAchievements : MonoBehaviour
             SteamUserStats.SetAchievement(ID);
             SteamUserStats.StoreStats();
         }
-
     }
 
     public void DEBUG_LockSteamAchievement(string ID)
