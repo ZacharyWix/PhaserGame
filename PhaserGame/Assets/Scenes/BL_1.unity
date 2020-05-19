@@ -166,6 +166,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -5.744048
       objectReference: {fileID: 0}
+    - target: {fileID: 2087684345954672980, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3536829064941810664, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: moveWithTransform
@@ -236,6 +241,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6631641979753722379, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7745727779696689887, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: audioMixer
@@ -254,6 +264,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24100000, guid: f41c3f9da87aa224e94d1d724f4baa06,
         type: 2}
+    - target: {fileID: 8529244723697095348, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999804496973189969, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
 --- !u!1 &21976918
