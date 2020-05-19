@@ -291,6 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4599b8967379b5345afc6ea1e206fce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nl: {fileID: 0}
+  rl: {fileID: 0}
+  e: {fileID: 0}
+  td: {fileID: 0}
+  t: {fileID: 0}
+  options: {fileID: 0}
   endgame: {fileID: 7240019304810809812}
   menu: {fileID: 5336724124839147861}
   respawnPoint: {fileID: 0}
@@ -7147,6 +7153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4599b8967379b5345afc6ea1e206fce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nl: {fileID: 0}
+  rl: {fileID: 0}
+  e: {fileID: 0}
+  td: {fileID: 0}
+  t: {fileID: 0}
+  options: {fileID: 0}
   endgame: {fileID: 7240019304810809812}
   menu: {fileID: 5336724124839147861}
   respawnPoint: {fileID: 0}
@@ -15750,6 +15762,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4599b8967379b5345afc6ea1e206fce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nl: {fileID: 0}
+  rl: {fileID: 0}
+  e: {fileID: 0}
+  td: {fileID: 0}
+  t: {fileID: 0}
+  options: {fileID: 0}
   endgame: {fileID: 7240019304810809812}
   menu: {fileID: 0}
   respawnPoint: {fileID: 0}
@@ -19111,6 +19129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: achievement_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695682619765214712, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d52553b0f56e4e418e24f7e3b1d2e39, type: 3}
