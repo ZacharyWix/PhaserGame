@@ -4389,6 +4389,19 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1177302334}
+    - target: {fileID: 1123726890, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.744048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123726890, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.9386117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087684345954672980, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4649469803740372321, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_Name
@@ -4447,6 +4460,11 @@ PrefabInstance:
     - target: {fileID: 4649469803740372330, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319482589719697502, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
