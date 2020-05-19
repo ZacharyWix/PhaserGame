@@ -34,7 +34,9 @@ public class WorldMenu : MonoBehaviour
 
     public void updateIcons()
     {
-        for (int i = 1; i < complete.Count; i++)
+        print("Incomplete: " + incomplete[0].enabled); 
+        print("Complete: " + complete[0].enabled);
+        for (int i = 0; i < complete.Count; i++)
         {
             if (level.getLevelDeaths(i) != -1)
             {
