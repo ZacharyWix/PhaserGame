@@ -36,18 +36,18 @@ public class WorldMenu : MonoBehaviour
     {
         print("Incomplete: " + incomplete[0].enabled); 
         print("Complete: " + complete[0].enabled);
-        for (int i = 0; i < complete.Count; i++)
+        for (int i = 1; i < complete.Count; i++)
         {
             if (level.getLevelDeaths(i) != -1)
             {
                 print("incomplete");
-                incomplete[i].enabled = false;
-                complete[i].enabled = true;
+                incomplete[i - 1].enabled = false;
+                complete[i - 1].enabled = true;
             }
             else
             {
-                incomplete[i].enabled = true;
-                complete[i].enabled = false;
+                incomplete[i - 1].enabled = true;
+                complete[i -1].enabled = false;
             }
         }
     }

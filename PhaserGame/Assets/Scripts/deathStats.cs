@@ -118,14 +118,14 @@ public class deathStats : MonoBehaviour
         W3D9.text = getDecimalText(29);
         W3D10.text = getDecimalText(30);
         W1L.text = getWorldDeathText(1);
-       // W2L.text = getWorldDeathText(2);
-       // W3L.text = getWorldDeathText(3);
+        W2L.text = getWorldDeathText(2);
+        W3L.text = getWorldDeathText(3);
         W1T.text = getWorldTimeText(1);
-       // W2T.text = getWorldTimeText(2);
-       // W3T.text = getWorldTimeText(3);
+        W2T.text = getWorldTimeText(2);
+        W3T.text = getWorldTimeText(3);
         W1D.text = getWorldDecimalText(1);
-        //W2D.text = getWorldDecimalText(2);
-       // W3D.text = getWorldDecimalText(3);
+        W2D.text = getWorldDecimalText(2);
+        W3D.text = getWorldDecimalText(3);
     }
 
     public string getDeathText(int num) {
