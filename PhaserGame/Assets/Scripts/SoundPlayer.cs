@@ -38,9 +38,9 @@ public class SoundPlayer : MonoBehaviour
             case "checkpoint":
                 audioSrc.PlayOneShot(checkpointSound, 0.5f);
                 break;
-            case "land":
-                audioSrc.PlayOneShot(jumpLandSound, 0.5f);
-                break;
+            //case "land":
+                //audioSrc.PlayOneShot(jumpLandSound, 0.5f);
+                //break;
         }
     }
 }
