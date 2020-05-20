@@ -31,7 +31,6 @@ public class MainMenu : MonoBehaviour
          gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            print("level 0");
             Button[] buttons = canvas.GetComponentsInChildren<Button>(true);
             updateButtons(buttons, unlocked);
             deathStat.updateDeathStats();
@@ -125,7 +124,6 @@ public class MainMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        print("saving");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         //print(Application.persistentDataPath + "/gamesave.save");
@@ -161,10 +159,7 @@ public class MainMenu : MonoBehaviour
         }
         save.achievementSave = Achievement.getList();
         save.optionsSave.Add(options.getSFXVolume());
-        print("SFX: " + options.getSFXVolume());
-        print("Saved SFX: " + save.optionsSave[0]);
         save.optionsSave.Add(options.getMusicVolume());
-        print("Music: " + options.getMusicVolume());
         if (options.getIsOn())
         {
             save.optionsSave.Add(1f);
@@ -203,7 +198,6 @@ public class MainMenu : MonoBehaviour
             {
                 Achievement achievement = new Achievement(i);
             }
-            print("Loading SFX: " + save.optionsSave[0]);
             options.SetSoundEffectsVolume(save.optionsSave[0]);
             options.SetMusicVolume(save.optionsSave[1]);
             if (save.optionsSave[2] == 1)

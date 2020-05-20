@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Steamworks;
 
 public class AchievementMenu : MonoBehaviour
 {
     public Canvas canvas;
     List<Image> locked = new List<Image>();
     List<Image> unlocked = new List<Image>();
+    [Header("stat String Data")]
+    public string[] statStrings;
 
     // Start is called before the first frame update
     void Start()

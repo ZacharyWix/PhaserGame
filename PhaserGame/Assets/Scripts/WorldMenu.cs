@@ -34,13 +34,10 @@ public class WorldMenu : MonoBehaviour
 
     public void updateIcons()
     {
-        print("Incomplete: " + incomplete[0].enabled); 
-        print("Complete: " + complete[0].enabled);
         for (int i = 1; i < complete.Count + 1; i++)
         {
             if (level.getLevelDeaths(i) != -1)
             {
-                print("incomplete");
                 incomplete[i - 1].enabled = false;
                 complete[i - 1].enabled = true;
             }

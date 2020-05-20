@@ -24,7 +24,6 @@ public class level : MonoBehaviour
         deaths = d;
         active = a;
         time = t;
-        print("Level: " + l + ", Deaths: " + d + ", Active: " + a + ", Time: " + t);
         addLevel();
     }
 

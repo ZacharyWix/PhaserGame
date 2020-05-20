@@ -74,12 +74,23 @@ public class SteamAchievements : MonoBehaviour
 
     public void TestUnlock()
     {
-        print("test");
         //SteamAchievements.script.UnlockSteamAchievement("achievement_00");
     }
 
     public void resetAll()
     {
         SteamUserStats.ResetAllStats(true);
+    }
+
+    public void updateDeathStat(int deaths)
+    {
+        print("input: " + deaths);
+        int num;
+        print(SteamUserStats.RequestCurrentStats());
+        print(SteamUserStats.SetStat("Deaths", deaths));
+        print(SteamUserStats.StoreStats());
+        print(SteamUserStats.RequestUserStats(SteamUser.GetSteamID()));
+        print(SteamUserStats.GetStat("Deaths", out num));
+        print("Deaths from steam stats: " + num);
     }
 }

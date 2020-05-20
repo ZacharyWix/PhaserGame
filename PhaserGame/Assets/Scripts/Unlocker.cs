@@ -35,6 +35,7 @@ public class Unlocker : MonoBehaviour
 
     public void updateUnlocks()
     {
+        sa.updateDeathStat(level.getTotalDeaths());
         if (level.getLevelDeaths(1) != -1 && level.getLevelDeaths(1) < 5)
         {
             unlock(achievement_00);
@@ -54,7 +55,6 @@ public class Unlocker : MonoBehaviour
         char[] MyChar = { 'a', 'c', 'h', 'i', 'e', 'v', 'e', 'm', 'e', 'n', 't', '_' };
         string a = ach.name.TrimStart(MyChar);
         int x = Int32.Parse(a);
-        print(x);
         if(!Achievement.getUnlocked(x))
         {
             achievement = new Achievement(x);

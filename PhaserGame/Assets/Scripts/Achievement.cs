@@ -30,7 +30,6 @@ public class Achievement : MonoBehaviour
         {
             achievements.Add(this);
         }
-        print(achievements.Count);
     }
 
     public static bool getUnlocked(int num)
