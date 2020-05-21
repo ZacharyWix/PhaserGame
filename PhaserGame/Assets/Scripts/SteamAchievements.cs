@@ -13,6 +13,7 @@ public class SteamAchievements : MonoBehaviour
     private uint icon_height;
     private bool unlockTest = false;
 
+
     void Start()
     {
         
@@ -86,11 +87,10 @@ public class SteamAchievements : MonoBehaviour
     {
         print("input: " + deaths);
         int num;
-        print(SteamUserStats.RequestCurrentStats());
-        print(SteamUserStats.SetStat("Deaths", deaths));
-        print(SteamUserStats.StoreStats());
-        print(SteamUserStats.RequestUserStats(SteamUser.GetSteamID()));
-        print(SteamUserStats.GetStat("Deaths", out num));
-        print("Deaths from steam stats: " + num);
+        SteamUserStats.RequestCurrentStats();
+        SteamUserStats.SetStat("Deaths", deaths);
+        SteamUserStats.StoreStats();
+        SteamUserStats.RequestUserStats(SteamUser.GetSteamID());
+        SteamUserStats.GetStat("Deaths", out num);
     }
 }

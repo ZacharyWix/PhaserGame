@@ -17105,6 +17105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5234397116082466109}
   - component: {fileID: 934028961557118993}
+  - component: {fileID: 2682698172525388752}
   m_Layer: 0
   m_Name: SteamManager
   m_TagString: Untagged
@@ -17139,6 +17140,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steamActive: 1
+--- !u!114 &2682698172525388752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631641979753722379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217e493235910a9459bd39cb58849f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6675704205504507628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19437,15 +19450,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d52553b0f56e4e418e24f7e3b1d2e39, type: 3}
---- !u!1 &2087684345954672980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1695682619765214712, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
-    type: 3}
-  m_PrefabInstance: {fileID: 824360499862662316}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2137594502116273823 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1646898397922886195, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
+    type: 3}
+  m_PrefabInstance: {fileID: 824360499862662316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2087684345954672980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1695682619765214712, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
     type: 3}
   m_PrefabInstance: {fileID: 824360499862662316}
   m_PrefabAsset: {fileID: 0}

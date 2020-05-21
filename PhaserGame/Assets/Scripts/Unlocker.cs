@@ -36,6 +36,7 @@ public class Unlocker : MonoBehaviour
     public void updateUnlocks()
     {
         sa.updateDeathStat(level.getTotalDeaths());
+        SteamLeaderboards.UpdateScore(level.getTotalDeaths());
         if (level.getLevelDeaths(1) != -1 && level.getLevelDeaths(1) < 5)
         {
             unlock(achievement_00);
