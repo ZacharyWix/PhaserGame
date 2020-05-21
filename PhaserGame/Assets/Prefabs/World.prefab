@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 3.9769998
+  m_padding: 5.282
   m_canvasRenderer: {fileID: 7680603409455002014}
   m_TextComponent: {fileID: 5704702028537743277}
   m_materialReferenceIndex: 1
@@ -2114,7 +2114,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 200}
+  m_SizeDelta: {x: 250, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5704702029259119675
 CanvasRenderer:
