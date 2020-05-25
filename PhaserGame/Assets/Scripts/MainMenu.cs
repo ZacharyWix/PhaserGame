@@ -138,12 +138,9 @@ public class MainMenu : MonoBehaviour
     private saveGame CreateSaveGameObject()
     {
         saveGame save = new saveGame();
-        print("Saving: " + level.numLevels());
         for (int i = 0; i < level.numLevels(); i++)
         {
             List<float> temp = new List<float>();
-            print(i);
-            print("Num: " + level.getLevelNum(i));
             if (level.getActive(level.getLevelNum(i)))
             {
                 temp.Add(level.getLevelNum(i));

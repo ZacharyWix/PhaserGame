@@ -150,8 +150,7 @@ public class Respawn : MonoBehaviour
         {
             CreateLevel(true);
         }
-        print("Onquit: " + level.numLevels());
-        print("savubg");
+        print("Test: " + level.levels[10].levelNum);
         menu.SaveGame();
     }
 

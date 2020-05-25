@@ -44,6 +44,10 @@ public class level : MonoBehaviour
     }
     public void addLevel()
     {
+        print("Length: " + levels.Count);
+        print("Num: " + this.levelNum);
+        print("Deaths: " + this.deaths);
+        print("Active: " + this.active);
         int index = 0;
         bool exists = false;
         if (this.active == false)
@@ -95,6 +99,15 @@ public class level : MonoBehaviour
         if (!loading)
         {
             //SaveGame();
+        }
+        print("Length: " + levels.Count);
+        for (int i = 0; i < levels.Count; i++)
+        {
+            print("Index: " + i);
+            print(levels[i].levelNum);
+            print(levels[i].deaths);
+            print(levels[i].time);
+            print(levels[i].active);
         }
     }
 
