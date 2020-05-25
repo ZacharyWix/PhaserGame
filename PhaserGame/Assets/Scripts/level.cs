@@ -151,6 +151,16 @@ public class level : MonoBehaviour
         return totalDeaths;
     }
 
+    public static float getTotalTime()
+    {
+        float time = 0;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            time += levels[i].time;
+        }
+        return time;
+    }
+
     public static int getActiveDeaths(int l)
     {
         bool exists = false;

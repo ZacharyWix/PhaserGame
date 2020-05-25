@@ -5,6 +5,8 @@ using UnityEngine;
 public class Hover : MonoBehaviour
 {
     public GameObject popup;
+    Ray ray;
+    RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,7 @@ public class Hover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnMouseEnter()
     {

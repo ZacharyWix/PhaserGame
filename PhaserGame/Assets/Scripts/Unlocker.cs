@@ -8,7 +8,8 @@ public class Unlocker : MonoBehaviour
     public SteamAchievements sa;
     private Achievement achievement;
     private level lv;
-    public GameObject achievement_00, achievement_01, achievement_02, achievement_03;
+    public GameObject achievement_00, achievement_01, achievement_02, achievement_03, achievement_04, 
+    achievement_05, achievement_06, achievement_07, achievement_08, achievement_09, achievement_10, achievement_11;
     private bool showing = false;
     private float timer = 0;
     private GameObject active;
@@ -37,17 +38,61 @@ public class Unlocker : MonoBehaviour
     {
         sa.updateDeathStat(level.getTotalDeaths());
         SteamLeaderboards.UpdateScore(level.getTotalDeaths());
-        if (level.getLevelDeaths(1) != -1 && level.getLevelDeaths(1) < 5)
+        if (level.getLevelDeaths(10) != -1)
         {
             unlock(achievement_00);
         }
-        if (level.getLevelDeaths(2) != -1 && level.getLevelDeaths(2) < 5)
+        if (level.getLevelDeaths(10) != -1 && level.getWorldDeaths(1) < 25)
         {
             unlock(achievement_01);
         }
-        if (level.getLevelDeaths(3) != -1 && level.getLevelDeaths(3) < 5)
+        if (level.getLevelDeaths(10) != -1 && level.getWorldTime(1) < 1200)
         {
-            achievement = new Achievement(2);
+            unlock(achievement_02);
+        }
+        if (level.getLevelDeaths(10) != -1 && level.getWorldDeaths(1) == 0)
+        {
+            unlock(achievement_03);
+        }
+
+        if (level.getLevelDeaths(20) != -1)
+        {
+            unlock(achievement_04);
+        }
+        if (level.getLevelDeaths(20) != -1 && level.getWorldDeaths(2) < 25)
+        {
+            unlock(achievement_05);
+        }
+        if (level.getLevelDeaths(20) != -1 && level.getWorldTime(2) < 1200)
+        {
+            unlock(achievement_06);
+        }
+        if (level.getLevelDeaths(20) != -1 && level.getWorldDeaths(2) == 0)
+        {
+            unlock(achievement_07);
+        }
+
+        if (level.getLevelDeaths(30) != -1)
+        {
+            unlock(achievement_08);
+        }
+        if (level.getLevelDeaths(30) != -1 && level.getWorldDeaths(3) < 25)
+        {
+            unlock(achievement_09);
+        }
+        if (level.getLevelDeaths(30) != -1 && level.getWorldTime(3) < 1200)
+        {
+            unlock(achievement_10);
+        }
+        if (level.getLevelDeaths(30) != -1 && level.getWorldDeaths(3) == 0)
+        {
+            unlock(achievement_11);
+        }
+
+
+        if (level.getLevelDeaths(30) != -1 && level.getTotalDeaths() == 5)
+        {
+            //unlock(achievement_);
         }
     }
 

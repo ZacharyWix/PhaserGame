@@ -38,6 +38,8 @@ public class MainMenu : MonoBehaviour
         }
         SteamLeaderboards.Init();
     }
+
+
     public void PlayGame ()
     {
         deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
@@ -125,6 +127,7 @@ public class MainMenu : MonoBehaviour
 
     public void SaveGame()
     {
+        print("saving");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         //print(Application.persistentDataPath + "/gamesave.save");
@@ -135,11 +138,12 @@ public class MainMenu : MonoBehaviour
     private saveGame CreateSaveGameObject()
     {
         saveGame save = new saveGame();
+        print("Saving: " + level.numLevels());
         for (int i = 0; i < level.numLevels(); i++)
         {
             List<float> temp = new List<float>();
-            
-            
+            print(i);
+            print("Num: " + level.getLevelNum(i));
             if (level.getActive(level.getLevelNum(i)))
             {
                 temp.Add(level.getLevelNum(i));

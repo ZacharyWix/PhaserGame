@@ -140,6 +140,21 @@ public class Respawn : MonoBehaviour
         }
     }
 
+    void OnApplicationQuit()
+    {
+        if (endgame.gameObject.activeSelf)
+        {
+            CreateLevel(false);
+        }
+        else
+        {
+            CreateLevel(true);
+        }
+        print("Onquit: " + level.numLevels());
+        print("savubg");
+        menu.SaveGame();
+    }
+
     //respawns the player at their current respawnPoint
     private void spawn()
     {
