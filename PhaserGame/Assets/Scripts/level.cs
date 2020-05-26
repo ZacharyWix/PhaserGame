@@ -44,10 +44,6 @@ public class level : MonoBehaviour
     }
     public void addLevel()
     {
-        print("Length: " + levels.Count);
-        print("Num: " + this.levelNum);
-        print("Deaths: " + this.deaths);
-        print("Active: " + this.active);
         int index = 0;
         bool exists = false;
         if (this.active == false)
@@ -100,20 +96,15 @@ public class level : MonoBehaviour
         {
             //SaveGame();
         }
-        print("Length: " + levels.Count);
-        for (int i = 0; i < levels.Count; i++)
-        {
-            print("Index: " + i);
-            print(levels[i].levelNum);
-            print(levels[i].deaths);
-            print(levels[i].time);
-            print(levels[i].active);
-        }
     }
 
     public static int getLevelNum(int num)
     {
-        return levels[num].levelNum;
+        if (num < levels.Count)
+        {
+            return levels[num].levelNum;
+        }
+        else return -1;
     }
 
     public static bool getActive(int num)
@@ -128,6 +119,10 @@ public class level : MonoBehaviour
         return false;
     }
 
+    public static bool getActiveIndex(int num)
+    {
+        return levels[num].active;
+    }
     public static int getLevelDeaths(int num)
     {
         int numDeaths = -1;

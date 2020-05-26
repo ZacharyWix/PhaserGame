@@ -127,7 +127,7 @@ public class MainMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        print("saving");
+        print("zero");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         //print(Application.persistentDataPath + "/gamesave.save");
@@ -137,11 +137,12 @@ public class MainMenu : MonoBehaviour
     }
     private saveGame CreateSaveGameObject()
     {
+        print("one");
         saveGame save = new saveGame();
         for (int i = 0; i < level.numLevels(); i++)
         {
             List<float> temp = new List<float>();
-            if (level.getActive(level.getLevelNum(i)))
+            if (level.getActiveIndex(i))
             {
                 temp.Add(level.getLevelNum(i));
                 temp.Add(level.getActiveDeaths(level.getLevelNum(i)));
@@ -156,7 +157,6 @@ public class MainMenu : MonoBehaviour
                 temp.Add(0);
                 temp.Add(level.getLevelTime(level.getLevelNum(i)));
             }
-            
             save.levelSave.Add(temp);
         }
         save.achievementSave = Achievement.getList();

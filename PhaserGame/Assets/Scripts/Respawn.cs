@@ -150,7 +150,6 @@ public class Respawn : MonoBehaviour
         {
             CreateLevel(true);
         }
-        print("Test: " + level.levels[10].levelNum);
         menu.SaveGame();
     }
 
