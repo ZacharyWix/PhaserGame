@@ -29,6 +29,7 @@ public class Respawn : MonoBehaviour
     public GameObject next;
     public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
+    private static bool finished = false;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -112,6 +113,7 @@ public class Respawn : MonoBehaviour
             unlocker.updateUnlocks();
             deathCount.updateDeathCounter();
             menu.SaveGame();
+            //finished = true;
             if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
             {
                 nl.SetActive(false);
@@ -138,6 +140,16 @@ public class Respawn : MonoBehaviour
             respawnPoint = collision.transform;
             name = collision.gameObject.name;
         }
+    }
+
+    public static void setFinished(bool fin)
+    {
+        finished = fin;
+    }
+
+    public static bool getFinished()
+    {
+        return finished;
     }
 
     void OnApplicationQuit()

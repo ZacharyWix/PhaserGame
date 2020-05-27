@@ -7,6 +7,7 @@ public class pause : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public GameObject endMenu;
     public EventSystem eventSys;
     private bool isPaused = false;
     private move2D moveScript;
@@ -27,6 +28,7 @@ public class pause : MonoBehaviour
         Time.timeScale = 1;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+
             if (!optionsMenu.gameObject.activeSelf)
             {
                 togglePause();
@@ -56,10 +58,10 @@ public class pause : MonoBehaviour
         }
         if (isResuming)
         {
-                pauseMenu.SetActive(false);
-                rb.WakeUp();
-                togglePause();
-                isResuming = false;
+            pauseMenu.SetActive(false);
+            rb.WakeUp();
+            togglePause();
+            isResuming = false;
         }
     }
 

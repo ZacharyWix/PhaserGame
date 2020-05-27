@@ -45,6 +45,7 @@ public class MainMenu : MonoBehaviour
         deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
         gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //Respawn.setFinished(false);
     }
 
     public void Replay()
