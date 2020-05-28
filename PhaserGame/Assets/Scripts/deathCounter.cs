@@ -92,7 +92,7 @@ public class deathCounter : MonoBehaviour
         {
             d = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex);
         }
-        totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
+        //totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
         lowestDeathsText1.text = lowestDeathsText.text;
         totalDeathsText1.text = totalDeathsText.text;
         string number = SceneManager.GetActiveScene().buildIndex.ToString();
