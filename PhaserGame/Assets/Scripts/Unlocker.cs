@@ -36,8 +36,11 @@ public class Unlocker : MonoBehaviour
 
     public void updateUnlocks()
     {
-        sa.updateDeathStat(level.getTotalDeaths());
-        SteamLeaderboards.UpdateScore(level.getTotalDeaths());
+        if (SteamManager.getActive())
+        {
+            sa.updateDeathStat(level.getTotalDeaths());
+            SteamLeaderboards.UpdateScore(level.getTotalDeaths());
+        }
         if (level.getLevelDeaths(10) != -1)
         {
             unlock(achievement_00);
@@ -101,10 +104,13 @@ public class Unlocker : MonoBehaviour
         char[] MyChar = { 'a', 'c', 'h', 'i', 'e', 'v', 'e', 'm', 'e', 'n', 't', '_' };
         string a = ach.name.TrimStart(MyChar);
         int x = Int32.Parse(a);
-        if(!Achievement.getUnlocked(x))
+        if (!Achievement.getUnlocked(x))
         {
             achievement = new Achievement(x);
-            sa.UnlockSteamAchievement(ach.name);
+            if (SteamManager.getActive())
+            {
+                sa.UnlockSteamAchievement(ach.name);
+            }
             ach.SetActive(true);
             active = ach;
             showing = true;

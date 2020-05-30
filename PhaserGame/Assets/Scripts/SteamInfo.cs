@@ -13,8 +13,11 @@ public class SteamInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        profile.text = SteamFriends.GetPersonaName();
-        StartCoroutine(_FetchAvatar());
+        if (SteamManager.getActive())
+        {
+            profile.text = SteamFriends.GetPersonaName();
+            StartCoroutine(_FetchAvatar());
+        }
     }
 
     // Update is called once per frame

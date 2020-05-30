@@ -36,7 +36,10 @@ public class MainMenu : MonoBehaviour
             deathStat.updateDeathStats();
             achievementMenu.updateIcons();
         }
-        SteamLeaderboards.Init();
+        if (SteamManager.getActive())
+        {
+            SteamLeaderboards.Init();
+        }
     }
 
 

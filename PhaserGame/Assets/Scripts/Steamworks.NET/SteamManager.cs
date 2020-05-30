@@ -21,7 +21,7 @@ using Steamworks;
 //
 [DisallowMultipleComponent]
 public class SteamManager : MonoBehaviour {
-    public bool steamActive;
+    public static bool steamActive = true;
 	protected static SteamManager s_instance;
 	protected static SteamManager Instance {
 		get {
@@ -170,6 +170,10 @@ public class SteamManager : MonoBehaviour {
 		// Run Steam client callbacks
 		SteamAPI.RunCallbacks();
 	}
+    public static bool getActive()
+    {
+        return steamActive;
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

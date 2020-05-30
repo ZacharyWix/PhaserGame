@@ -13673,7 +13673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steamActive: 1
 --- !u!4 &1338560211
 Transform:
   m_ObjectHideFlags: 0

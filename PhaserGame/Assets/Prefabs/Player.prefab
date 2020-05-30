@@ -16011,6 +16011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94989a01de985444c9fa7d6e4ee64af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sm: {fileID: 934028961557118993}
   deathStat: {fileID: 0}
   deathCount: {fileID: 5234937416589037907}
   achievementMenu: {fileID: 0}
@@ -17161,7 +17162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steamActive: 1
 --- !u!114 &2682698172525388752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18893,6 +18893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae4effa3fd2f83469cb5f71612eadf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sm: {fileID: 934028961557118993}
   sa: {fileID: 4119383540615739125}
   achievement_00: {fileID: 8319482589719697502}
   achievement_01: {fileID: 5137703661943613945}
