@@ -9,10 +9,13 @@ public class Unlocker : MonoBehaviour
     private Achievement achievement;
     private level lv;
     public GameObject achievement_00, achievement_01, achievement_02, achievement_03, achievement_04, 
-    achievement_05, achievement_06, achievement_07, achievement_08, achievement_09, achievement_10, achievement_11;
+    achievement_05, achievement_06, achievement_07, achievement_08, achievement_09, achievement_10, achievement_11,
+    achievement_12, achievement_13, achievement_14, achievement_15;
     private bool showing = false;
     private float timer = 0;
     private GameObject active;
+    private bool mystery = false;
+    private List<GameObject> popups = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,7 @@ public class Unlocker : MonoBehaviour
             sa.updateDeathStat(level.getTotalDeaths());
             SteamLeaderboards.UpdateScore(level.getTotalDeaths());
         }
-        if (level.getLevelDeaths(10) != -1)
+        if (level.getLevelDeaths(1) != -1)
         {
             unlock(achievement_00);
         }
@@ -49,7 +52,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_01);
         }
-        if (level.getLevelDeaths(10) != -1 && level.getWorldTime(1) < 1200)
+        if (level.getLevelDeaths(10) != -1 && level.getWorldTime(1) < 200)
         {
             unlock(achievement_02);
         }
@@ -66,7 +69,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_05);
         }
-        if (level.getLevelDeaths(20) != -1 && level.getWorldTime(2) < 1200)
+        if (level.getLevelDeaths(20) != -1 && level.getWorldTime(2) < 300)
         {
             unlock(achievement_06);
         }
@@ -83,7 +86,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_09);
         }
-        if (level.getLevelDeaths(30) != -1 && level.getWorldTime(3) < 1200)
+        if (level.getLevelDeaths(30) != -1 && level.getWorldTime(3) < 400)
         {
             unlock(achievement_10);
         }
@@ -91,11 +94,21 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_11);
         }
-
-
-        if (level.getLevelDeaths(30) != -1 && level.getTotalDeaths() == 5)
+        if (level.getLevelDeaths(30) != -1 && level.getTotalTime() < 1080)
         {
-            //unlock(achievement_);
+            unlock(achievement_12);
+        }
+        if (mystery)
+        {
+            unlock(achievement_13);
+        }
+        if (level.getLevelDeaths(30) != -1 && level.getTotalDeaths() == 0)
+        {
+            unlock(achievement_14);
+        }
+        if (Achievement.getLength() == 15)
+        {
+            unlock(achievement_15);
         }
     }
 
