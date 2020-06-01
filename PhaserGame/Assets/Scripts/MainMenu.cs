@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
+using Steamworks;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,11 +19,17 @@ public class MainMenu : MonoBehaviour
     private bool unlocked = false;
     public SteamAchievements sa;
     private static bool loaded = false;
+    private string user = "";
 
 
 
     private void Start()
     {
+        if (SteamManager.getActive())
+        {
+            user = "/" + SteamFriends.GetPersonaName();
+        }
+        print(user);
         if (!loaded)
         {
             LoadGame();
@@ -79,7 +86,7 @@ public class MainMenu : MonoBehaviour
     }
     public void deleteSave()
     {
-        File.Delete(Application.persistentDataPath + "/gamesave.save");
+        File.Delete(Application.persistentDataPath + user + "/gamesave.save");
         level.clear();
         //sa.DEBUG_LockSteamAchievement("achievement_00");
         sa.resetAll();
@@ -131,17 +138,16 @@ public class MainMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        print("zero");
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
-        //print(Application.persistentDataPath + "/gamesave.save");
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        print(Application.persistentDataPath + user + "/gamesave.save");
+        System.IO.Directory.CreateDirectory(Application.persistentDataPath + user);
+        FileStream file = File.Create(Application.persistentDataPath + user + "/gamesave.save");
         bf.Serialize(file, save);
         file.Close();
     }
     private saveGame CreateSaveGameObject()
     {
-        print("one");
         saveGame save = new saveGame();
         for (int i = 0; i < level.numLevels(); i++)
         {
@@ -179,10 +185,10 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        if (File.Exists(Application.persistentDataPath + user + "/gamesave.save"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + user + "/gamesave.save", FileMode.Open);
             saveGame save = (saveGame)bf.Deserialize(file);
             file.Close();
 

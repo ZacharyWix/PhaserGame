@@ -5,7 +5,7 @@ using System.Threading;
 
 public class SteamLeaderboards : MonoBehaviour
 {
-    private const string s_leaderboardName = "Deaths";
+    private const string s_leaderboardName = "Time";
     private const ELeaderboardUploadScoreMethod s_leaderboardMethod = ELeaderboardUploadScoreMethod.k_ELeaderboardUploadScoreMethodKeepBest;
 
     private static SteamLeaderboard_t s_currentLeaderboard;
@@ -14,7 +14,7 @@ public class SteamLeaderboards : MonoBehaviour
     private static CallResult<LeaderboardScoreUploaded_t> m_uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
 
 
-    public static void UpdateScore(int score)
+    public static void UpdateScore(float score)
     {
         if (!s_initialized)
         {
@@ -23,7 +23,7 @@ public class SteamLeaderboards : MonoBehaviour
         else
         {
             UnityEngine.Debug.Log("uploading score(" + score + ") to steam leaderboard(" + s_leaderboardName + ")");
-            SteamAPICall_t hSteamAPICall = SteamUserStats.UploadLeaderboardScore(s_currentLeaderboard, s_leaderboardMethod, score, null, 0);
+            SteamAPICall_t hSteamAPICall = SteamUserStats.UploadLeaderboardScore(s_currentLeaderboard, s_leaderboardMethod, (int)score, null, 0);
             m_uploadResult.Set(hSteamAPICall, OnLeaderboardUploadResult);
         }
     }

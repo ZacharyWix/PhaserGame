@@ -15,6 +15,10 @@ public class Unlocker : MonoBehaviour
     private float timer = 0;
     private GameObject active;
     private bool mystery = false;
+    private int x = 0;
+    private float speed = 0.1f;
+    private float pos = -100.0f;
+    private bool up = true;
     private List<GameObject> popups = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -25,15 +29,38 @@ public class Unlocker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (showing)
+        if (x < popups.Count)
         {
-            timer += 0.02f;
-            if(timer > 5)
+            active = popups[x];
+            if (pos < 125 && up)
+            {
+                pos += 2f;
+                active.transform.position = new Vector2(960, pos);
+            }
+            else if (pos >= 125 && timer < 5 && up)
+            {
+                timer += 0.02f;
+            }
+            else if (timer >= 5)
             {
                 timer = 0;
-                showing = false;
-                active.SetActive(false);
+                up = false;
             }
+            else if(pos > -100 && !up)
+            {
+                pos -= 2f;
+                active.transform.position = new Vector2(960, pos);
+            }
+            else if(pos <= -100 && !up)
+            {
+                x += 1;
+                up = true;
+            }
+        }
+        else
+        {
+            x = 0;
+            popups.Clear();
         }
     }
 
@@ -41,18 +68,20 @@ public class Unlocker : MonoBehaviour
     {
         if (SteamManager.getActive())
         {
+            sa.updateLevelsStat(level.getMaxLevel(false));
             sa.updateDeathStat(level.getTotalDeaths());
-            SteamLeaderboards.UpdateScore(level.getTotalDeaths());
+            sa.updateTimeStat(level.getTotalTime());
+            SteamLeaderboards.UpdateScore(level.getTotalTime());
         }
-        if (level.getLevelDeaths(1) != -1)
+        if (level.getLevelDeaths(10) != -1)
         {
             unlock(achievement_00);
         }
-        if (level.getLevelDeaths(10) != -1 && level.getWorldDeaths(1) < 25)
+        if (level.getLevelDeaths(10) != -1 && level.getTotalDeaths() < 25)
         {
             unlock(achievement_01);
         }
-        if (level.getLevelDeaths(10) != -1 && level.getWorldTime(1) < 200)
+        if (level.getLevelDeaths(10) != -1  && level.getWorldTime(1) < 195)
         {
             unlock(achievement_02);
         }
@@ -69,7 +98,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_05);
         }
-        if (level.getLevelDeaths(20) != -1 && level.getWorldTime(2) < 300)
+        if (level.getLevelDeaths(20) != -1 && level.getWorldTime(2) < 240)
         {
             unlock(achievement_06);
         }
@@ -86,7 +115,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_09);
         }
-        if (level.getLevelDeaths(30) != -1 && level.getWorldTime(3) < 400)
+        if (level.getLevelDeaths(30) != -1 && level.getWorldTime(3) < 390)
         {
             unlock(achievement_10);
         }
@@ -94,7 +123,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_11);
         }
-        if (level.getLevelDeaths(30) != -1 && level.getTotalTime() < 1080)
+        if (level.getLevelDeaths(30) != -1 && level.getTotalTime() < 780)
         {
             unlock(achievement_12);
         }
@@ -124,8 +153,8 @@ public class Unlocker : MonoBehaviour
             {
                 sa.UnlockSteamAchievement(ach.name);
             }
+            popups.Add(ach);
             ach.SetActive(true);
-            active = ach;
             showing = true;
         }
     }

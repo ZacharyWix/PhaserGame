@@ -85,12 +85,31 @@ public class SteamAchievements : MonoBehaviour
 
     public void updateDeathStat(int deaths)
     {
-        print("input: " + deaths);
         int num;
         SteamUserStats.RequestCurrentStats();
         SteamUserStats.SetStat("Deaths", deaths);
         SteamUserStats.StoreStats();
         SteamUserStats.RequestUserStats(SteamUser.GetSteamID());
         SteamUserStats.GetStat("Deaths", out num);
+    }
+
+    public void updateTimeStat(float time)
+    {
+        int num;
+        SteamUserStats.RequestCurrentStats();
+        SteamUserStats.SetStat("Time", (int)time);
+        SteamUserStats.StoreStats();
+        SteamUserStats.RequestUserStats(SteamUser.GetSteamID());
+        SteamUserStats.GetStat("Time", out num);
+    }
+
+    public void updateLevelsStat(int lev)
+    {
+        int num;
+        SteamUserStats.RequestCurrentStats();
+        SteamUserStats.SetStat("Levels", lev);
+        SteamUserStats.StoreStats();
+        SteamUserStats.RequestUserStats(SteamUser.GetSteamID());
+        SteamUserStats.GetStat("Levels", out num);
     }
 }

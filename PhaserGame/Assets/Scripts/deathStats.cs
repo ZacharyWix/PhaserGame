@@ -20,6 +20,7 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1L, W2L, W3L;
     public TextMeshProUGUI W1T, W2T, W3T;
     public TextMeshProUGUI W1D, W2D, W3D;
+    public TextMeshProUGUI TD, TT, TTD, Levels;
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +127,11 @@ public class deathStats : MonoBehaviour
         W1D.text = getWorldDecimalText(1);
         W2D.text = getWorldDecimalText(2);
         W3D.text = getWorldDecimalText(3);
+        TD.text = level.getTotalDeaths().ToString();
+        TT.text = getTotalTime();
+        TTD.text = getTotalDecimals();
+        Levels.text = level.getMaxLevel(false).ToString() + "/30";
+        
     }
 
     public string getDeathText(int num) {
@@ -164,6 +170,21 @@ public class deathStats : MonoBehaviour
         {
             return seconds;
         }
+    }
+
+    public string getTotalTime()
+    {
+        float t = level.getTotalTime();
+        string temp = getTimeHelper(t);
+        if (temp == "X")
+        {
+            temp = "0:00";
+        }
+        return temp;
+    }
+    public string getTotalDecimals()
+    {
+        return getDecimalHelper(level.getTotalTime());
     }
 
     public string getTimeHelper(float num)
