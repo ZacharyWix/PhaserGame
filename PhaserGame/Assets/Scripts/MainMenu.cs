@@ -28,8 +28,9 @@ public class MainMenu : MonoBehaviour
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();
+            SteamLeaderboards.DownloadLeaderBoard();
+            
         }
-        print(user);
         if (!loaded)
         {
             LoadGame();
@@ -65,6 +66,11 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(int l)
     {
+        int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
+        for (int i = 0; i < hi.Length; i++)
+        {
+            print("hi: " + hi[i]);
+        }
         gm.setDeathCount(level.getActiveDeaths(l));
         deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
@@ -140,7 +146,6 @@ public class MainMenu : MonoBehaviour
     {
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
-        print(Application.persistentDataPath + user + "/gamesave.save");
         System.IO.Directory.CreateDirectory(Application.persistentDataPath + user);
         FileStream file = File.Create(Application.persistentDataPath + user + "/gamesave.save");
         bf.Serialize(file, save);

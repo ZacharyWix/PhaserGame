@@ -7,18 +7,22 @@ public class SteamLeaderboards : MonoBehaviour
 {
     private const string s_leaderboardName = "Time";
     private const ELeaderboardUploadScoreMethod s_leaderboardMethod = ELeaderboardUploadScoreMethod.k_ELeaderboardUploadScoreMethodKeepBest;
+    private const ELeaderboardDataRequest s_leaderboardRequest = ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal;
 
     private static SteamLeaderboard_t s_currentLeaderboard;
+    private static SteamLeaderboardEntries_t s_leaderboardEntries;
+    private static LeaderboardEntry_t s_leaderboard;
     private static bool s_initialized = false;
     private static CallResult<LeaderboardFindResult_t> m_findResult = new CallResult<LeaderboardFindResult_t>();
     private static CallResult<LeaderboardScoreUploaded_t> m_uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
+    private static CallResult<LeaderboardScoresDownloaded_t> m_downloadResult = new CallResult<LeaderboardScoresDownloaded_t>();
 
 
     public static void UpdateScore(float score)
     {
         if (!s_initialized)
         {
-            UnityEngine.Debug.Log("Can't upload to the leaderboard because isn't loadded yet");
+            UnityEngine.Debug.Log("Can't upload to the leaderboard because isn't loaded yet");
         }
         else
         {
@@ -28,12 +32,30 @@ public class SteamLeaderboards : MonoBehaviour
         }
     }
 
+    public static void DownloadLeaderBoard()
+    {
+        SteamAPICall_t hSteamAPICall = SteamUserStats.DownloadLeaderboardEntries(s_currentLeaderboard, s_leaderboardRequest, 0, 25);
+        m_downloadResult.Set(hSteamAPICall, OnLeaderBoardDownloadResult);
+    }
+
+    public static int[] getLeaderBoardIndex(int index)
+    {
+        int[] details = new int[5];
+        print(SteamUserStats.GetDownloadedLeaderboardEntry(s_leaderboardEntries, index, out s_leaderboard, details, 5));
+        print("Leaderboard Stuff");
+        print(s_leaderboard.m_steamIDUser);
+        print(s_leaderboard.m_nGlobalRank);
+        print(s_leaderboard.m_nScore);
+        print(s_leaderboard.m_cDetails);
+        print(s_leaderboard.m_hUGC);
+        return details;
+    }
+
     public static void Init()
     {
         SteamAPICall_t hSteamAPICall = SteamUserStats.FindLeaderboard(s_leaderboardName);
         m_findResult.Set(hSteamAPICall, OnLeaderboardFindResult);
         InitTimer();
- 
     }
 
     static private void OnLeaderboardFindResult(LeaderboardFindResult_t pCallback, bool failure)
@@ -48,7 +70,12 @@ public class SteamLeaderboards : MonoBehaviour
         UnityEngine.Debug.Log("STEAM LEADERBOARDS: failure - " + failure + " Completed - " + pCallback.m_bSuccess + " NewScore: " + pCallback.m_nGlobalRankNew + " Score " + pCallback.m_nScore + " HasChanged - " + pCallback.m_bScoreChanged);
     }
 
-
+    static private void OnLeaderBoardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
+    {
+        print("hits");
+        s_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
+        print("Size: " + pCallback.m_cEntryCount);
+    }
 
     private static Timer timer1;
     public static void InitTimer()

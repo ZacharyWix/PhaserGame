@@ -73,7 +73,7 @@ public class Unlocker : MonoBehaviour
             sa.updateTimeStat(level.getTotalTime());
             SteamLeaderboards.UpdateScore(level.getTotalTime());
         }
-        if (level.getLevelDeaths(10) != -1)
+        if (level.getLevelDeaths(1) != -1)
         {
             unlock(achievement_00);
         }
