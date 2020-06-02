@@ -40,7 +40,7 @@ public class Unlocker : MonoBehaviour
             }
             else if (pos >= 125 && timer < 5 && up)
             {
-                timer += 0.02f;
+                timer += 0.01f;
             }
             else if (timer >= 5)
             {
