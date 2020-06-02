@@ -20031,7 +20031,7 @@ PrefabInstance:
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
       propertyPath: m_text
-      value: Secret Sleuth
+      value: '"This game needs a gun"'
       objectReference: {fileID: 0}
     - target: {fileID: 1646898397922886195, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
