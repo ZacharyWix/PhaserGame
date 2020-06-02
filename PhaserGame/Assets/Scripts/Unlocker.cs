@@ -20,6 +20,7 @@ public class Unlocker : MonoBehaviour
     private float pos = -100.0f;
     private bool up = true;
     private List<GameObject> popups = new List<GameObject>();
+    int width = Screen.width / 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class Unlocker : MonoBehaviour
             if (pos < 125 && up)
             {
                 pos += 2f;
-                active.transform.position = new Vector2(960, pos);
+                active.transform.position = new Vector2(width, pos);
             }
             else if (pos >= 125 && timer < 5 && up)
             {
@@ -49,7 +50,7 @@ public class Unlocker : MonoBehaviour
             else if(pos > -100 && !up)
             {
                 pos -= 2f;
-                active.transform.position = new Vector2(960, pos);
+                active.transform.position = new Vector2(width, pos);
             }
             else if(pos <= -100 && !up)
             {
