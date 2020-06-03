@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject nl, rl, e, td, t;
+    public GameObject nl, rl, e, ld, td, t;
     public OptionsMenu options;
     public GameObject endgame;
     public MainMenu menu;
@@ -29,7 +29,6 @@ public class Respawn : MonoBehaviour
     public GameObject next;
     public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
-    private static bool finished = false;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -113,9 +112,10 @@ public class Respawn : MonoBehaviour
             unlocker.updateUnlocks();
             deathCount.updateDeathCounter();
             menu.SaveGame();
-            //finished = true;
             if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
             {
+                endgame.gameObject.SetActive(true);
+                ld.SetActive(false);
                 nl.SetActive(false);
                 rl.SetActive(false);
                 e.SetActive(false);
@@ -140,16 +140,6 @@ public class Respawn : MonoBehaviour
             respawnPoint = collision.transform;
             name = collision.gameObject.name;
         }
-    }
-
-    public static void setFinished(bool fin)
-    {
-        finished = fin;
-    }
-
-    public static bool getFinished()
-    {
-        return finished;
     }
 
     void OnApplicationQuit()

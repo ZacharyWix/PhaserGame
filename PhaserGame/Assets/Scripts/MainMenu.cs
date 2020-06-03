@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public SteamAchievements sa;
     private static bool loaded = false;
     private string user = "";
+    private static bool finished = false;
 
 
 
@@ -78,6 +79,7 @@ public class MainMenu : MonoBehaviour
         {
             SaveGame();
         }
+        finished = false;
     }
 
     public void Exit()

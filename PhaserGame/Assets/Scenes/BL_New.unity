@@ -341,6 +341,10 @@ PrefabInstance:
       propertyPath: t
       value: 
       objectReference: {fileID: 891784585}
+    - target: {fileID: 393268324, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
+      propertyPath: ld
+      value: 
+      objectReference: {fileID: 542340392}
     - target: {fileID: 507517144, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.6501021
@@ -2369,7 +2373,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1933630788}
+      - m_Target: {fileID: 542340392}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -5358,6 +5362,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3998579776027436592, guid: a4b16dfe41988b24d8879149b2017d5b,
     type: 3}
   m_PrefabInstance: {fileID: 602430659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &542340392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2280112187350688036, guid: 6221b2949f86a6d4db86d0a515e47771,
+    type: 3}
+  m_PrefabInstance: {fileID: 13962210}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &552830820 stripped
 Transform:
@@ -16673,12 +16683,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3998579776027436592, guid: a4b16dfe41988b24d8879149b2017d5b,
     type: 3}
   m_PrefabInstance: {fileID: 146284346}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1933630788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7240019304810809812, guid: 6221b2949f86a6d4db86d0a515e47771,
-    type: 3}
-  m_PrefabInstance: {fileID: 13962210}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946513839
 GameObject:

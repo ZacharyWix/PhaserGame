@@ -26,7 +26,7 @@ public class pause : MonoBehaviour
     {
         UnityEngine.Cursor.visible = false;
         Time.timeScale = 1;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !endMenu.gameObject.activeSelf)
         {
 
             if (!optionsMenu.gameObject.activeSelf)
