@@ -10,7 +10,7 @@ public class LeaderboardMenu : MonoBehaviour
         int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
         for (int i = 0; i < hi.Length; i++)
         {
-            print("hi: " + hi[i]);
+            //print("hi: " + hi[i]);
         }
     }
 
