@@ -107,11 +107,14 @@ public class Respawn : MonoBehaviour
         {
             pauseScript.togglePause();
             soundPlay.PlaySound("win");
-            level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
-            CreateLevel(false);
-            unlocker.updateUnlocks();
-            deathCount.updateDeathCounter();
-            menu.SaveGame();
+            if (!MainMenu.getPractice())
+            {
+                level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
+                CreateLevel(false);
+                unlocker.updateUnlocks();
+                deathCount.updateDeathCounter();
+                menu.SaveGame();
+            }
             if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
             {
                 endgame.gameObject.SetActive(true);
@@ -165,9 +168,12 @@ public class Respawn : MonoBehaviour
 
     public void CreateLevel(bool active)
     {
-        float time = deathCount.getTime();
-        time = (float)Math.Round(time * 100f) / 100f;
-        lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active, time);
+        if (!MainMenu.getPractice())
+        {
+            float time = deathCount.getTime();
+            time = (float)Math.Round(time * 100f) / 100f;
+            lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active, time);
+        }
     }
     public void resetDeaths()
     {

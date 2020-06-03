@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     public SteamAchievements sa;
     private static bool loaded = false;
     private string user = "";
-    private static bool finished = false;
+    private static bool practice = false;
 
 
 
@@ -79,7 +79,6 @@ public class MainMenu : MonoBehaviour
         {
             SaveGame();
         }
-        finished = false;
     }
 
     public void Exit()
@@ -232,5 +231,16 @@ public class MainMenu : MonoBehaviour
         {
             Debug.Log("No game saved!");
         }
+    }
+
+    public void setPractice(bool prac)
+    {
+        practice = prac;
+        print(practice);
+    }
+
+    public static bool getPractice()
+    {
+        return practice;
     }
 }
