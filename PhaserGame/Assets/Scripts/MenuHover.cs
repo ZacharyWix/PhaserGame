@@ -17,11 +17,12 @@ public class MenuHover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnMouseEnter()
     {
+        print("hits");
         m_EventSystem.SetSelectedGameObject(button);
     }
 }

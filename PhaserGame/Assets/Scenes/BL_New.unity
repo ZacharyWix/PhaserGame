@@ -551,6 +551,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5336724123518620138, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5336724124009372916, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -615,6 +620,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626271288993543212, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626271288993543212, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626271288993543212, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7240019304810809812, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
