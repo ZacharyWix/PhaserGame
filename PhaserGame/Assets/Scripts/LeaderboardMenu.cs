@@ -7,8 +7,8 @@ public class LeaderboardMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
-        for (int i = 0; i < hi.Length; i++)
+        //int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
+        //for (int i = 0; i < hi.Length; i++)
         {
             //print("hi: " + hi[i]);
         }

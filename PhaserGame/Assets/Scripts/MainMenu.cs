@@ -67,11 +67,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(int l)
     {
-        int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
-        for (int i = 0; i < hi.Length; i++)
-        {
-            print("hi: " + hi[i]);
-        }
+        //int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
         gm.setDeathCount(level.getActiveDeaths(l));
         deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
