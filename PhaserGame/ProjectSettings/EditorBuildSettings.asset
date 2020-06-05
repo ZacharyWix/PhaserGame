@@ -84,8 +84,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Joe1.unity
     guid: b982313aa3e49604f833ac4018664b7a
   - enabled: 1
+    path: Assets/Scenes/James_4(Medium).unity
+    guid: d3a15c3ca314fd741959e2f06c75c796
+  - enabled: 1
+    path: Assets/Scenes/James_3(Medium-Hard).unity
+    guid: 0a4667d223a3c244bb5b975011c7d39b
+  - enabled: 1
     path: Assets/Scenes/James_2(Medium).unity
     guid: 49237e2688bc68343b6fcaa5e6fc02b0
+  - enabled: 1
+    path: Assets/Scenes/Joe3.unity
+    guid: 439e8288c162952488265ba142e35450
   - enabled: 1
     path: Assets/Scenes/James_New.unity
     guid: a718568e0925332439008cecae5d90e0
@@ -95,12 +104,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VV_2_4.unity
     guid: a6ac920bfa446d947977ca2d0ea37bd9
-  - enabled: 1
-    path: Assets/Scenes/Joe3.unity
-    guid: 439e8288c162952488265ba142e35450
-  - enabled: 1
-    path: Assets/Scenes/James_4(Medium).unity
-    guid: d3a15c3ca314fd741959e2f06c75c796
   - enabled: 0
     path: Assets/Scenes/VV_2_3.unity
     guid: c77f67b8d36918345b281093e5bf2a0a
@@ -110,9 +113,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/zach_new.unity
     guid: 667aac0a9662f5f4793b5ac27c345b28
-  - enabled: 1
-    path: Assets/Scenes/James_3(Medium-Hard).unity
-    guid: 0a4667d223a3c244bb5b975011c7d39b
   - enabled: 1
     path: Assets/Scenes/zachLevel1.unity
     guid: 9c2263e67cd12d745835cda56f3f03bc
