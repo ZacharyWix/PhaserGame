@@ -7,11 +7,11 @@ using UnityEngine.EventSystems;
 public class MenuHover : MonoBehaviour
 {
     public GameObject button;
-    EventSystem m_EventSystem;
+    EventSystem m_EventSystem;    
     // Start is called before the first frame update
     void Start()
     {
-        print("start");
+        print("starts");
         m_EventSystem = EventSystem.current;
         print(m_EventSystem.name);
     }
@@ -24,6 +24,7 @@ public class MenuHover : MonoBehaviour
 
     public void OnMouseEnter()
     {
+        print("enters");
         m_EventSystem.SetSelectedGameObject(button);
     }
 }
