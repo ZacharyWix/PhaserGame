@@ -72,7 +72,10 @@ public class Unlocker : MonoBehaviour
             sa.updateLevelsStat(level.getMaxLevel(false));
             sa.updateDeathStat(level.getTotalDeaths());
             sa.updateTimeStat(level.getTotalTime());
-            SteamLeaderboards.UpdateScore(level.getTotalTime());
+            //if (level.getMaxLevel(false) == 30)
+            {
+                SteamLeaderboards.UpdateScore(level.getTotalTime());
+            }
         }
         if (level.getLevelDeaths(1) != -1)
         {

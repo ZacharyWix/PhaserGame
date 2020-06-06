@@ -11,7 +11,6 @@ public class MenuHover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("starts");
         m_EventSystem = EventSystem.current;
         print(m_EventSystem.name);
     }
@@ -24,7 +23,6 @@ public class MenuHover : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        print("enters");
         m_EventSystem.SetSelectedGameObject(button);
     }
 }

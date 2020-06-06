@@ -2,6 +2,7 @@
 using Steamworks;
 using System.Collections;
 using System.Threading;
+using System;
 
 public class SteamLeaderboards : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SteamLeaderboards : MonoBehaviour
     private static CallResult<LeaderboardFindResult_t> m_findResult = new CallResult<LeaderboardFindResult_t>();
     private static CallResult<LeaderboardScoreUploaded_t> m_uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
     private static CallResult<LeaderboardScoresDownloaded_t> m_downloadResult = new CallResult<LeaderboardScoresDownloaded_t>();
+
+    public LeaderboardMenu lb;
 
 
     public static void UpdateScore(float score)
@@ -38,17 +41,21 @@ public class SteamLeaderboards : MonoBehaviour
         m_downloadResult.Set(hSteamAPICall, OnLeaderBoardDownloadResult);
     }
 
-    public static int[] getLeaderBoardIndex(int index)
+    public static string[] getLeaderBoardIndex(int index)
     {
         int[] details = new int[5];
-        print(SteamUserStats.GetDownloadedLeaderboardEntry(s_leaderboardEntries, index, out s_leaderboard, details, 5));
-        print("Leaderboard Stuff");
-        print(s_leaderboard.m_steamIDUser);
-        print(s_leaderboard.m_nGlobalRank);
-        print(s_leaderboard.m_nScore);
-        print(s_leaderboard.m_cDetails);
-        print(s_leaderboard.m_hUGC);
-        return details;
+        string[] ret = new string[3];
+        SteamUserStats.GetDownloadedLeaderboardEntry(s_leaderboardEntries, index, out s_leaderboard, details, 5);
+        print("User ID: " + SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser));
+        SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser);
+        print("Rank: " + s_leaderboard.m_nGlobalRank);
+        print("Score: " + s_leaderboard.m_nScore);
+        print("Details: " + s_leaderboard.m_cDetails);
+        print("huGC: " + s_leaderboard.m_hUGC);
+        ret[0] = SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser).ToString();
+        ret[1] = s_leaderboard.m_nGlobalRank.ToString();
+        ret[2] = s_leaderboard.m_nScore.ToString();
+        return ret;
     }
 
     public static void Init()
@@ -72,9 +79,12 @@ public class SteamLeaderboards : MonoBehaviour
 
     static private void OnLeaderBoardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
     {
-        print("hits");
         s_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
         print("Size: " + pCallback.m_cEntryCount);
+        for (int i = 0; i < pCallback.m_cEntryCount; i++)
+        {
+            getLeaderBoardIndex(i);
+        }
     }
 
     private static Timer timer1;

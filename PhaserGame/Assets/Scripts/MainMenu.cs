@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     private static bool loaded = false;
     private string user = "";
     private static bool practice = false;
-
+    private static bool leaderboard = false;
 
 
     private void Start()
@@ -29,8 +29,12 @@ public class MainMenu : MonoBehaviour
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();
-            SteamLeaderboards.DownloadLeaderBoard();
-            
+            if (!leaderboard)
+            {
+                SteamLeaderboards.DownloadLeaderBoard();
+                SteamLeaderboards.getLeaderBoardIndex(0);
+                leaderboard = true;
+            }
         }
         if (!loaded)
         {
@@ -67,7 +71,6 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(int l)
     {
-        //int[] hi = SteamLeaderboards.getLeaderBoardIndex(1);
         gm.setDeathCount(level.getActiveDeaths(l));
         deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
