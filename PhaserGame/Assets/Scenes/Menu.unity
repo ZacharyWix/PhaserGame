@@ -27503,7 +27503,20 @@ MonoBehaviour:
 
 
 
-    Esc Key: Pause Menu'
+    Esc Key: Pause Menu
+
+
+    W Key: Up
+
+
+    A Key: Left
+
+
+    S
+    Key: Down
+
+
+    D Key: Right'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -27573,12 +27586,12 @@ MonoBehaviour:
   m_margin: {x: -51.029766, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1425518594}
-    characterCount: 27
+    characterCount: 78
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 5
+    spaceCount: 22
+    wordCount: 17
     linkCount: 0
-    lineCount: 4
+    lineCount: 12
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

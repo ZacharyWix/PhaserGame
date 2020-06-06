@@ -1241,21 +1241,41 @@ PrefabInstance:
     - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
         type: 3}
       propertyPath: waypoints.Array.data[1].position.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
         type: 3}
       propertyPath: waypoints.Array.data[1].xyzPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
         type: 3}
       propertyPath: waypoints.Array.data[1].xyPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
         type: 3}
       propertyPath: waypoints.Array.data[1].xzPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].position.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyzPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480938116657293833, guid: 3a69f88eed56d9542a16ee8472cf6cfe,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xzPosition.x
       value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2553,6 +2573,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4574016713518606422, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574016713518606422, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.98
+      objectReference: {fileID: 0}
     - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -2592,6 +2622,41 @@ PrefabInstance:
         type: 3}
       propertyPath: waypoints.Array.data[1].xzPosition.x
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].position.y
+      value: 0.9903941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyzPosition.y
+      value: 0.9903941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyPosition.y
+      value: 0.9903941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].position.x
+      value: 1.0084667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyzPosition.x
+      value: 1.0084667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xyPosition.x
+      value: 1.0084667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464148449296169953, guid: 231ab445d93984743bd28fbe6fa63081,
+        type: 3}
+      propertyPath: waypoints.Array.data[0].xzPosition.x
+      value: 1.0084667
       objectReference: {fileID: 0}
     - target: {fileID: 8531848830496496887, guid: 231ab445d93984743bd28fbe6fa63081,
         type: 3}
