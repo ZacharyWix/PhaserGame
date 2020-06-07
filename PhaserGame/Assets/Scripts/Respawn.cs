@@ -38,7 +38,8 @@ public class Respawn : MonoBehaviour
 
     public ParticleSystem deathParticles;
 
-    private Transform lastPracticeCheckpointPosition;
+    private Vector3 lastPracticeCheckpointPosition;
+    private bool firstPracticeCheckpoint = true;
 
     private void Start()
     {
@@ -148,19 +149,20 @@ public class Respawn : MonoBehaviour
 
         if (collision.transform.CompareTag("PracticeCheckpoint"))
         {
-            if(lastPracticeCheckpointPosition == null) //So the checkpoint sound doesn't happen when you start a level
+            if(firstPracticeCheckpoint) //So the checkpoint sound doesn't happen when you start a level
             {
-                lastPracticeCheckpointPosition = collision.transform;
+                lastPracticeCheckpointPosition = collision.transform.position;
+                firstPracticeCheckpoint = false;
             }
 
-            if (lastPracticeCheckpointPosition != collision.transform) //If you moved the checkpoint before colliding with it
+            if (lastPracticeCheckpointPosition != collision.transform.position) //If you moved the checkpoint before colliding with it
             {
                 soundPlay.PlaySound("checkpoint");
             }
             respawnPoint = collision.transform;
             name = collision.gameObject.name;
 
-            lastPracticeCheckpointPosition = collision.transform;
+            lastPracticeCheckpointPosition = collision.transform.position;
         }
     }
 
