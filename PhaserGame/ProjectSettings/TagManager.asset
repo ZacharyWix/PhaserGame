@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Text Trigger
   - SpikePlayerKillers
+  - PracticeCheckpoint
   layers:
   - Default
   - TransparentFX

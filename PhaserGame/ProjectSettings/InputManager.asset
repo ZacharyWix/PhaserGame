@@ -198,11 +198,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire2
-    descriptiveName: 
+    m_Name: Checkpoint
+    descriptiveName: Place Checkpoint
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 1
+    positiveButton: z
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
