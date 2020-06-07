@@ -266,6 +266,8 @@ MonoBehaviour:
   jumpParticles: {fileID: 1109010674124477747}
   coyoteTimeMax: 0.075
   controlsEnabled: 1
+  practiceCheckpoint: {fileID: 1154893166548867736, guid: b6388600f4a3f1649a39ac2bd80eee43,
+    type: 3}
 --- !u!114 &393268325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17436,6 +17438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217e493235910a9459bd39cb58849f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lb: {fileID: 0}
 --- !u!1 &6675704205504507628
 GameObject:
   m_ObjectHideFlags: 0

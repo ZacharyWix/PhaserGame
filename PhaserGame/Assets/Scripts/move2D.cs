@@ -28,11 +28,21 @@ public class move2D : MonoBehaviour
 
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
+    private bool isPractice;
+    public GameObject practiceCheckpoint; //Object to spawn
+    private GameObject checkpoint; //the spawned object
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        isPractice = MainMenu.getPractice();
+        
+        if(isPractice)
+        {
+            checkpoint = Instantiate(practiceCheckpoint, gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 
     // Update is called once per frame
@@ -89,6 +99,11 @@ public class move2D : MonoBehaviour
                 {
                     isJumping = false;
                 }
+            }
+
+            if(isPractice && Input.GetButtonDown("Checkpoint") && isTouchingGround)
+            {
+                checkpoint.transform.position = gameObject.transform.position;
             }
         }
         previous = isTouchingGround;

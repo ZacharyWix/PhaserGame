@@ -38,6 +38,8 @@ public class Respawn : MonoBehaviour
 
     public ParticleSystem deathParticles;
 
+    private Transform lastPracticeCheckpointPosition;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -134,7 +136,7 @@ public class Respawn : MonoBehaviour
             }
         }
     
-        if (collision.transform.CompareTag("Checkpoint"))
+        if (collision.transform.CompareTag("Checkpoint") && !PracticeMode.isPracticeMode())
         {
             if(name != collision.gameObject.name)
               {
@@ -142,6 +144,23 @@ public class Respawn : MonoBehaviour
               }
             respawnPoint = collision.transform;
             name = collision.gameObject.name;
+        }
+
+        if (collision.transform.CompareTag("PracticeCheckpoint"))
+        {
+            if(lastPracticeCheckpointPosition == null) //So the checkpoint sound doesn't happen when you start a level
+            {
+                lastPracticeCheckpointPosition = collision.transform;
+            }
+
+            if (lastPracticeCheckpointPosition != collision.transform) //If you moved the checkpoint before colliding with it
+            {
+                soundPlay.PlaySound("checkpoint");
+            }
+            respawnPoint = collision.transform;
+            name = collision.gameObject.name;
+
+            lastPracticeCheckpointPosition = collision.transform;
         }
     }
 
