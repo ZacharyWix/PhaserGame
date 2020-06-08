@@ -11,12 +11,11 @@ public class UserBoard : MonoBehaviour
     private bool x;
     string y;
     int index;
-    public ScrollView scroll;
+    public ScrollRect scroll;
     // Start is called before the first frame update
     void Start()
     {
         userCentered();
-        scroll.verticalScroller.value = 1000;
     }
 
     // Update is called once per frame
@@ -50,12 +49,17 @@ public class UserBoard : MonoBehaviour
         if (n < 25)
         {
             topRanked();
+            if (n > 10)
+            {
+                scroll.verticalNormalizedPosition = n / 50;
+            }
         }
         else
         {
             int min = n - 24;
             int max = n + 25;
             SteamLeaderboards.DownloadLeaderBoard(min, max);
+            scroll.verticalNormalizedPosition = 0.5f;
         }
     }
 }
