@@ -209,7 +209,7 @@ public class level : MonoBehaviour
         }
         else
         {
-            return 3600;
+            return 0;
         }
     }
 

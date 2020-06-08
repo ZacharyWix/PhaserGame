@@ -12,7 +12,9 @@ public class SteamLeaderboards : MonoBehaviour
 
     private static SteamLeaderboard_t s_currentLeaderboard;
     private static SteamLeaderboardEntries_t s_leaderboardEntries;
+    private static SteamLeaderboardEntries_t u_leaderboardEntries;
     private static LeaderboardEntry_t s_leaderboard;
+    private static LeaderboardEntry_t u_leaderboard;
     private static bool s_initialized = false;
     private static CallResult<LeaderboardFindResult_t> m_findResult = new CallResult<LeaderboardFindResult_t>();
     private static CallResult<LeaderboardScoreUploaded_t> m_uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
@@ -35,10 +37,18 @@ public class SteamLeaderboards : MonoBehaviour
         }
     }
 
-    public static void DownloadLeaderBoard()
+    public static void DownloadLeaderBoard(int min, int max)
     {
-        SteamAPICall_t hSteamAPICall = SteamUserStats.DownloadLeaderboardEntries(s_currentLeaderboard, s_leaderboardRequest, 0, 25);
+        SteamAPICall_t hSteamAPICall = SteamUserStats.DownloadLeaderboardEntries(s_currentLeaderboard, s_leaderboardRequest, min, max);
         m_downloadResult.Set(hSteamAPICall, OnLeaderBoardDownloadResult);
+    }
+
+    public static void DownloadUserBoard()
+    {
+        CSteamID[] ids = new CSteamID[1];
+        ids[0] = SteamUser.GetSteamID();
+        SteamAPICall_t hSteamAPICall = SteamUserStats.DownloadLeaderboardEntriesForUsers(s_currentLeaderboard, ids, 1);
+        m_downloadResult.Set(hSteamAPICall, OnUserBoardDownload);
     }
 
     public static string[] getLeaderBoardIndex(int index)
@@ -46,15 +56,21 @@ public class SteamLeaderboards : MonoBehaviour
         int[] details = new int[5];
         string[] ret = new string[3];
         SteamUserStats.GetDownloadedLeaderboardEntry(s_leaderboardEntries, index, out s_leaderboard, details, 5);
-        print("User ID: " + SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser));
         SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser);
-        print("Rank: " + s_leaderboard.m_nGlobalRank);
-        print("Score: " + s_leaderboard.m_nScore);
-        print("Details: " + s_leaderboard.m_cDetails);
-        print("huGC: " + s_leaderboard.m_hUGC);
         ret[0] = SteamFriends.GetFriendPersonaName(s_leaderboard.m_steamIDUser).ToString();
         ret[1] = s_leaderboard.m_nGlobalRank.ToString();
         ret[2] = s_leaderboard.m_nScore.ToString();
+        return ret;
+    }
+
+    public static string[] getUserBoard()
+    {
+        int[] details = new int[5];
+        string[] ret = new string[3];
+        SteamUserStats.GetDownloadedLeaderboardEntry(u_leaderboardEntries, 0, out u_leaderboard, details, 5);
+        ret[0] = SteamFriends.GetFriendPersonaName(u_leaderboard.m_steamIDUser).ToString();
+        ret[1] = u_leaderboard.m_nGlobalRank.ToString();
+        ret[2] = u_leaderboard.m_nScore.ToString();
         return ret;
     }
 
@@ -80,11 +96,11 @@ public class SteamLeaderboards : MonoBehaviour
     static private void OnLeaderBoardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
     {
         s_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
-        print("Size: " + pCallback.m_cEntryCount);
-        for (int i = 0; i < pCallback.m_cEntryCount; i++)
-        {
-            getLeaderBoardIndex(i);
-        }
+    }
+
+    static private void OnUserBoardDownload(LeaderboardScoresDownloaded_t pCallback, bool failure)
+    {
+        u_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
     }
 
     private static Timer timer1;

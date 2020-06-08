@@ -21,20 +21,12 @@ public class MainMenu : MonoBehaviour
     private static bool loaded = false;
     private string user = "";
     private static bool practice = false;
-    private static bool leaderboard = false;
-
 
     private void Start()
     {
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();
-            if (!leaderboard)
-            {
-                SteamLeaderboards.DownloadLeaderBoard();
-                SteamLeaderboards.getLeaderBoardIndex(0);
-                leaderboard = true;
-            }
         }
         if (!loaded)
         {
