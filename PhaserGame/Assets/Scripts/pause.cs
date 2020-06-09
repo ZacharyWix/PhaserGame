@@ -14,6 +14,9 @@ public class pause : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject resume;
     private bool isResuming;
+    public GameObject boundary;
+    public GameObject pauseCol;
+    public GameObject endCol;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,31 @@ public class pause : MonoBehaviour
             rb.WakeUp();
             togglePause();
             isResuming = false;
+        }
+        if (endMenu.activeSelf || pauseMenu.activeSelf || optionsMenu.activeSelf)
+        {
+            boundary.SetActive(false);
+        }
+        else
+        {
+            boundary.SetActive(true);
+        }
+        if (pauseMenu.activeSelf)
+        {
+            pauseCol.SetActive(true);
+        }
+        else
+        {
+            pauseCol.SetActive(false);
+        }
+        if (endMenu.activeSelf)
+        {
+            endCol.SetActive(true);
+            print("end");
+        }
+        else
+        {
+            endCol.SetActive(false);
         }
     }
 

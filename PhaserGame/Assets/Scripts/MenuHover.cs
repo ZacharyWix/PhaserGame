@@ -12,7 +12,6 @@ public class MenuHover : MonoBehaviour
     void Start()
     {
         m_EventSystem = EventSystem.current;
-        print(m_EventSystem.name);
     }
 
     // Update is called once per frame
@@ -24,5 +23,6 @@ public class MenuHover : MonoBehaviour
     public void OnMouseEnter()
     {
         m_EventSystem.SetSelectedGameObject(button);
+        print(this.gameObject.name);
     }
 }
