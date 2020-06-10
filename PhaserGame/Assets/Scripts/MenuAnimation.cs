@@ -32,6 +32,7 @@ public class MenuAnimation : MonoBehaviour
         if (cpos > 19.85)
         {
             cpos = 0;
+            print("loop");
         }
         bpos += bspeed * Time.deltaTime;
         cpos += cspeed * Time.deltaTime;
