@@ -28,7 +28,10 @@ public class LeaderboardMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateStats();
+        if (SteamManager.getActive())
+        {
+            updateStats();
+        }
     }
 
     public void updateStats()
