@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();

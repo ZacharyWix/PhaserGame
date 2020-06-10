@@ -23,6 +23,5 @@ public class MenuHover : MonoBehaviour
     public void OnMouseEnter()
     {
         m_EventSystem.SetSelectedGameObject(button);
-        print(this.gameObject.name);
     }
 }

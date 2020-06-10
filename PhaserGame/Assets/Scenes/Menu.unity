@@ -1453,8 +1453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks: {fileID: 1513706756}
   clouds: {fileID: 2099011472}
-  bspeed: 0.1
-  cspeed: 0.15
+  c1: {fileID: 354741263}
+  c2: {fileID: 1729106947}
 --- !u!114 &34210362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5140,7 +5140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Z Key: Create Checkpoint (Practice Mode)'
+  m_text: 'C Key: Create Checkpoint (Practice Mode)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -9656,7 +9656,7 @@ GameObject:
   - component: {fileID: 436012327}
   - component: {fileID: 436012326}
   m_Layer: 5
-  m_Name: Z Key
+  m_Name: C Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9700,7 +9700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use the Z key to create a new checkpoint
+  m_text: Use the C key to create a new checkpoint
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -24723,7 +24723,7 @@ GameObject:
   - component: {fileID: 1092325620}
   - component: {fileID: 1092325619}
   m_Layer: 5
-  m_Name: Z Key
+  m_Name: C Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24767,7 +24767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use the Z key to create a new checkpoint
+  m_text: Use the C key to create a new checkpoint
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -36660,7 +36660,7 @@ GameObject:
   - component: {fileID: 1552305776}
   - component: {fileID: 1552305775}
   m_Layer: 5
-  m_Name: Z Key
+  m_Name: C Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36704,7 +36704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use the Z key to create a new checkpoint
+  m_text: Use the C key to create a new checkpoint
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
