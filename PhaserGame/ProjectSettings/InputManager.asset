@@ -202,7 +202,7 @@ InputManager:
     descriptiveName: Place Checkpoint
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: z
+    positiveButton: c
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
