@@ -48,7 +48,6 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
     public void PlayGame ()
     {
         deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
