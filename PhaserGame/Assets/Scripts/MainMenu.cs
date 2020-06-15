@@ -54,7 +54,6 @@ public class MainMenu : MonoBehaviour
         deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
         gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //Respawn.setFinished(false);
     }
 
     public void Replay()
@@ -140,7 +139,7 @@ public class MainMenu : MonoBehaviour
         saveGame save = CreateSaveGameObject();
         BinaryFormatter bf = new BinaryFormatter();
         System.IO.Directory.CreateDirectory(Application.persistentDataPath + user);
-        FileStream file = File.Create(Application.persistentDataPath + user + "/gamesave.save");
+        FileStream file = File.Create(Application.persistentDataPath + user + "/gamesave.sav");
         bf.Serialize(file, save);
         file.Close();
     }
@@ -183,10 +182,10 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        if (File.Exists(Application.persistentDataPath + user + "/gamesave.save"))
+        if (File.Exists(Application.persistentDataPath + user + "/gamesave.sav"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + user + "/gamesave.save", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + user + "/gamesave.sav", FileMode.Open);
             saveGame save = (saveGame)bf.Deserialize(file);
             file.Close();
 
@@ -228,7 +227,6 @@ public class MainMenu : MonoBehaviour
     public void setPractice(bool prac)
     {
         practice = prac;
-        print(practice);
     }
 
     public static bool getPractice()

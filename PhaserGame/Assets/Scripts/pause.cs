@@ -85,7 +85,6 @@ public class pause : MonoBehaviour
         if (endMenu.activeSelf)
         {
             endCol.SetActive(true);
-            print("end");
         }
         else
         {
