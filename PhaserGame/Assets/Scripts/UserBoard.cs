@@ -8,14 +8,14 @@ using UnityEngine.UIElements;
 
 public class UserBoard : MonoBehaviour
 {
-    private bool x;
+    private bool x = true;
     string y;
     int index;
     public ScrollRect scroll;
     // Start is called before the first frame update
     void Start()
     {
-        userCentered();
+        topRanked();
     }
 
     // Update is called once per frame
@@ -35,23 +35,27 @@ public class UserBoard : MonoBehaviour
 
     public void userCentered()
     {
+        print("centered");
         SteamLeaderboards.DownloadUserBoard();
         x = false;
     }
     
     public void topRanked()
     {
+        print("top");
         SteamLeaderboards.DownloadLeaderBoard(0, 50);
+        scroll.verticalNormalizedPosition = 1;
     }
 
     public void findRange(int n)
     {
+        print(n);
         if (n < 25)
         {
             topRanked();
             if (n > 10)
             {
-                scroll.verticalNormalizedPosition = n / 50;
+                scroll.verticalNormalizedPosition = 50 - n / 50;
             }
         }
         else

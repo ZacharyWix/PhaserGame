@@ -84,7 +84,7 @@ public class MainMenu : MonoBehaviour
     }
     public void deleteSave()
     {
-        File.Delete(Application.persistentDataPath + user + "/gamesave.save");
+        File.Delete(Application.persistentDataPath + user + "/gamesave.sav");
         level.clear();
         //sa.DEBUG_LockSteamAchievement("achievement_00");
         sa.resetAll();
