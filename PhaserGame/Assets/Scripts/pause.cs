@@ -28,7 +28,7 @@ public class pause : MonoBehaviour
     void Update()
     {
         Time.timeScale = 1;
-        if (Input.GetKeyDown(KeyCode.Escape) && !endMenu.gameObject.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7") && !endMenu.gameObject.activeSelf)
         {
 
             if (!optionsMenu.gameObject.activeSelf)
