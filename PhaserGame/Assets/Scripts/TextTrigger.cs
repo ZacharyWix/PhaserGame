@@ -23,6 +23,7 @@ public class TextTrigger : MonoBehaviour
     public TextMeshProUGUI yellow;
     public TextMeshProUGUI colorSpike;
     public TextMeshProUGUI colorSpike2;
+    public TextMeshProUGUI pTutorial;
     public pause pause;
     private bool tutorials;
     private bool isPaused;
@@ -36,6 +37,7 @@ public class TextTrigger : MonoBehaviour
             {
                 welcome.text = "Welcome to Phaser!  Use the A and D keys (left joystick) to move left and right.";
                 jump.text = "Use the space bar (RB) to jump." + Environment.NewLine + "Hold the space bar (RB) to jump longer.";
+                pTutorial.text = "Turn the tutorial tips on and off at any point.Press ESC (Start) during a level to pause and access the options menu";
                 jump.enabled = false;
                 
             }
@@ -45,10 +47,10 @@ public class TextTrigger : MonoBehaviour
         {
             if (Input.GetJoystickNames().Length != 0)
             {
-                red.text = "Use the left arrow key (X) to turn on the red blocks.";
-                blue.text = "Use the right arrow key (B) to turn on the blue blocks.";
-                green.text = "Use the up arrow key (Y) to turn on the green blocks.";
-                yellow.text = "Use the down arrow key (A) to turn on the yellow blocks.";
+                red.text = "Use the right arrow key (B) to turn on the red blocks.";
+                blue.text = "Use the left arrow key (X) to turn on the blue blocks.";
+                green.text = "Use the down arrow key (A) to turn on the green blocks.";
+                yellow.text = "Use the up arrow key (Y) to turn on the yellow blocks.";
             }
             
             setupTwo();
@@ -57,7 +59,7 @@ public class TextTrigger : MonoBehaviour
         {
             if (Input.GetJoystickNames().Length != 0)
             {
-                colorSpike2.text = "Use the right arrow key (B) to turn off the blue spikes.";
+                colorSpike2.text = "Use the left arrow key (X) to turn off the blue spikes.";
                 setupThree();
             }
         }

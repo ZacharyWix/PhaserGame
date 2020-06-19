@@ -9255,6 +9255,7 @@ MonoBehaviour:
   yellow: {fileID: 0}
   colorSpike: {fileID: 0}
   colorSpike2: {fileID: 0}
+  pTutorial: {fileID: 857273422}
   pause: {fileID: 875869248}
   options: {fileID: 907434625}
 --- !u!4 &879124094 stripped

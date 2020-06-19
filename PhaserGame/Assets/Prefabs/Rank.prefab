@@ -219,9 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedf581d46201e642a0d1fc1584459b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sp: {fileID: 9150970042502011111}
-  normal: {fileID: 21300000, guid: 8e85b09eee051e84a862a65bac787f53, type: 3}
-  highlight: {fileID: 21300000, guid: 31bd94baedf6a334eaa60b5df431d2ea, type: 3}
+  normal: {fileID: 21300000, guid: 56d6b574268b3fc44a2bee49dda59cad, type: 3}
+  highlight: {fileID: 21300000, guid: 24e0a2b86a79de94f80301cca99a5a29, type: 3}
   deathStat: {fileID: 0}
   rank: {fileID: 2611828660669118374}
   score: {fileID: 2611828660840077488}
@@ -245,7 +244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e85b09eee051e84a862a65bac787f53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56d6b574268b3fc44a2bee49dda59cad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

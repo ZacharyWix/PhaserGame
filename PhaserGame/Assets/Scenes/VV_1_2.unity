@@ -1853,6 +1853,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 994197866372377017, guid: 6221b2949f86a6d4db86d0a515e47771,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1071150731871579456, guid: 6221b2949f86a6d4db86d0a515e47771,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3123,10 +3128,11 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use the right arrow key to turn off the blue spikes.
+  m_text: Use the left arrow key to turn off the blue spikes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -3172,7 +3178,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 20
+  m_firstOverflowCharacterIndex: 23
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3196,7 +3202,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 438793453}
-    characterCount: 52
+    characterCount: 51
     spriteCount: 0
     spaceCount: 10
     wordCount: 11
@@ -6471,8 +6477,9 @@ MonoBehaviour:
   yellow: {fileID: 0}
   colorSpike: {fileID: 1840825359}
   colorSpike2: {fileID: 438793453}
-  options: {fileID: 1326030874}
+  pTutorial: {fileID: 0}
   pause: {fileID: 1247406999}
+  options: {fileID: 1326030874}
 --- !u!1 &1257140558
 GameObject:
   m_ObjectHideFlags: 0
@@ -9088,6 +9095,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
