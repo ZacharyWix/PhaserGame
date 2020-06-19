@@ -36,10 +36,9 @@ public class TextTrigger : MonoBehaviour
             if (Input.GetJoystickNames().Length != 0)
             {
                 welcome.text = "Welcome to Phaser!  Use the A and D keys (left joystick) to move left and right.";
-                jump.text = "Use the space bar (RB) to jump." + Environment.NewLine + "Hold the space bar (RB) to jump longer.";
+                jump.text = "Use the space bar (LB) to jump." + Environment.NewLine + "Hold the space bar (LB) to jump longer.";
                 pTutorial.text = "Turn the tutorial tips on and off at any point.Press ESC (Start) during a level to pause and access the options menu";
                 jump.enabled = false;
-                
             }
             setupOne();
         }

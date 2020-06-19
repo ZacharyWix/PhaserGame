@@ -7,6 +7,7 @@ using System.IO;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using Steamworks;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,10 +24,17 @@ public class MainMenu : MonoBehaviour
     private static bool practice = false;
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
+    public TextMeshProUGUI w1CC, w2CC, w3CC;
 
     private void Start()
     {
-        Time.timeScale = 1;
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            w1CC.text = "Use the C key (RB) to create a new checkpoint";
+            w2CC.text = w1CC.text;
+            w3CC.text = w1CC.text;
+        }
+            Time.timeScale = 1;
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();
