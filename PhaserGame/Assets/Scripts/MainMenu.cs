@@ -28,13 +28,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        if (Input.GetJoystickNames().Length != 0)
-        {
-            w1CC.text = "Use the C key (RB) to create a new checkpoint";
-            w2CC.text = w1CC.text;
-            w3CC.text = w1CC.text;
-        }
-            Time.timeScale = 1;
+        Time.timeScale = 1;
         if (SteamManager.getActive())
         {
             user = "/" + SteamFriends.GetPersonaName();
@@ -58,6 +52,15 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void practiceText()
+    {
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            w1CC.text = "Use the C key (RB) to create a new checkpoint";
+            w2CC.text = w1CC.text;
+            w3CC.text = w1CC.text;
+        }
+    }
     public void PlayGame ()
     {
         deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
