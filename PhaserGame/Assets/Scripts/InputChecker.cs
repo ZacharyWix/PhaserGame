@@ -6,6 +6,7 @@ public class InputChecker : MonoBehaviour
 {
     private static InputChecker _instance;
 
+    private static bool controller = false;
     public static InputChecker Instance { get { return _instance; } }
 
     private void Awake()
@@ -35,6 +36,7 @@ public class InputChecker : MonoBehaviour
             case InputType.MouseKeyboard:
                 if (isControllerInput())
                 {
+                    controller = true;
                     InputState = InputType.Controller;
                     Debug.Log("Switched Input to Controller");
                 }
@@ -52,6 +54,11 @@ public class InputChecker : MonoBehaviour
     public InputType GetInputType()
     {
         return InputState;
+    }
+
+    public static bool getController()
+    {
+        return controller;
     }
 
     public bool UsingController()

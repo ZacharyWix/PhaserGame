@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class TextTrigger : MonoBehaviour
 {
@@ -29,6 +30,16 @@ public class TextTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            welcome.text = "Welcome to Phaser!  Use the A and D keys (left joystick) to move left and right.";
+            jump.text = "Use the space bar (RB) to jump." + Environment.NewLine + "Hold the space bar (RB) to jump longer.";
+            red.text = "Use the left arrow key (X) to turn on the red blocks.";
+            blue.text = "Use the right arrow key (B) to turn on the blue blocks.";
+            green.text = "Use the up arrow key (Y) to turn on the green blocks.";
+            yellow.text = "Use the down arrow key (A) to turn on the yellow blocks.";
+            colorSpike2.text = "Use the right arrow key (B) to turn off the blue spikes.";
+        }
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             setupOne();

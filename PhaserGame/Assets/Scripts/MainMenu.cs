@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
     private static bool loaded = false;
     private string user = "";
     private static bool practice = false;
+    public GameObject controlsMenu, back;
+    public GameObject cControlsMenu, backC;
 
     private void Start()
     {
@@ -68,6 +70,18 @@ public class MainMenu : MonoBehaviour
         if (l == 0)
         {
             SaveGame();
+        }
+    }
+
+    public void controls()
+    {
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            controlsMenu.SetActive(true);
+        }
+        else
+        {
+            cControlsMenu.SetActive(true);
         }
     }
 
