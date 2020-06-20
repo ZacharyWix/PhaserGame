@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     private static bool practice = false;
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
-    public TextMeshProUGUI w1CC, w2CC, w3CC;
+    public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3;
 
     private void Start()
     {
@@ -54,11 +54,13 @@ public class MainMenu : MonoBehaviour
 
     public void practiceText()
     {
-        if (Input.GetJoystickNames().Length != 0)
+        if (Input.GetJoystickNames().Length > 0)
         {
             w1CC.text = "Use the C key (RB) to create a new checkpoint";
             w2CC.text = w1CC.text;
             w3CC.text = w1CC.text;
+            play1.text = play2.text = play3.text = Environment.NewLine + "Play Mode" + Environment.NewLine + "(X)";
+            prac1.text = prac2.text = prac3.text = Environment.NewLine + "Practice Mode (X)";
         }
     }
     public void PlayGame ()
