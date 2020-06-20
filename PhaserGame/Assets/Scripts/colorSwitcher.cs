@@ -83,14 +83,17 @@ public class colorSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lastPressed = colorCon.getLastPressed();
-        if(isSpike)
+        if (Time.timeScale != 0)
         {
-            ColoredSpikes();
-        }
-        else
-        {
-            ColoredBlocks();
+            lastPressed = colorCon.getLastPressed();
+            if (isSpike)
+            {
+                ColoredSpikes();
+            }
+            else
+            {
+                ColoredBlocks();
+            }
         }
     }
 
