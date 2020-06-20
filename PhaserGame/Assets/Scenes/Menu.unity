@@ -41195,7 +41195,7 @@ PrefabInstance:
       value: 'Speed Demon
 
 
-        Complete all levels in 13:00 or less'
+        Complete all levels in 13:15 or less'
       objectReference: {fileID: 0}
     - target: {fileID: 2159109810117215520, guid: 991c157dcfab8664fa6d9821b3ff67b8,
         type: 3}

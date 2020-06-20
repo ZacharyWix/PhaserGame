@@ -127,7 +127,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_11);
         }
-        if (level.getLevelDeaths(30) != -1 && level.getTotalTime() < 780)
+        if (level.getLevelDeaths(30) != -1 && level.getTotalTime() < 795)
         {
             unlock(achievement_12);
         }
