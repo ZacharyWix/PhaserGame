@@ -15952,7 +15952,7 @@ MonoBehaviour:
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 999344576671924369}
+          m_ObjectArgument: {fileID: 2921407737263831167}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -16443,6 +16443,9 @@ MonoBehaviour:
   back: {fileID: 0}
   cControlsMenu: {fileID: 0}
   backC: {fileID: 0}
+  w1CC: {fileID: 0}
+  w2CC: {fileID: 0}
+  w3CC: {fileID: 0}
 --- !u!223 &5336724124839147863
 Canvas:
   m_ObjectHideFlags: 0
