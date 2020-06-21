@@ -73,6 +73,14 @@ public class pause : MonoBehaviour
             boundary.SetActive(false);
             UnityEngine.Cursor.visible = true;
         }
+        if (pauseMenu.activeSelf && !endMenu.activeSelf && !optionsMenu.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+            {
+                pauseMenu.SetActive(false);
+                isPaused = false;
+            }
+        }
         else
         {
             boundary.SetActive(true);
