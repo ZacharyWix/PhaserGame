@@ -104,6 +104,7 @@ public class move2D : MonoBehaviour
             if(isPractice && Input.GetButtonDown("Checkpoint") && isTouchingGround)
             {
                 checkpoint.transform.position = gameObject.transform.position;
+                checkpoint.transform.Translate(0, 0.13f, 0);
             }
         }
         previous = isTouchingGround;
