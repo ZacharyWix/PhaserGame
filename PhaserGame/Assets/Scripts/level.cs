@@ -167,7 +167,10 @@ public class level : MonoBehaviour
         float time = 0;
         for (int i = 0; i < levels.Count; i++)
         {
-            time += levels[i].time;
+            if (!levels[i].active)
+            {
+                time += levels[i].time;
+            }
         }
         return time;
     }
