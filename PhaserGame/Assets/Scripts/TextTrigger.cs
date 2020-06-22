@@ -59,8 +59,9 @@ public class TextTrigger : MonoBehaviour
             if (Input.GetJoystickNames().Length != 0)
             {
                 colorSpike2.text = "Use the left arrow key (X) to turn off the blue spikes.";
-                setupThree();
+                colorSpike2.enabled = false;
             }
+            setupThree();
         }
     }
 

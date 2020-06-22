@@ -22959,7 +22959,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.6, y: -300}
-  m_SizeDelta: {x: 565.2156, y: 1500}
+  m_SizeDelta: {x: 565.2156, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885726580
 MonoBehaviour:
@@ -22996,6 +22996,17 @@ MonoBehaviour:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     Credits
 
 
@@ -23003,11 +23014,11 @@ MonoBehaviour:
     Refraction Games:
 
 
-    James Borman
+    James
+    Borman
 
 
-    Steven
-    Mulvey
+    Steven Mulvey
 
 
     Joseph Soukup
@@ -23017,11 +23028,11 @@ MonoBehaviour:
 
 
 
-    Special Thanks:
+    Special
+    Thanks:
 
 
-    Milica
-    Andric
+    Milica Andric
 
 
     Krista-Lee Malone
@@ -23030,12 +23041,12 @@ MonoBehaviour:
     Trase Tracanna
 
 
-    All Playtesters
+    All
+    Playtesters
 
 
 
-    Trailer
-    Music by Komiku
+    Trailer Music by Komiku
 
 
 
@@ -23046,6 +23057,13 @@ MonoBehaviour:
 
 
     Thanks for playing!
+
+
+
+
+
+
+
 
 
 '
@@ -23094,7 +23112,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 169
+  m_firstOverflowCharacterIndex: 197
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -23118,12 +23136,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 885726580}
-    characterCount: 240
+    characterCount: 258
     spriteCount: 0
-    spaceCount: 66
+    spaceCount: 84
     wordCount: 29
     linkCount: 0
-    lineCount: 51
+    lineCount: 69
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -39663,6 +39681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screen: {fileID: 1488907526}
   credits: {fileID: 1502884654}
+  placeholder: {fileID: 0}
 --- !u!1001 &1507875303
 PrefabInstance:
   m_ObjectHideFlags: 0
