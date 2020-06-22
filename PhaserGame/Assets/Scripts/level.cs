@@ -154,7 +154,10 @@ public class level : MonoBehaviour
         int totalDeaths = 0;
         for (int i = 0; i < levels.Count; i++)
         {
-            totalDeaths += levels[i].deaths;
+            if (!levels[i].active)
+            {
+                totalDeaths += levels[i].deaths;
+            }
         }
         return totalDeaths;
     }
