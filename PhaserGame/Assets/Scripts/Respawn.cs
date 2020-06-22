@@ -168,13 +168,16 @@ public class Respawn : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        if (endgame.gameObject.activeSelf)
+        if (!MainMenu.getPractice())
         {
-            CreateLevel(false);
-        }
-        else
-        {
-            CreateLevel(true);
+            if (endgame.gameObject.activeSelf)
+            {
+                CreateLevel(false);
+            }
+            else
+            {
+                CreateLevel(true);
+            }
         }
         menu.SaveGame();
     }
