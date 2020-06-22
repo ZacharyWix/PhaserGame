@@ -15,8 +15,6 @@ public class pause : MonoBehaviour
     public GameObject resume;
     private bool isResuming;
     public GameObject boundary;
-    public GameObject pauseCol;
-    public GameObject endCol;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,22 +85,6 @@ public class pause : MonoBehaviour
         else
         {
             boundary.SetActive(true);
-        }
-        if (pauseMenu.activeSelf)
-        {
-            pauseCol.SetActive(true);
-        }
-        else
-        {
-            pauseCol.SetActive(false);
-        }
-        if (endMenu.activeSelf)
-        {
-            endCol.SetActive(true);
-        }
-        else
-        {
-            endCol.SetActive(false);
         }
     }
 
