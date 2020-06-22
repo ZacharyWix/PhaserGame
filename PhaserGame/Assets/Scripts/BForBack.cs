@@ -18,7 +18,7 @@ public class BForBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
         {
             this.gameObject.SetActive(false);
             menu.SetActive(true);
