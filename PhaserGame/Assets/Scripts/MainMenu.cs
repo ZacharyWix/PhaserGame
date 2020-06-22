@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         if (SteamManager.getActive())
         {
-            user = "/" + SteamFriends.GetPersonaName();
+            user = "/" + SteamUser.GetSteamID();
         }
         if (!loaded)
         {
@@ -112,7 +112,6 @@ public class MainMenu : MonoBehaviour
     {
         File.Delete(Application.persistentDataPath + user + "/gamesave.sav");
         level.clear();
-        //sa.DEBUG_LockSteamAchievement("achievement_00");
         sa.resetAll();
         Start();
     }
