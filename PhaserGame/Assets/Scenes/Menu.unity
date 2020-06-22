@@ -25088,6 +25088,8 @@ MonoBehaviour:
   prac1: {fileID: 1719067985}
   prac2: {fileID: 39046919}
   prac3: {fileID: 1687339586}
+  cont1: {fileID: 598014533}
+  cont2: {fileID: 865321909}
 --- !u!114 &1019822845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43804,6 +43806,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 646628877}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1019822844}
+        m_MethodName: practiceText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

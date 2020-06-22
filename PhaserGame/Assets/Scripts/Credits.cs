@@ -19,7 +19,7 @@ public class Credits : MonoBehaviour
     {
         if (screen.gameObject.activeSelf)
         {
-            if (scroll < 16)
+            if (scroll < 15)
             {
                 scroll += speed * Time.deltaTime;
                 credits.transform.position = new Vector2(0, scroll);
