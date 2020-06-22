@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     private static bool practice = false;
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
-    public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3;
+    public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
 
     private void Start()
     {
@@ -61,6 +61,8 @@ public class MainMenu : MonoBehaviour
             w3CC.text = w1CC.text;
             play1.text = play2.text = play3.text = Environment.NewLine + "Play Mode" + Environment.NewLine + "(X)";
             prac1.text = prac2.text = prac3.text = Environment.NewLine + "Practice Mode (X)";
+            cont1.text = Environment.NewLine + "Controller" + Environment.NewLine + "(X)";
+            cont2.text = Environment.NewLine + "Keyboard" + Environment.NewLine + "(X)";
         }
     }
     public void PlayGame ()
