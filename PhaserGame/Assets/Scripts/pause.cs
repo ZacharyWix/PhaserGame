@@ -53,6 +53,7 @@ public class pause : MonoBehaviour
                 eventSys.SetSelectedGameObject(resume);
             }
         }
+
         if (isPaused)
         {
             Time.timeScale = 0;
@@ -77,8 +78,10 @@ public class pause : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
+                togglePause();
                 pauseMenu.SetActive(false);
-                isPaused = false;
+                rb.WakeUp();
+                eventSys.SetSelectedGameObject(null);
             }
         }
         else
