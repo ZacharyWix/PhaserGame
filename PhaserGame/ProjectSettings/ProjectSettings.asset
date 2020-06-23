@@ -564,7 +564,7 @@ PlayerSettings:
   metroCertificatePassword: "|dm\x7Fi~><><-"
   metroCertificateSubject: RefractionGames
   metroCertificateIssuer: RefractionGames
-  metroCertificateNotAfter: 008098d9ad68d701
+  metroCertificateNotAfter: 80c47d07ae68d701
   metroApplicationDescription: Template_2D
   wsaImages: {}
   metroTileShortName: 
