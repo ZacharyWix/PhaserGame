@@ -81,7 +81,7 @@ public class Unlocker : MonoBehaviour
         {
             unlock(achievement_00);
         }
-        if (level.getLevelDeaths(10) != -1 && level.getTotalDeaths() < 25)
+        if (level.getLevelDeaths(10) != -1 && level.getWorldDeaths(1) < 25)
         {
             unlock(achievement_01);
         }
