@@ -9,9 +9,11 @@ public class Credits : MonoBehaviour
     public GameObject placeholder;
     private float scroll = 0;
     private float speed = 0.4f;
+    private float x = 0;
     // Start is called before the first frame update
     void Start()
     {
+        x = credits.transform.position.y;
         credits.transform.position = new Vector2(0, 0);
     }
 
@@ -20,7 +22,7 @@ public class Credits : MonoBehaviour
     {
         if (screen.gameObject.activeSelf)
         {
-            if (scroll < 16)
+            if (placeholder.transform.position.y < x)
             {
                 scroll += speed * Time.deltaTime;
                 credits.transform.position = new Vector2(0, scroll);
