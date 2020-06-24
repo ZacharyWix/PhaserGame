@@ -13,7 +13,7 @@ public class Credits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        x = credits.transform.position.y + 1;
+        x = credits.transform.position.y + 1.5f;
         credits.transform.position = new Vector2(0, 0);
     }
 
