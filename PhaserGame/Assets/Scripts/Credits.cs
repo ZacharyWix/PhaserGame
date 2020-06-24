@@ -28,14 +28,11 @@ public class Credits : MonoBehaviour
                 credits.transform.position = new Vector2(0, scroll);
             }
         }
-        if (!credits.activeSelf)
-        {
-            print("inactive");
-        }
     }
 
     public void resetScroll()
     {
         scroll = 0;
+        credits.transform.position = new Vector2(0, scroll);
     }
 }
