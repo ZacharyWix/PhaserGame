@@ -10,6 +10,8 @@ public class LogoFade : MonoBehaviour
     public Image pic;
     public Image background;
     private float timer = 0;
+    public float logoFadeDelay = 0;
+    private float logoFadeTimer = 0;
     private Vector3 inc;
     public bool fade;
     public bool up = false;
@@ -32,9 +34,9 @@ public class LogoFade : MonoBehaviour
         {
             if (fade)
             {
-                if (alpha < 1 && !up)
+                if (alpha < 1 && !up) //Fade in the logo
                 {
-                    alpha += 0.005f;
+                    alpha += 0.002f;
                     var tempColor = pic.color;
                     tempColor.a = alpha;
                     pic.color = tempColor;
@@ -42,29 +44,35 @@ public class LogoFade : MonoBehaviour
                 if (alpha >= 1 && !up)
                 {
                     up = true;
-                }
-                if(alpha > 0 && up)
+                } else if(alpha >= 1)
                 {
-                    alpha -= 0.005f;
-                    var tempColor = pic.color;
-                    tempColor.a = alpha;
-                    pic.color = tempColor;
+                    logoFadeTimer += Time.deltaTime;
                 }
-                if (alpha <= 0 && up)
+                if (logoFadeTimer >= logoFadeDelay) //Don't Fade out the logo until it has shown for an appropriate time
                 {
-                    balpha -= 0.005f;
-                }
-                if(balpha < 1 && balpha > 0)
-                {
-                    balpha -= 0.005f;
-                    var tempColor1 = background.color;
-                    tempColor1.a = balpha;
-                    background.color = tempColor1;
-                }
-                if (balpha <= 0)
-                {
-                    logoPanel.SetActive(false);
-                    MainMenu.setLoaded(true);
+                    if (alpha > 0 && up) //Fade out the Logo
+                    {
+                        alpha -= 0.002f;
+                        var tempColor = pic.color;
+                        tempColor.a = alpha;
+                        pic.color = tempColor;
+                    }
+                    if (alpha <= 0 && up)
+                    {
+                        balpha -= 0.002f;
+                    }
+                    if (balpha < 1 && balpha > 0) //Fade out the background
+                    {
+                        balpha -= 0.002f;
+                        var tempColor1 = background.color;
+                        tempColor1.a = balpha;
+                        background.color = tempColor1;
+                    }
+                    if (balpha <= 0)
+                    {
+                        logoPanel.SetActive(false);
+                        MainMenu.setLoaded(true);
+                    }
                 }
             }
             else

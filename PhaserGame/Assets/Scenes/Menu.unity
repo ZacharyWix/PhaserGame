@@ -1530,6 +1530,7 @@ MonoBehaviour:
   logoPanel: {fileID: 739067395}
   pic: {fileID: 54962314}
   background: {fileID: 739067397}
+  logoFadeDelay: 1
   fade: 1
   up: 0
 --- !u!114 &35651146 stripped
