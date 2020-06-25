@@ -10,8 +10,6 @@ public class LogoFade : MonoBehaviour
     public Image pic;
     public Image background;
     private float timer = 0;
-    public float logoFadeDelay = 0;
-    private float logoFadeTimer = 0;
     private Vector3 inc;
     public bool fade;
     public bool up = false;
@@ -34,45 +32,31 @@ public class LogoFade : MonoBehaviour
         {
             if (fade)
             {
-                if (alpha < 1 && !up) //Fade in the logo
+                if (timer < 1.5) //Fade in the logo
                 {
-                    alpha += 0.002f;
+                    alpha += 0.75f * Time.deltaTime;
                     var tempColor = pic.color;
                     tempColor.a = alpha;
                     pic.color = tempColor;
                 }
-                if (alpha >= 1 && !up)
+                if (timer < 4 && timer >= 2.5) //Fade out the Logo
                 {
-                    up = true;
-                } else if(alpha >= 1)
-                {
-                    logoFadeTimer += Time.deltaTime;
+                    alpha -= 0.75f * Time.deltaTime;
+                    var tempColor = pic.color;
+                    tempColor.a = alpha;
+                    pic.color = tempColor;
                 }
-                if (logoFadeTimer >= logoFadeDelay) //Don't Fade out the logo until it has shown for an appropriate time
+                if (timer < 5.5 && timer >= 4) //Fade out the background
                 {
-                    if (alpha > 0 && up) //Fade out the Logo
-                    {
-                        alpha -= 0.002f;
-                        var tempColor = pic.color;
-                        tempColor.a = alpha;
-                        pic.color = tempColor;
-                    }
-                    if (alpha <= 0 && up)
-                    {
-                        balpha -= 0.002f;
-                    }
-                    if (balpha < 1 && balpha > 0) //Fade out the background
-                    {
-                        balpha -= 0.002f;
-                        var tempColor1 = background.color;
-                        tempColor1.a = balpha;
-                        background.color = tempColor1;
-                    }
-                    if (balpha <= 0)
-                    {
-                        logoPanel.SetActive(false);
-                        MainMenu.setLoaded(true);
-                    }
+                    balpha -= 0.75f * Time.deltaTime;
+                    var tempColor1 = background.color;
+                    tempColor1.a = balpha;
+                    background.color = tempColor1;
+                }
+                if (timer >= 7)
+                {
+                    logoPanel.SetActive(false);
+                    MainMenu.setLoaded(true);
                 }
             }
             else
