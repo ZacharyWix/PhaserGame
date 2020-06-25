@@ -32,36 +32,28 @@ public class LogoFade : MonoBehaviour
         {
             if (fade)
             {
-                if (alpha < 1 && !up)
+                if (timer < 1.5) //Fade in the logo
                 {
-                    alpha += 0.005f;
+                    alpha += 0.75f * Time.deltaTime;
                     var tempColor = pic.color;
                     tempColor.a = alpha;
                     pic.color = tempColor;
                 }
-                if (alpha >= 1 && !up)
+                if (timer < 4 && timer >= 2.5) //Fade out the Logo
                 {
-                    up = true;
-                }
-                if(alpha > 0 && up)
-                {
-                    alpha -= 0.005f;
+                    alpha -= 0.75f * Time.deltaTime;
                     var tempColor = pic.color;
                     tempColor.a = alpha;
                     pic.color = tempColor;
                 }
-                if (alpha <= 0 && up)
+                if (timer < 5.5 && timer >= 4) //Fade out the background
                 {
-                    balpha -= 0.005f;
-                }
-                if(balpha < 1 && balpha > 0)
-                {
-                    balpha -= 0.005f;
+                    balpha -= 0.75f * Time.deltaTime;
                     var tempColor1 = background.color;
                     tempColor1.a = balpha;
                     background.color = tempColor1;
                 }
-                if (balpha <= 0)
+                if (timer >= 7)
                 {
                     logoPanel.SetActive(false);
                     MainMenu.setLoaded(true);
