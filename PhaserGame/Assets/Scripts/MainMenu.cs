@@ -52,6 +52,15 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public static void setLoaded(bool load)
+    {
+        loaded = load;
+    }
+
+    public static bool getLoaded()
+    {
+        return loaded;
+    }
     public void practiceText()
     {
         if (Input.GetJoystickNames().Length > 0)
