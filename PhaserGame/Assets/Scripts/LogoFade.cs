@@ -39,7 +39,7 @@ public class LogoFade : MonoBehaviour
                     tempColor.a = alpha;
                     pic.color = tempColor;
                 }
-                if (timer < 4 && timer >= 2.5) //Fade out the Logo
+                if (timer < 5 && timer >= 2.5) //Fade out the Logo
                 {
                     alpha -= 0.75f * Time.deltaTime;
                     var tempColor = pic.color;
