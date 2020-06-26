@@ -12,9 +12,18 @@ public class UserBoard : MonoBehaviour
     string y;
     int index;
     public ScrollRect scroll;
+    public GameObject complete;
     // Start is called before the first frame update
     void Start()
     {
+        if(level.getLevelDeaths(30) != -1)
+        {
+            complete.SetActive(false);
+        }
+        else
+        {
+            complete.SetActive(true);
+        }
         topRanked();
     }
 
