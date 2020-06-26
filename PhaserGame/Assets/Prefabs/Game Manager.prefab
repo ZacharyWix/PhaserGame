@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9018115477972507640}
   - component: {fileID: 1974197184}
   - component: {fileID: 1974197183}
-  - component: {fileID: 3936970699362898882}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -55,8 +54,7 @@ AudioSource:
   m_GameObject: {fileID: 9018115477972507641}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: f41c3f9da87aa224e94d1d724f4baa06,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -157,22 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSceneNumber: 0
   blandLandSceneNumber: 1
-  vibrantValleySceneNumber: 2
+  vibrantValleySceneNumber: 6
   musicPlayer: {fileID: 1974197184}
   mainMenuMusic: {fileID: 8300000, guid: afaa87de8be20df47876b08a9469c447, type: 3}
   blandLandMusic: {fileID: 8300000, guid: ee45b63666b00544492e6632b557b370, type: 3}
-  vibrantValleyMusic: {fileID: 8300000, guid: 1b12d3f78e92c004c88612be61dfd273, type: 3}
-  soundEffectsMixer: {fileID: 24100000, guid: 959a6926c03167d4882ff744ee96654f, type: 2}
-  musicMixer: {fileID: 24100000, guid: f41c3f9da87aa224e94d1d724f4baa06, type: 2}
---- !u!114 &3936970699362898882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9018115477972507641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699538b15859c784eac636398fa55c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  vibrantValleyMusic: {fileID: 8300000, guid: 758370a1f7550c84fac829c160e0eec7, type: 3}

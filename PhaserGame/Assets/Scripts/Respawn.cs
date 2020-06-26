@@ -1,34 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject nl, rl, e, ld, td, t;
-    public OptionsMenu options;
     public GameObject endgame;
-    public MainMenu menu;
     public Transform respawnPoint;
     public deathCounter deathCount;
-    public SoundPlayer soundPlay;
     private Rigidbody2D rb;
     private phaserManager gm;
     private SpriteRenderer sr;
     private level lv;
     public Canvas canvas;
-    public EventSystem eventSys;
-    public GameObject nextLevel;
     private pause pauseScript;
-    private string name = "none";
-    public GameObject tutorial;
-    public GameObject next;
-    public Unlocker unlocker;
-    private bool platformStatus; //True if player is on a moving platform
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -36,10 +22,7 @@ public class Respawn : MonoBehaviour
     private move2D moveScript; //used to enable and disable controls
     private bool isDead = false;
 
-    public ParticleSystem deathParticles;
-
-    private Vector3 lastPracticeCheckpointPosition;
-    private bool firstPracticeCheckpoint = true;
+    private ParticleSystem deathParticles;
 
     private void Start()
     {
@@ -72,36 +55,21 @@ public class Respawn : MonoBehaviour
     {
         if (col.transform.CompareTag("Death"))
         {
-            killPlayer();
+            //Plays death particles and makes the player disappear
+            deathParticles.Play();
+            sr.enabled = false;
+
+            //disables controls and disables physics for the player
+            moveScript.setControls(false);
+            rb.simulated = false;
+            isDead = true;
+            respawnTimer = respawnDelay;
+
+            //increases the death counter and updates the text
+            gm.incDeathCount();
+            deathCount.updateDeathCounter();
+
         }
-
-        if (col.transform.CompareTag("SpikePlayerKillers"))
-        {
-            if(!platformStatus) //Only kill the player if they aren't on a moving platform
-            {
-                killPlayer();
-            }
-        }
-    }
-
-    private void killPlayer()
-    {
-        //Plays the death sound
-        soundPlay.PlaySound("death");
-
-        //Plays death particles and makes the player disappear
-        deathParticles.Play();
-        sr.enabled = false;
-
-        //disables controls and disables physics for the player
-        moveScript.setControls(false);
-        rb.simulated = false;
-        isDead = true;
-        respawnTimer = respawnDelay;
-
-        //increases the death counter and updates the text
-        gm.incDeathCount();
-        deathCount.updateDeathCounter();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -109,77 +77,16 @@ public class Respawn : MonoBehaviour
         if (collision.transform.CompareTag("Finish"))
         {
             pauseScript.togglePause();
-            soundPlay.PlaySound("win");
-            if (!MainMenu.getPractice())
-            {
-                level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
-                CreateLevel(false);
-                unlocker.updateUnlocks();
-                deathCount.updateDeathCounter();
-                menu.SaveGame();
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
-            {
-                endgame.gameObject.SetActive(true);
-                ld.SetActive(false);
-                nl.SetActive(false);
-                rl.SetActive(false);
-                e.SetActive(false);
-                td.SetActive(false);
-                t.SetActive(false);
-                tutorial.gameObject.SetActive(true);
-                eventSys.SetSelectedGameObject(next);
-            }
-            else
-            {
-                endgame.gameObject.SetActive(true);
-                eventSys.SetSelectedGameObject(nextLevel);
-            }
+            level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
+            CreateLevel(false);
+            deathCount.updateDeathCounter();
+            endgame.gameObject.SetActive(true);
         }
     
-        if (collision.transform.CompareTag("Checkpoint") && !PracticeMode.isPracticeMode())
+        if (collision.transform.CompareTag("Checkpoint"))
         {
-            if(name != collision.gameObject.name)
-              {
-                 soundPlay.PlaySound("checkpoint");
-              }
             respawnPoint = collision.transform;
-            name = collision.gameObject.name;
         }
-
-        if (collision.transform.CompareTag("PracticeCheckpoint"))
-        {
-            if(firstPracticeCheckpoint) //So the checkpoint sound doesn't happen when you start a level
-            {
-                lastPracticeCheckpointPosition = collision.transform.position;
-                firstPracticeCheckpoint = false;
-            }
-
-            if (lastPracticeCheckpointPosition != collision.transform.position) //If you moved the checkpoint before colliding with it
-            {
-                soundPlay.PlaySound("checkpoint");
-            }
-            respawnPoint = collision.transform;
-            name = collision.gameObject.name;
-
-            lastPracticeCheckpointPosition = collision.transform.position;
-        }
-    }
-
-    void OnApplicationQuit()
-    {
-        if (!MainMenu.getPractice())
-        {
-            if (endgame.gameObject.activeSelf)
-            {
-                CreateLevel(false);
-            }
-            else
-            {
-                CreateLevel(true);
-            }
-        }
-        menu.SaveGame();
     }
 
     //respawns the player at their current respawnPoint
@@ -192,20 +99,11 @@ public class Respawn : MonoBehaviour
 
     public void CreateLevel(bool active)
     {
-        if (!MainMenu.getPractice())
-        {
-            float time = deathCount.getTime();
-            time = (float)Math.Round(time * 100f) / 100f;
-            lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active, time);
-        }
+        print("method is properly called");
+        lv = new level(SceneManager.GetActiveScene().buildIndex, gm.getDeathCount(), active);
     }
     public void resetDeaths()
     {
         gm.resetDeathCount();
-    }
-
-    public void setPlatformStatus(bool status)
-    {
-        platformStatus = status;
     }
 }

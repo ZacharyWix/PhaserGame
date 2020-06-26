@@ -17,13 +17,41 @@ public class colorSwitcher : MonoBehaviour
     private BoxCollider2D[] boxCol;
     private colorController colorCon;
     private int lastPressed;
+    bool redPress;
+    bool bluePress;
+    bool greenPress;
+    bool yellowPress;
+
+    public void ColorSelect(string color)
+    {
+        redPress = false;
+        bluePress = false;
+        greenPress = false;
+        yellowPress = false;
+        if (color == "red")
+        {
+            redPress = true;
+        }
+        if (color == "blue")
+        {
+            bluePress = true;
+        }
+        if (color == "green")
+        {
+            greenPress = true;
+        }
+        if (color == "yellow")
+        {
+            yellowPress = true;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         colorCon = GameObject.Find("Player").GetComponent<colorController>();
         lastPressed = colorCon.getLastPressed();
-        if(isSpike)
+        if (isSpike)
         {
             spriteRen = GetComponent<SpriteRenderer>();
             spriteRen.sprite = onSprite;
@@ -83,48 +111,35 @@ public class colorSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale != 0)
+        lastPressed = colorCon.getLastPressed();
+        if (isSpike)
         {
-            lastPressed = colorCon.getLastPressed();
-            if (isSpike)
-            {
-                ColoredSpikes();
-            }
-            else
-            {
-                ColoredBlocks();
-            }
+            ColoredSpikes();
+        }
+        else
+        {
+            ColoredBlocks();
         }
     }
 
     void ToggleBlock(BoxCollider2D[] boxColliders, EdgeCollider2D[] edgeColliders, bool isActive, Sprite switchSprite)
     {
-        if (boxColliders != null)
+        int numBoxColliders = boxColliders.Length;
+        for (int x = 0; x < numBoxColliders; x++)
         {
-            int numBoxColliders = boxColliders.Length;
-            for (int x = 0; x < numBoxColliders; x++)
-            {
-                boxColliders[x].enabled = isActive;
-            }
+            boxColliders[x].enabled = isActive;
         }
 
-        if (edgeColliders != null)
+        int numEdgeColliders = edgeColliders.Length;
+        for (int x = 0; x < numEdgeColliders; x++)
         {
-            int numEdgeColliders = edgeColliders.Length;
-            for (int x = 0; x < numEdgeColliders; x++)
-            {
-                edgeColliders[x].enabled = isActive;
-            }
+            edgeColliders[x].enabled = isActive;
         }
         spriteRen.sprite = switchSprite;
     }
 
     void ColoredSpikes()
     {
-        bool redPress = Input.GetButtonDown("ColorRed");
-        bool bluePress = Input.GetButtonDown("ColorBlue");
-        bool greenPress = Input.GetButtonDown("ColorGreen");
-        bool yellowPress = Input.GetButtonDown("ColorYellow");
         if (red)
         {
             if (redPress && !bluePress && !greenPress && !yellowPress)
@@ -222,10 +237,6 @@ public class colorSwitcher : MonoBehaviour
 
     void ColoredBlocks()
     {
-        bool redPress = Input.GetButtonDown("ColorRed");
-        bool bluePress = Input.GetButtonDown("ColorBlue");
-        bool greenPress = Input.GetButtonDown("ColorGreen");
-        bool yellowPress = Input.GetButtonDown("ColorYellow");
         if (red)
         {
             if (redPress && !bluePress && !greenPress && !yellowPress)
@@ -238,7 +249,7 @@ public class colorSwitcher : MonoBehaviour
                 ToggleBlock(boxCol, edgeCol, false, offSprite);
                 colorCon.setLastPressed(2);
             }
-            else if(greenPress)
+            else if (greenPress)
             {
                 ToggleBlock(boxCol, edgeCol, false, offSprite);
                 colorCon.setLastPressed(3);

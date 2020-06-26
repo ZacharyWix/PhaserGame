@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 936723526533a464c81d2623a1e4408c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d98ee13c92e893b4fa7d27f8c705cd64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2216773249410929889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e49a09442572bf44ad1fd5b9803cfcc, type: 3}
   m_Name: 
@@ -102,8 +102,8 @@ MonoBehaviour:
   green: 0
   yellow: 0
   isSpike: 0
-  onSprite: {fileID: 21300000, guid: 936723526533a464c81d2623a1e4408c, type: 3}
-  offSprite: {fileID: 21300000, guid: b5ba0ef00b3201d43ab99c9a10903219, type: 3}
+  onSprite: {fileID: 21300000, guid: d98ee13c92e893b4fa7d27f8c705cd64, type: 3}
+  offSprite: {fileID: 21300000, guid: f81768efd8c846a43ba5b6dc4ebd00e0, type: 3}
 --- !u!68 &2216773249410929893
 EdgeCollider2D:
   m_ObjectHideFlags: 0
