@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
     public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
+    private static int skin = 0;
 
     private void Start()
     {
@@ -97,6 +98,16 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void SetSkin(int num)
+    {
+        skin = num;
+    }
+
+    public static int GetSkin()
+    {
+        return skin;
+    }
+
     public void controls()
     {
         if (Input.GetJoystickNames().Length != 0)
@@ -159,6 +170,17 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
+                if (buttons[i].name == "Skin1")
+                {
+                    if(Achievement.getLength() == 15)
+                    {
+                        buttons[i].interactable = true;
+                    }
+                    else
+                    {
+                        buttons[i].interactable = false;
+                    }
+                }
             }
         }
         else {
@@ -213,6 +235,7 @@ public class MainMenu : MonoBehaviour
         {
             save.optionsSave.Add(0f);
         }
+        save.skin = skin;
         return save;
     }
 
@@ -253,6 +276,7 @@ public class MainMenu : MonoBehaviour
             {
                 options.Toggle(false);
             }
+            skin = save.skin;
         }
         else
         {
