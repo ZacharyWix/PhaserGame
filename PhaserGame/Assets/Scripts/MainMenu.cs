@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using Steamworks;
 using TMPro;
+using System.Globalization;
 
 public class MainMenu : MonoBehaviour
 {
