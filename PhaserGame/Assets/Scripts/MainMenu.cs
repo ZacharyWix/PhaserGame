@@ -26,9 +26,19 @@ public class MainMenu : MonoBehaviour
     public GameObject cControlsMenu, backC;
     public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
     private static int skin = 0;
+    private static string delimiter = ".";
 
     private void Start()
     {
+        string delim = Time.deltaTime.ToString();
+        if (delim.Contains("."))
+        {
+            delimiter = ".";
+        }
+        else if (delim.Contains(","))
+        {
+            delimiter = ",";
+        }
         Time.timeScale = 1;
         if (SteamManager.getActive())
         {
@@ -53,6 +63,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public static string getDelimiter()
+    {
+        return delimiter;
+    }
     public static void setLoaded(bool load)
     {
         loaded = load;

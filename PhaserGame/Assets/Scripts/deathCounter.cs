@@ -30,9 +30,11 @@ public class deathCounter : MonoBehaviour
     private int minutes;
     private float seconds;
     private phaserManager gm;
+    private string del;
 
     void Start()
     {
+        del = MainMenu.getDelimiter();
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
@@ -52,9 +54,9 @@ public class deathCounter : MonoBehaviour
                 time += Time.deltaTime;
             }
             string secondTemp = setupTimeString(time);
-            if (secondTemp.Contains("."))
+            if (secondTemp.Contains(del))
             {
-                int index = secondTemp.IndexOf(".");
+                int index = secondTemp.IndexOf(del);
                 timer.text = secondTemp.Substring(0, index + 1);
                 decimals.text = secondTemp.Substring(index + 1);
                 if (decimals.text.Length == 1)
@@ -64,7 +66,7 @@ public class deathCounter : MonoBehaviour
             }
             else if (time < 3600)
             {
-                timer.text = secondTemp + ".";
+                timer.text = secondTemp + del;
                 decimals.text = "00";
             }
             else
@@ -121,9 +123,9 @@ public class deathCounter : MonoBehaviour
         {
             float preTime = level.getLevelTime(SceneManager.GetActiveScene().buildIndex);
             string thirdTemp = setupTimeString(preTime);
-            if (thirdTemp.Contains("."))
+            if (thirdTemp.Contains(del))
             {
-                int index = thirdTemp.IndexOf(".");
+                int index = thirdTemp.IndexOf(del);
                 bestTime.text = thirdTemp.Substring(0, index + 1);
                 bestDec.text = thirdTemp.Substring(index + 1);
                 if (bestDec.text.Length == 1)
@@ -133,7 +135,7 @@ public class deathCounter : MonoBehaviour
             }
             else if (time < 3600)
             {
-                bestTime.text = thirdTemp + ".";
+                bestTime.text = thirdTemp + del;
                 bestDec.text = "00";
             }
             else
