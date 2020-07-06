@@ -21,9 +21,11 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1T, W2T, W3T;
     public TextMeshProUGUI W1D, W2D, W3D;
     public TextMeshProUGUI TD, TT, TTD, Levels;
+    private string del;
     // Start is called before the first frame update
     void Start()
     {
+        del = MainMenu.getDelimiter();
         updateDeathStats();
     }
 
@@ -192,14 +194,14 @@ public class deathStats : MonoBehaviour
         string text = "X";
         string seconds = "X" + "\u00A0\u00A0";
         text = setupTimeString(num);
-        if (text.Contains("."))
+        if (text.Contains(del))
         {
-            int index = text.IndexOf(".");
+            int index = text.IndexOf(del);
             seconds = text.Substring(0, index + 1);
         }
         else if (num < 3600)
         {
-            seconds = text + ".";
+            seconds = text + del;
         }
         else
         {
@@ -225,9 +227,9 @@ public class deathStats : MonoBehaviour
         string text = "X";
         string decimals = "";
         text = setupTimeString(num);
-        if (text.Contains("."))
+        if (text.Contains(del))
         {
-            int index = text.IndexOf(".");
+            int index = text.IndexOf(del);
             decimals = text.Substring(index + 1);
             if (decimals.Length == 1)
             {

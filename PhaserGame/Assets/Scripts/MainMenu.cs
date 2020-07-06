@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using Steamworks;
 using TMPro;
+using System.Globalization;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,9 +26,20 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
     public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
+    private static int skin = 0;
+    private static string delimiter = ".";
 
     private void Start()
     {
+        string delim = Time.deltaTime.ToString();
+        if (delim.Contains("."))
+        {
+            delimiter = ".";
+        }
+        else if (delim.Contains(","))
+        {
+            delimiter = ",";
+        }
         Time.timeScale = 1;
         if (SteamManager.getActive())
         {
@@ -52,6 +64,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public static string getDelimiter()
+    {
+        return delimiter;
+    }
     public static void setLoaded(bool load)
     {
         loaded = load;
@@ -95,6 +111,16 @@ public class MainMenu : MonoBehaviour
         {
             SaveGame();
         }
+    }
+
+    public void SetSkin(int num)
+    {
+        skin = num;
+    }
+
+    public static int GetSkin()
+    {
+        return skin;
     }
 
     public void controls()
@@ -159,6 +185,17 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
+                if (buttons[i].name == "Skin1")
+                {
+                    if(Achievement.getLength() == 15)
+                    {
+                        buttons[i].interactable = true;
+                    }
+                    else
+                    {
+                        buttons[i].interactable = false;
+                    }
+                }
             }
         }
         else {
@@ -213,6 +250,7 @@ public class MainMenu : MonoBehaviour
         {
             save.optionsSave.Add(0f);
         }
+        save.skin = skin;
         return save;
     }
 
@@ -253,6 +291,7 @@ public class MainMenu : MonoBehaviour
             {
                 options.Toggle(false);
             }
+            skin = save.skin;
         }
         else
         {

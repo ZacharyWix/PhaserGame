@@ -49,9 +49,7 @@ public class SteamLeaderboards : MonoBehaviour
         CSteamID[] ids = new CSteamID[1];
         ids[0] = SteamUser.GetSteamID();
         SteamAPICall_t hSteamAPICall = SteamUserStats.DownloadLeaderboardEntriesForUsers(s_currentLeaderboard, ids, 1);
-        print("hits");
         m_userResult.Set(hSteamAPICall, OnUserBoardDownloadResult);
-        print("after");
     }
 
     public static string[] getLeaderBoardIndex(int index)
@@ -74,9 +72,6 @@ public class SteamLeaderboards : MonoBehaviour
         ret[0] = SteamFriends.GetFriendPersonaName(u_leaderboard.m_steamIDUser).ToString();
         ret[1] = u_leaderboard.m_nGlobalRank.ToString();
         ret[2] = u_leaderboard.m_nScore.ToString();
-        print("User: " + ret[0]);
-        print("Rank: " + ret[1]);
-        print("Score: " + ret[2]);
         return ret;
     }
 
@@ -106,9 +101,7 @@ public class SteamLeaderboards : MonoBehaviour
 
     static private void OnUserBoardDownloadResult (LeaderboardScoresDownloaded_t pCallback, bool failure)
     {
-        UnityEngine.Debug.Log("hi");
         u_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
-        print("length: " + pCallback.m_cEntryCount);
     }
 
     private static Timer timer1;
