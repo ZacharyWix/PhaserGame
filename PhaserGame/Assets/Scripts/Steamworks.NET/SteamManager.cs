@@ -21,7 +21,7 @@ using Steamworks;
 //
 [DisallowMultipleComponent]
 public class SteamManager : MonoBehaviour {
-    public static bool steamActive = true;
+    public static bool steamActive = false;
 	protected static SteamManager s_instance;
 
 	protected static SteamManager Instance {
