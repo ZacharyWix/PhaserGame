@@ -23,6 +23,7 @@ using Steamworks;
 public class SteamManager : MonoBehaviour {
     public static bool steamActive = true;
 	protected static SteamManager s_instance;
+
 	protected static SteamManager Instance {
 		get {
 			if (s_instance == null) {
