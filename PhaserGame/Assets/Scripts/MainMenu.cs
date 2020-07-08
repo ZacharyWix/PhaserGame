@@ -79,7 +79,7 @@ public class MainMenu : MonoBehaviour
     }
     public void practiceText()
     {
-        if (Input.GetJoystickNames().Length > 0)
+        if (1 == 0)
         {
             w1CC.text = "Use the C key (RB) to create a new checkpoint";
             w2CC.text = w1CC.text;
