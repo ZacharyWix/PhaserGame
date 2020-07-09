@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Unlocker : MonoBehaviour
 {
-    public SteamAchievements sa;
     private Achievement achievement;
     private level lv;
     public GameObject achievement_00, achievement_01, achievement_02, achievement_03, achievement_04, 
@@ -67,16 +66,6 @@ public class Unlocker : MonoBehaviour
 
     public void updateUnlocks()
     {
-        if (SteamManager.getActive())
-        {
-            sa.updateLevelsStat(level.getMaxLevel(false));
-            sa.updateDeathStat(level.getTotalDeaths());
-            sa.updateTimeStat(level.getTotalTime());
-            if (level.getLevelDeaths(30) != -1)
-            {
-                SteamLeaderboards.UpdateScore(level.getTotalTime());
-            }
-        }
         if (level.getLevelDeaths(10) != -1)
         {
             unlock(achievement_00);
@@ -153,10 +142,6 @@ public class Unlocker : MonoBehaviour
         if (!Achievement.getUnlocked(x))
         {
             achievement = new Achievement(x);
-            if (SteamManager.getActive())
-            {
-                sa.UnlockSteamAchievement(ach.name);
-            }
             popups.Add(ach);
             ach.SetActive(true);
             showing = true;
