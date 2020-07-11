@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
-using Steamworks;
+//using Steamworks;
 using TMPro;
 using System.Globalization;
 
@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     private phaserManager gm;
     public Canvas canvas;
     private bool unlocked = false;
-    public SteamAchievements sa;
+    //public SteamAchievements sa;
     private static bool loaded = false;
     private string user = "";
     private static bool practice = false;
@@ -41,9 +41,9 @@ public class MainMenu : MonoBehaviour
             delimiter = ",";
         }
         Time.timeScale = 1;
-        if (SteamManager.getActive())
+        //if (SteamManager.getActive())
         {
-            user = "/" + SteamUser.GetSteamID();
+           // user = "/" + SteamUser.GetSteamID();
         }
         if (!loaded)
         {
@@ -58,9 +58,9 @@ public class MainMenu : MonoBehaviour
             deathStat.updateDeathStats();
             achievementMenu.updateIcons();
         }
-        if (SteamManager.getActive())
+        //if (SteamManager.getActive())
         {
-            SteamLeaderboards.Init();
+           // SteamLeaderboards.Init();
         }
     }
 
@@ -149,7 +149,7 @@ public class MainMenu : MonoBehaviour
     {
         File.Delete(Application.persistentDataPath + user + "/gamesave.sav");
         level.clear();
-        sa.resetAll();
+        //sa.resetAll();
         Start();
     }
 
