@@ -116,6 +116,7 @@ public class MainMenu : MonoBehaviour
     public void SetSkin(int num)
     {
         skin = num;
+        SaveGame();
     }
 
     public static int GetSkin()
@@ -188,6 +189,28 @@ public class MainMenu : MonoBehaviour
                 if (buttons[i].name == "Skin1")
                 {
                     if(Achievement.getLength() == 15)
+                    {
+                        buttons[i].interactable = true;
+                    }
+                    else
+                    {
+                        buttons[i].interactable = false;
+                    }
+                }
+                if (buttons[i].name == "Skin2")
+                {
+                    if (Achievement.getUnlocked(13))
+                    {
+                        buttons[i].interactable = true;
+                    }
+                    else
+                    {
+                        buttons[i].interactable = false;
+                    }
+                }
+                if (buttons[i].name == "Skin3")
+                {
+                    if (Achievement.getUnlocked(8))
                     {
                         buttons[i].interactable = true;
                     }
