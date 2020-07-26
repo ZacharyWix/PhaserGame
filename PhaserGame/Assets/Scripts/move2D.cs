@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class move2D : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -25,7 +25,8 @@ public class move2D : MonoBehaviour
     public ParticleSystem jumpParticles;
     public float coyoteTimeMax;
     private float coyoteTimer;
-
+    public FixedJoystick joy;
+    public Button jump;
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
     private bool isPractice;
@@ -64,7 +65,7 @@ public class move2D : MonoBehaviour
                 jumpParticles.Play();
 
             }
-            movement = Input.GetAxis("Horizontal");
+            movement = joy.Horizontal;
             if (movement > 0f)
             {
                 rigidBody.velocity = new Vector2(movement * moveSpeed, rigidBody.velocity.y);
@@ -80,7 +81,7 @@ public class move2D : MonoBehaviour
                 rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
             }
 
-            if (Input.GetButtonDown("Jump") && (isTouchingGround || coyoteTimer > 0f))
+            if (Input.GetButton("Jump") && (isTouchingGround || coyoteTimer > 0f))
             {
                 soundPlay.PlaySound("jump");
                 isJumping = true;
