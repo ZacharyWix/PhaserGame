@@ -21,6 +21,7 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI bestTime1;
     public TextMeshProUGUI bestDec1;
     public TextMeshProUGUI complete;
+    public TextMeshProUGUI W1D, W1T, W1TD;
     public pause pause;
     private bool paused = false;
     private bool finished;
@@ -151,6 +152,23 @@ public class deathCounter : MonoBehaviour
         }
         bestTime1.text = bestTime.text;
         bestDec1.text = bestDec.text;
+        if(SceneManager.GetActiveScene().buildIndex == 10){
+            W1D.text = level.getWorldDeaths(1).ToString();
+            W1T.text = deathStats.getWorldTimeText(1);
+            W1TD.text = deathStats.getWorldDecimalText(1);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 20)
+        {
+            W1D.text = level.getWorldDeaths(2).ToString();
+            W1T.text = deathStats.getWorldTimeText(2);
+            W1TD.text = deathStats.getWorldDecimalText(2);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 30)
+        {
+            W1D.text = level.getWorldDeaths(3).ToString();
+            W1T.text = deathStats.getWorldTimeText(3);
+            W1TD.text = deathStats.getWorldDecimalText(3);
+        }
     }
 
     public string setupTimeString(float timeIn)

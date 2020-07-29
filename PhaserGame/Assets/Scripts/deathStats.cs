@@ -21,7 +21,7 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1T, W2T, W3T;
     public TextMeshProUGUI W1D, W2D, W3D;
     public TextMeshProUGUI TD, TT, TTD, Levels;
-    private string del;
+    private static string del;
     // Start is called before the first frame update
     void Start()
     {
@@ -151,12 +151,12 @@ public class deathStats : MonoBehaviour
         return text;
     }
 
-    public string getWorldTimeText(int num)
+    public static string getWorldTimeText(int num)
     {
         return getTimeHelper(level.getWorldTime(num));
     }
 
-    public string getWorldDecimalText(int num)
+    public static string getWorldDecimalText(int num)
     {
         return getDecimalHelper(level.getWorldTime(num));
     }
@@ -189,7 +189,7 @@ public class deathStats : MonoBehaviour
         return getDecimalHelper(level.getTotalTime());
     }
 
-    public string getTimeHelper(float num)
+    public static string getTimeHelper(float num)
     {
         string text = "X";
         string seconds = "X" + "\u00A0\u00A0";
@@ -210,7 +210,7 @@ public class deathStats : MonoBehaviour
         return seconds;
     }
 
-    public string getDecimalText(int num)
+    public static string getDecimalText(int num)
     {
         string decimals = "";
         if(level.getLevelTime(num) != -1)
@@ -222,7 +222,7 @@ public class deathStats : MonoBehaviour
             return decimals;
         }
     }
-    public string getDecimalHelper(float num)
+    public static string getDecimalHelper(float num)
     {
         string text = "X";
         string decimals = "";
@@ -247,7 +247,7 @@ public class deathStats : MonoBehaviour
         return decimals;
     }
 
-    public string setupTimeString(float timeIn)
+    public static string setupTimeString(float timeIn)
     {
         int timeInt = (int)timeIn;
         float seconds = timeIn % 60;

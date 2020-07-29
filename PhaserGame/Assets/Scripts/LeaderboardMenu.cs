@@ -12,7 +12,6 @@ public class LeaderboardMenu : MonoBehaviour
     public Sprite normal;
     public Sprite highlight;
     Image image;
-    public deathStats deathStat;
     public TextMeshProUGUI rank, score, user;
     int num = 0;
     // Start is called before the first frame update
@@ -49,7 +48,7 @@ public class LeaderboardMenu : MonoBehaviour
                 image.sprite = normal;
             }
             rank.text = hi[1];
-            score.text = deathStat.setupTimeString(Int32.Parse(hi[2]));
+            score.text = deathStats.setupTimeString(Int32.Parse(hi[2]));
         }
     }
 }

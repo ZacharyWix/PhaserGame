@@ -29,6 +29,7 @@ public class Respawn : MonoBehaviour
     public GameObject next;
     public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
+    public GameObject n;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -128,6 +129,11 @@ public class Respawn : MonoBehaviour
                 td.SetActive(false);
                 t.SetActive(false);
                 tutorial.gameObject.SetActive(true);
+                eventSys.SetSelectedGameObject(next);
+            }
+            else if(SceneManager.GetActiveScene().buildIndex == 10 || SceneManager.GetActiveScene().buildIndex == 20 || SceneManager.GetActiveScene().buildIndex == 30)
+            {
+                endgame.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }
             else
