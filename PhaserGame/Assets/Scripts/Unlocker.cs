@@ -162,4 +162,30 @@ public class Unlocker : MonoBehaviour
             showing = true;
         }
     }
+
+    public void unlockSkin(GameObject skin)
+    {
+        char[] MyChar = { 's', 'k', 'i', 'n', '_' };
+        string a = skin.name.TrimStart(MyChar);
+        int x = Int32.Parse(a);
+        if (!MainMenu.FindSkin(x))
+        {
+            MainMenu.AddSkin(x);
+            popups.Add(skin);
+            skin.SetActive(true);
+        }
+    }
+
+    public void unlockAccessory(GameObject accessory)
+    {
+        char[] MyChar = { 'a', 'c', 'c', 'e', 's', 's', 'o', 'r', 'y', '_' };
+        string a = accessory.name.TrimStart(MyChar);
+        int x = Int32.Parse(a);
+        if (!MainMenu.FindAccessory(x))
+        {
+            MainMenu.AddAccessory(x);
+            popups.Add(accessory);
+            accessory.SetActive(true);
+        }
+    }
 }

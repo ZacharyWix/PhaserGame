@@ -9,7 +9,7 @@ public class MenuAnimation : MonoBehaviour
     public GameObject clouds;
     public GameObject c1;
     public GameObject c2;
-    public GameObject character;
+    public GameObject character, character2;
     private float bpos = 0.0f;
     private float cpos = 0.0f;
     private float bspeed = 0.1f;
@@ -46,6 +46,7 @@ public class MenuAnimation : MonoBehaviour
         if (charSpeed < 0 && charPos < -0.1)
         {
             character.transform.localRotation = Quaternion.Euler(0, flip, 0);
+            character2.transform.localRotation = Quaternion.Euler(0, flip, 0);
             charSpeed = charSpeed * -1;
             if(flip == 180)
             {
@@ -65,6 +66,7 @@ public class MenuAnimation : MonoBehaviour
         charPos += charSpeed * Time.deltaTime;
         blocks.transform.position = new Vector2(0, bpos);
         character.transform.position = new Vector2(x, charPos);
+        character2.transform.position = new Vector2(0, charPos);
         clouds.transform.position = new Vector2(cpos, 0);
     }
 }

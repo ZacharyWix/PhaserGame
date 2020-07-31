@@ -26,7 +26,10 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
     public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
+    private static List<int> skins = new List<int>();
+    private static List<int> accessories = new List<int>();
     private static int skin = 0;
+    private static int accessory = 0;
     private static string delimiter = ".";
 
     private void Start()
@@ -124,6 +127,50 @@ public class MainMenu : MonoBehaviour
         return skin;
     }
 
+    public void SetAccessory(int num)
+    {
+        accessory = num;
+        SaveGame();
+    }
+    
+    public static int GetAccessory()
+    {
+        return accessory;
+    }
+
+    public static void AddSkin(int num)
+    {
+        skins.Add(num);
+    }
+    
+    public static bool FindSkin(int num)
+    {
+        for (int i = 0; i < skins.Count; i++)
+        {
+            if (skins[i] == num)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void AddAccessory(int num)
+    {
+        accessories.Add(num);
+    }
+
+    public static bool FindAccessory(int num)
+    {
+        for (int i = 0; i < accessories.Count; i++)
+        {
+            if (accessories[i] == num)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void controls()
     {
         if (Input.GetJoystickNames().Length != 0)
@@ -188,7 +235,7 @@ public class MainMenu : MonoBehaviour
                 }
                 if (buttons[i].name == "Skin1")
                 {
-                    if(Achievement.getLength() == 15)
+                    if(Achievement.getLength() != 0)
                     {
                         buttons[i].interactable = true;
                     }
@@ -274,6 +321,7 @@ public class MainMenu : MonoBehaviour
             save.optionsSave.Add(0f);
         }
         save.skin = skin;
+        save.accessory = accessory;
         return save;
     }
 
@@ -315,6 +363,7 @@ public class MainMenu : MonoBehaviour
                 options.Toggle(false);
             }
             skin = save.skin;
+            accessory = save.accessory;
         }
         else
         {

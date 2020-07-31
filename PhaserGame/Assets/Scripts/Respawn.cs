@@ -29,7 +29,8 @@ public class Respawn : MonoBehaviour
     public GameObject next;
     public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
-    public GameObject n;
+    public GameObject world;
+    public GameObject accessory;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -64,6 +65,7 @@ public class Respawn : MonoBehaviour
                 rb.simulated = true;
                 isDead = false;
                 respawnTimer = respawnDelay;
+                accessory.gameObject.SetActive(true);
                 spawn();
             }
         }
@@ -89,6 +91,7 @@ public class Respawn : MonoBehaviour
     {
         //Plays the death sound
         soundPlay.PlaySound("death");
+        accessory.gameObject.SetActive(false);
 
         //Plays death particles and makes the player disappear
         deathParticles.Play();
@@ -131,8 +134,9 @@ public class Respawn : MonoBehaviour
                 tutorial.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }
-            else if(SceneManager.GetActiveScene().buildIndex == 10 || SceneManager.GetActiveScene().buildIndex == 20 || SceneManager.GetActiveScene().buildIndex == 30)
+            else if((SceneManager.GetActiveScene().buildIndex == 10 && level.getLevelDeaths(10) != -1) || (SceneManager.GetActiveScene().buildIndex == 20 && level.getLevelDeaths(20) != -1) || (SceneManager.GetActiveScene().buildIndex == 30 && level.getLevelDeaths(10) != -1))
             {
+                world.gameObject.SetActive(true);
                 endgame.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }

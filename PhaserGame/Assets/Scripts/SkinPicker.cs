@@ -7,8 +7,11 @@ using UnityEngine.SceneManagement;
 public class SkinPicker : MonoBehaviour
 {
     int num = 0;
+    int anum = 0;
     public Sprite sp0, sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13, sp14, sp15;
-    public Image pic;
+    public Sprite ap1, ap2, ap3, ap4;
+    public Image pic, pic1, pic2, pic3;
+    public SpriteRenderer accessory;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,7 @@ public class SkinPicker : MonoBehaviour
             updateImage();
         }
         num = MainMenu.GetSkin();
+        anum = MainMenu.GetAccessory();
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             SpriteRenderer rend = GetComponent<SpriteRenderer>();
@@ -84,13 +88,30 @@ public class SkinPicker : MonoBehaviour
             {
                 rend.sprite = sp15;
             }
+
+            if (anum == 1)
+            {
+                accessory.sprite = ap1;
+            }
+            if (anum == 2)
+            {
+                accessory.sprite = ap2;
+            }
+            if (anum == 3)
+            {
+                accessory.sprite = ap3;
+            }
+            if (anum == 4)
+            {
+                accessory.sprite = ap4;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (num != MainMenu.GetSkin())
+        if (num != MainMenu.GetSkin() || anum != MainMenu.GetAccessory())
         {
             updateImage();
         }
@@ -99,6 +120,7 @@ public class SkinPicker : MonoBehaviour
     public void updateImage()
     {
         num = MainMenu.GetSkin();
+        anum = MainMenu.GetAccessory();
         if (num == 0)
         {
             pic.sprite = sp0;
@@ -163,5 +185,37 @@ public class SkinPicker : MonoBehaviour
         {
             pic.sprite = sp15;
         }
+        pic2.sprite = pic.sprite;
+
+
+        if (anum == 0)
+        {
+            pic1.enabled = false;
+            pic3.enabled = false;
+        }
+        else {
+            pic1.enabled = true;
+            pic3.enabled = true;
+        }
+
+
+        if (anum == 1)
+        {
+            pic1.sprite = ap1;
+        }
+        if (anum == 2)
+        {
+            pic1.sprite = ap2;
+        }
+        if (anum == 3)
+        {
+            pic1.sprite = ap3;
+        }
+        if (anum == 4)
+        {
+            pic1.sprite = ap4;
+        }
+        pic3.sprite = pic1.sprite;
+
     }
 }
