@@ -7979,7 +7979,7 @@ GameObject:
   - component: {fileID: 242058859}
   - component: {fileID: 242058858}
   m_Layer: 5
-  m_Name: Skins
+  m_Name: Sks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21809,10 +21809,10 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: 'Happiness
+      value: 'High Society
 
 
-        Beat all 30 levels'
+        Find the Top Hat'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -49017,7 +49017,7 @@ GameObject:
   - component: {fileID: 1586024688}
   - component: {fileID: 1586024687}
   m_Layer: 5
-  m_Name: Accessories
+  m_Name: Acessories
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63661,10 +63661,11 @@ PrefabInstance:
     - target: {fileID: 2159109809687702184, guid: 991c157dcfab8664fa6d9821b3ff67b8,
         type: 3}
       propertyPath: m_text
-      value: 'World One Silver
+      value: 'World Three Silver
 
 
-        Complete World Three with 25 deaths or less'
+        Complete World Three with 25 deaths or
+        less'
       objectReference: {fileID: 0}
     - target: {fileID: 2159109810117215522, guid: 991c157dcfab8664fa6d9821b3ff67b8,
         type: 3}

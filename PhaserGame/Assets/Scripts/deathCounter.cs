@@ -37,7 +37,7 @@ public class deathCounter : MonoBehaviour
     {
         del = MainMenu.getDelimiter();
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
-        time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
+        //time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {

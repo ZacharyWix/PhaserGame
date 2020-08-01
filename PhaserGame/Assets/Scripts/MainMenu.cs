@@ -95,8 +95,9 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame ()
     {
-        deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
-        gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
+        gm.setDeathCount(0);
+        //deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
+        //gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -107,8 +108,9 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(int l)
     {
-        gm.setDeathCount(level.getActiveDeaths(l));
-        deathCount.setTime(level.getActiveTime(l));
+        gm.setDeathCount(0);
+        //gm.setDeathCount(level.getActiveDeaths(l));
+        //deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
         if (l == 0)
         {
@@ -218,6 +220,8 @@ public class MainMenu : MonoBehaviour
         if (unlocked == false) {
             int max = level.getMaxLevel(false) + 1;
             char[] MyChar = { 'L', 'e', 'v', 'e', 'l' };
+            char[] skinChar = { 'S', 'k', 'i', 'n'};
+            char[] accChar = { 'A', 'c', 'c'};
             for (int i = 0; i < buttons.Length; i++)
             {
                 if (buttons[i].name.Contains("Level"))
@@ -233,9 +237,19 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
-                if (buttons[i].name == "Skin1")
+                if (buttons[i].name.Contains("Skin") && buttons[i].name != "Skin0")
                 {
-                    if(Achievement.getLength() != 0)
+                    string skinNum = buttons[i].name.TrimStart(skinChar);
+                    bool ul = false;
+                    int num = Int16.Parse(skinNum);
+                    for (int j = 0; j < skins.Count; j++)
+                    {
+                        if(skins[j] == num)
+                        {
+                            ul = true;
+                        }
+                    }
+                    if (ul)
                     {
                         buttons[i].interactable = true;
                     }
@@ -244,20 +258,19 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
-                if (buttons[i].name == "Skin2")
+                if (buttons[i].name.Contains("Acc") && buttons[i].name != "Acc0")
                 {
-                    if (Achievement.getUnlocked(13))
+                    string accNum = buttons[i].name.TrimStart(accChar);
+                    bool ul = false;
+                    int num = Int16.Parse(accNum);
+                    for (int j = 0; j < accessories.Count; j++)
                     {
-                        buttons[i].interactable = true;
+                        if (accessories[j] == num)
+                        {
+                            ul = true;
+                        }
                     }
-                    else
-                    {
-                        buttons[i].interactable = false;
-                    }
-                }
-                if (buttons[i].name == "Skin3")
-                {
-                    if (Achievement.getUnlocked(8))
+                    if (ul)
                     {
                         buttons[i].interactable = true;
                     }
@@ -345,6 +358,10 @@ public class MainMenu : MonoBehaviour
                 else
                 {
                     activity = false;
+                }
+                if(i[0] == 23 && i[3] < 15f)
+                {
+                    i[3] = 120f;
                 }
                 level lv = new level((int)i[0], (int)i[1], activity, i[3]);
             }
