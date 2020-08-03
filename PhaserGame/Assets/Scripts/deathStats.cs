@@ -21,6 +21,7 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1T, W2T, W3T;
     public TextMeshProUGUI W1D, W2D, W3D;
     public TextMeshProUGUI TD, TT, TTD, Levels;
+    public TextMeshProUGUI sprnDeaths, sprnTime, sprnDec, bestDeaths, bestTime, bestDec, lvl;
     private static string del;
     // Start is called before the first frame update
     void Start()
@@ -133,7 +134,13 @@ public class deathStats : MonoBehaviour
         TT.text = getTotalTime();
         TTD.text = getTotalDecimals();
         Levels.text = level.getMaxLevel(false).ToString() + "/30";
-        
+        sprnDeaths.text = getSpeedRunDeaths();
+        sprnTime.text = getSpeedRunTime();
+        sprnDec.text = getSpeedRunDecimal();
+        bestDeaths.text = getBestDeaths();
+        bestTime.text = getBestTime();
+        bestDec.text = getBestDecimal();
+        lvl.text = "Level " + SpeedRunMode.getLevel().ToString();
     }
 
     public string getDeathText(int num) {
@@ -159,6 +166,78 @@ public class deathStats : MonoBehaviour
     public static string getWorldDecimalText(int num)
     {
         return getDecimalHelper(level.getWorldTime(num));
+    }
+
+    public static string getSpeedRunDeaths()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "X";
+        }
+        else
+        {
+            return SpeedRunMode.getDeaths().ToString();
+        }
+    }
+
+    public static string getSpeedRunTime()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "X" + "\u00A0\u00A0";
+        }
+        else
+        {
+            return getTimeHelper(SpeedRunMode.getTime());
+        }
+    }
+
+    public static string getSpeedRunDecimal()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "";
+        }
+        else
+        {
+            return getDecimalHelper(SpeedRunMode.getTime());
+        }
+    }
+
+    public static string getBestDeaths()
+    {
+        if (SpeedRunMode.getBestDeaths() == -1)
+        {
+            return "X";
+        }
+        else
+        {
+            return SpeedRunMode.getBestDeaths().ToString();
+        }
+    }
+
+    public static string getBestTime()
+    {
+        if (SpeedRunMode.getBestTime() == -1f)
+        {
+            return "X" + "\u00A0\u00A0";
+        }
+        else
+        {
+            return getTimeHelper(SpeedRunMode.getBestTime());
+        }
+    }
+
+    public static string getBestDecimal()
+    {
+        if (SpeedRunMode.getBestTime() == -1f)
+        {
+            return "";
+        }
+        else
+        {
+            return getDecimalHelper(SpeedRunMode.getBestTime());
+        }
     }
 
     public string getTimeText(int num)

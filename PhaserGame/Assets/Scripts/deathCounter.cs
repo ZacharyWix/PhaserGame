@@ -23,6 +23,7 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI complete;
     public TextMeshProUGUI W1D, W1T, W1TD;
     public pause pause;
+    public TextMeshProUGUI sprnDeaths, sprnTime, sprnDec, sprnDeaths2, sprnTime2, sprnDec2;
     private bool paused = false;
     private bool finished;
     private float time;
@@ -169,6 +170,9 @@ public class deathCounter : MonoBehaviour
             W1T.text = deathStats.getWorldTimeText(3);
             W1TD.text = deathStats.getWorldDecimalText(3);
         }
+        sprnDeaths.text = sprnDeaths2.text = SpeedRunMode.getDeaths().ToString();
+        sprnTime.text =  sprnTime2.text = deathStats.getSpeedRunTime();
+        sprnDec.text = sprnDec2.text = deathStats.getSpeedRunDecimal();
     }
 
     public string setupTimeString(float timeIn)

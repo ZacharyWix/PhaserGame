@@ -335,6 +335,13 @@ public class MainMenu : MonoBehaviour
         }
         save.skin = skin;
         save.accessory = accessory;
+        save.skins = skins;
+        save.accessories = accessories;
+        save.runDeaths = SpeedRunMode.getDeaths();
+        save.runTime = SpeedRunMode.getTime();
+        save.runLevel = SpeedRunMode.getLevel();
+        save.bestDeaths = SpeedRunMode.getBestDeaths();
+        save.bestTime = SpeedRunMode.getBestTime();
         return save;
     }
 
@@ -381,6 +388,13 @@ public class MainMenu : MonoBehaviour
             }
             skin = save.skin;
             accessory = save.accessory;
+            skins = save.skins;
+            accessories = save.accessories;
+            SpeedRunMode.setDeaths(save.runDeaths);
+            SpeedRunMode.setTime(save.runTime);
+            SpeedRunMode.setLevel(save.runLevel);
+            SpeedRunMode.setBestDeaths(save.bestDeaths);
+            SpeedRunMode.setBestTime(save.bestTime);
         }
         else
         {

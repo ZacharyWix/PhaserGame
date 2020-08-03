@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MenuAnimation : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class MenuAnimation : MonoBehaviour
     private float init = 0;
     private float x = 0;
     private float flip = 0;
+    private EventSystem ev;
+    public GameObject play, quit;
+    private float p = 0;
+    private float q = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,7 @@ public class MenuAnimation : MonoBehaviour
         x = character.transform.position.x;
         blocks.transform.position = new Vector2(0, 0);
         clouds.transform.position = new Vector2(0, 0);
+        ev = EventSystem.current;
     }
 
     // Update is called once per frame
@@ -68,5 +74,29 @@ public class MenuAnimation : MonoBehaviour
         character.transform.position = new Vector2(x, charPos);
         character2.transform.position = new Vector2(0, charPos);
         clouds.transform.position = new Vector2(cpos, 0);
+        if(EventSystem.current.currentSelectedGameObject == play)
+        {
+            p += Time.deltaTime;
+        }
+        else
+        {
+            p = 0;
+        }
+        if (EventSystem.current.currentSelectedGameObject == quit)
+        {
+            q += Time.deltaTime;
+        }
+        else
+        {
+            q = 0;
+        }
+        if (p > 0.2 && Input.GetAxis("Vertical") > 0)
+        {
+            ev.SetSelectedGameObject(quit);
+        }
+        if (q > 0.2 && Input.GetAxis("Vertical") < 0)
+        {
+            ev.SetSelectedGameObject(play);
+        }
     }
 }

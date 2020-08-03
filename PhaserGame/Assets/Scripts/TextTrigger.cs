@@ -110,7 +110,7 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Text Trigger") && tutorials && !isPaused)
+        if (collision.transform.CompareTag("Text Trigger") && tutorials && !isPaused && !SpeedRunMode.getSpeedRun())
         {
             if (collision.gameObject.name == "Welcome")
             {
@@ -189,7 +189,7 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Text Trigger") && tutorials)
+        if (collision.transform.CompareTag("Text Trigger") && tutorials && !SpeedRunMode.getSpeedRun())
         {
             if (collision.gameObject.name == "Welcome")
             {
