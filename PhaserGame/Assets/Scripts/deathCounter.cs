@@ -40,6 +40,11 @@ public class deathCounter : MonoBehaviour
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
         //time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
+        if (SpeedRunMode.getSpeedRun())
+        {
+            time += SpeedRunMode.getTime();
+            gm.setDeathCount(SpeedRunMode.getDeaths());
+        }
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             updateDeathCounter();
@@ -75,6 +80,11 @@ public class deathCounter : MonoBehaviour
             {
                 timer.text = secondTemp;
                 decimals.text = "";
+            }
+            if (SpeedRunMode.getSpeedRun())
+            {
+                sprnTime2.text = timer.text;
+                sprnDec2.text = decimals.text;
             }
         }
     }
@@ -171,8 +181,8 @@ public class deathCounter : MonoBehaviour
             W1TD.text = deathStats.getWorldDecimalText(3);
         }
         sprnDeaths.text = sprnDeaths2.text = SpeedRunMode.getDeaths().ToString();
-        sprnTime.text =  sprnTime2.text = deathStats.getSpeedRunTime();
-        sprnDec.text = sprnDec2.text = deathStats.getSpeedRunDecimal();
+        sprnTime.text = deathStats.getSpeedRunTime();
+        sprnDec.text = deathStats.getSpeedRunDecimal();
     }
 
     public string setupTimeString(float timeIn)
@@ -245,5 +255,11 @@ public class deathCounter : MonoBehaviour
     public void setTime(float timer)
     {
         time = timer;
+    }
+
+    public void saveStats()
+    {
+        SpeedRunMode.setDeaths(gm.getDeathCount());
+        SpeedRunMode.setTime(time);
     }
 }

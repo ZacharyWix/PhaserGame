@@ -124,10 +124,10 @@ public class Respawn : MonoBehaviour
             {
                 unlocker.updateUnlocks();
                 SpeedRunMode.incLevel(1);
-                SpeedRunMode.incDeaths(gm.getDeathCount());
+                SpeedRunMode.setDeaths(gm.getDeathCount());
                 float time = deathCount.getTime();
                 time = (float)Math.Round(time * 100f) / 100f;
-                SpeedRunMode.incTime(time);
+                SpeedRunMode.setTime(time);
                 deathCount.updateDeathCounter();
                 menu.SaveGame();
                 replay.SetActive(false);
@@ -200,13 +200,21 @@ public class Respawn : MonoBehaviour
     {
         if (!MainMenu.getPractice())
         {
-            if (endgame.gameObject.activeSelf)
+            if (SpeedRunMode.getSpeedRun())
             {
-                CreateLevel(false);
+                deathCount.saveStats();
             }
             else
             {
-                CreateLevel(true);
+
+                if (endgame.gameObject.activeSelf)
+                {
+                    CreateLevel(false);
+                }
+                else
+                {
+                    CreateLevel(true);
+                }
             }
         }
         menu.SaveGame();

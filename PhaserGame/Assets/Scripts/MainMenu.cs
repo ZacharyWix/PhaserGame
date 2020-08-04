@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
     private static int skin = 0;
     private static int accessory = 0;
     private static string delimiter = ".";
+    public GameObject sprnLocked;
 
     private void Start()
     {
@@ -60,6 +61,14 @@ public class MainMenu : MonoBehaviour
             updateButtons(buttons, unlocked);
             deathStat.updateDeathStats();
             achievementMenu.updateIcons();
+            if (level.getLevelDeaths(30) != -1)
+            {
+                sprnLocked.SetActive(false);
+            }
+            else
+            {
+                sprnLocked.SetActive(true);
+            }
         }
         if (SteamManager.getActive())
         {
@@ -271,6 +280,17 @@ public class MainMenu : MonoBehaviour
                         }
                     }
                     if (ul)
+                    {
+                        buttons[i].interactable = true;
+                    }
+                    else
+                    {
+                        buttons[i].interactable = false;
+                    }
+                }
+                if (buttons[i].name.Contains("SpeedPlay"))
+                {
+                    if (level.getLevelDeaths(30) != -1)
                     {
                         buttons[i].interactable = true;
                     }
