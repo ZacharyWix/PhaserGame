@@ -666,12 +666,6 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6221b2949f86a6d4db86d0a515e47771, type: 3}
---- !u!1 &13962211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7037635440438650359, guid: 6221b2949f86a6d4db86d0a515e47771,
-    type: 3}
-  m_PrefabInstance: {fileID: 13962210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &14243846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5023,8 +5017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlocks: {fileID: 530227123}
-  achievement_13: {fileID: 1053426017}
-  accessory_2: {fileID: 13962211}
+  mysteryAchievement: {fileID: 1053426017}
 --- !u!61 &481905237
 BoxCollider2D:
   m_ObjectHideFlags: 0

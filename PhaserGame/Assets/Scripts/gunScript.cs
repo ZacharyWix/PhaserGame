@@ -5,7 +5,7 @@ using UnityEngine;
 public class gunScript : MonoBehaviour
 {
     public Unlocker unlocks;
-    public GameObject achievement_13, accessory_2;
+    public GameObject mysteryAchievement;
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player")
@@ -19,8 +19,8 @@ public class gunScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            unlocks.unlock(achievement_13);
-            unlocks.unlockAccessory(accessory_2);
+            print("Gun Collision");
+            unlocks.unlock(mysteryAchievement);
             this.gameObject.SetActive(false);
         }
     }

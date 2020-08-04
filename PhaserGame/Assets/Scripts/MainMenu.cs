@@ -26,10 +26,7 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsMenu, back;
     public GameObject cControlsMenu, backC;
     public TextMeshProUGUI w1CC, w2CC, w3CC, play1, play2, play3, prac1, prac2, prac3, cont1, cont2;
-    private static List<int> skins = new List<int>();
-    private static List<int> accessories = new List<int>();
     private static int skin = 0;
-    private static int accessory = 0;
     private static string delimiter = ".";
 
     private void Start()
@@ -95,9 +92,8 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame ()
     {
-        gm.setDeathCount(0);
-        //deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
-        //gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
+        deathCount.setTime(level.getActiveTime(SceneManager.GetActiveScene().buildIndex + 1));
+        gm.setDeathCount(level.getActiveDeaths(SceneManager.GetActiveScene().buildIndex + 1));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -108,9 +104,8 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(int l)
     {
-        gm.setDeathCount(0);
-        //gm.setDeathCount(level.getActiveDeaths(l));
-        //deathCount.setTime(level.getActiveTime(l));
+        gm.setDeathCount(level.getActiveDeaths(l));
+        deathCount.setTime(level.getActiveTime(l));
         SceneManager.LoadScene(l);
         if (l == 0)
         {
@@ -121,7 +116,6 @@ public class MainMenu : MonoBehaviour
     public void SetSkin(int num)
     {
         skin = num;
-        SaveGame();
     }
 
     public static int GetSkin()
@@ -129,50 +123,6 @@ public class MainMenu : MonoBehaviour
         return skin;
     }
 
-    public void SetAccessory(int num)
-    {
-        accessory = num;
-        SaveGame();
-    }
-    
-    public static int GetAccessory()
-    {
-        return accessory;
-    }
-
-    public static void AddSkin(int num)
-    {
-        skins.Add(num);
-    }
-    
-    public static bool FindSkin(int num)
-    {
-        for (int i = 0; i < skins.Count; i++)
-        {
-            if (skins[i] == num)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void AddAccessory(int num)
-    {
-        accessories.Add(num);
-    }
-
-    public static bool FindAccessory(int num)
-    {
-        for (int i = 0; i < accessories.Count; i++)
-        {
-            if (accessories[i] == num)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     public void controls()
     {
         if (Input.GetJoystickNames().Length != 0)
@@ -220,8 +170,6 @@ public class MainMenu : MonoBehaviour
         if (unlocked == false) {
             int max = level.getMaxLevel(false) + 1;
             char[] MyChar = { 'L', 'e', 'v', 'e', 'l' };
-            char[] skinChar = { 'S', 'k', 'i', 'n'};
-            char[] accChar = { 'A', 'c', 'c'};
             for (int i = 0; i < buttons.Length; i++)
             {
                 if (buttons[i].name.Contains("Level"))
@@ -237,40 +185,9 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
-                if (buttons[i].name.Contains("Skin") && buttons[i].name != "Skin0")
+                if (buttons[i].name == "Skin1")
                 {
-                    string skinNum = buttons[i].name.TrimStart(skinChar);
-                    bool ul = false;
-                    int num = Int16.Parse(skinNum);
-                    for (int j = 0; j < skins.Count; j++)
-                    {
-                        if(skins[j] == num)
-                        {
-                            ul = true;
-                        }
-                    }
-                    if (ul)
-                    {
-                        buttons[i].interactable = true;
-                    }
-                    else
-                    {
-                        buttons[i].interactable = false;
-                    }
-                }
-                if (buttons[i].name.Contains("Acc") && buttons[i].name != "Acc0")
-                {
-                    string accNum = buttons[i].name.TrimStart(accChar);
-                    bool ul = false;
-                    int num = Int16.Parse(accNum);
-                    for (int j = 0; j < accessories.Count; j++)
-                    {
-                        if (accessories[j] == num)
-                        {
-                            ul = true;
-                        }
-                    }
-                    if (ul)
+                    if(Achievement.getLength() == 15)
                     {
                         buttons[i].interactable = true;
                     }
@@ -334,14 +251,6 @@ public class MainMenu : MonoBehaviour
             save.optionsSave.Add(0f);
         }
         save.skin = skin;
-        save.accessory = accessory;
-        save.skins = skins;
-        save.accessories = accessories;
-        save.runDeaths = SpeedRunMode.getDeaths();
-        save.runTime = SpeedRunMode.getTime();
-        save.runLevel = SpeedRunMode.getLevel();
-        save.bestDeaths = SpeedRunMode.getBestDeaths();
-        save.bestTime = SpeedRunMode.getBestTime();
         return save;
     }
 
@@ -366,10 +275,6 @@ public class MainMenu : MonoBehaviour
                 {
                     activity = false;
                 }
-                if(i[0] == 23 && i[3] < 15f)
-                {
-                    i[3] = 120f;
-                }
                 level lv = new level((int)i[0], (int)i[1], activity, i[3]);
             }
             foreach (int i in save.achievementSave)
@@ -387,14 +292,6 @@ public class MainMenu : MonoBehaviour
                 options.Toggle(false);
             }
             skin = save.skin;
-            accessory = save.accessory;
-            skins = save.skins;
-            accessories = save.accessories;
-            SpeedRunMode.setDeaths(save.runDeaths);
-            SpeedRunMode.setTime(save.runTime);
-            SpeedRunMode.setLevel(save.runLevel);
-            SpeedRunMode.setBestDeaths(save.bestDeaths);
-            SpeedRunMode.setBestTime(save.bestTime);
         }
         else
         {

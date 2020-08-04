@@ -29,9 +29,6 @@ public class Respawn : MonoBehaviour
     public GameObject next;
     public Unlocker unlocker;
     private bool platformStatus; //True if player is on a moving platform
-    public GameObject world;
-    public GameObject accessory;
-    public GameObject replay, stats, speedRun, stats2, speedRun2;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -53,11 +50,6 @@ public class Respawn : MonoBehaviour
         deathParticles = GetComponent<ParticleSystem>();
         sr = GetComponent<SpriteRenderer>();
         pauseScript = GetComponent<pause>();
-        if (SpeedRunMode.getSpeedRun())
-        {
-            stats2.SetActive(false);
-            speedRun2.SetActive(true);
-        }
     }
 
     private void Update()
@@ -71,7 +63,6 @@ public class Respawn : MonoBehaviour
                 rb.simulated = true;
                 isDead = false;
                 respawnTimer = respawnDelay;
-                accessory.gameObject.SetActive(true);
                 spawn();
             }
         }
@@ -97,7 +88,6 @@ public class Respawn : MonoBehaviour
     {
         //Plays the death sound
         soundPlay.PlaySound("death");
-        accessory.gameObject.SetActive(false);
 
         //Plays death particles and makes the player disappear
         deathParticles.Play();
@@ -120,21 +110,7 @@ public class Respawn : MonoBehaviour
         {
             pauseScript.togglePause();
             soundPlay.PlaySound("win");
-            if (SpeedRunMode.getSpeedRun())
-            {
-                unlocker.updateUnlocks();
-                SpeedRunMode.incLevel(1);
-                SpeedRunMode.incDeaths(gm.getDeathCount());
-                float time = deathCount.getTime();
-                time = (float)Math.Round(time * 100f) / 100f;
-                SpeedRunMode.incTime(time);
-                deathCount.updateDeathCounter();
-                menu.SaveGame();
-                replay.SetActive(false);
-                stats.SetActive(false);
-                speedRun.SetActive(true);
-            }
-            if (!MainMenu.getPractice() && !SpeedRunMode.getSpeedRun())
+            if (!MainMenu.getPractice())
             {
                 level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
                 CreateLevel(false);
@@ -142,7 +118,7 @@ public class Respawn : MonoBehaviour
                 deathCount.updateDeathCounter();
                 menu.SaveGame();
             }
-            if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn() && !SpeedRunMode.getSpeedRun())
+            if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn())
             {
                 endgame.gameObject.SetActive(true);
                 ld.SetActive(false);
@@ -152,12 +128,6 @@ public class Respawn : MonoBehaviour
                 td.SetActive(false);
                 t.SetActive(false);
                 tutorial.gameObject.SetActive(true);
-                eventSys.SetSelectedGameObject(next);
-            }
-            else if((SceneManager.GetActiveScene().buildIndex == 10 && level.getLevelDeaths(10) != -1) || (SceneManager.GetActiveScene().buildIndex == 20 && level.getLevelDeaths(20) != -1) || (SceneManager.GetActiveScene().buildIndex == 30 && level.getLevelDeaths(10) != -1))
-            {
-                world.gameObject.SetActive(true);
-                endgame.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }
             else

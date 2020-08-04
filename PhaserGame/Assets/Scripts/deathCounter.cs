@@ -21,9 +21,7 @@ public class deathCounter : MonoBehaviour
     public TextMeshProUGUI bestTime1;
     public TextMeshProUGUI bestDec1;
     public TextMeshProUGUI complete;
-    public TextMeshProUGUI W1D, W1T, W1TD;
     public pause pause;
-    public TextMeshProUGUI sprnDeaths, sprnTime, sprnDec, sprnDeaths2, sprnTime2, sprnDec2;
     private bool paused = false;
     private bool finished;
     private float time;
@@ -38,7 +36,7 @@ public class deathCounter : MonoBehaviour
     {
         del = MainMenu.getDelimiter();
         gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
-        //time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
+        time = level.getActiveTime(SceneManager.GetActiveScene().buildIndex);
         finished = false;
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
@@ -153,26 +151,6 @@ public class deathCounter : MonoBehaviour
         }
         bestTime1.text = bestTime.text;
         bestDec1.text = bestDec.text;
-        if(SceneManager.GetActiveScene().buildIndex == 10){
-            W1D.text = level.getWorldDeaths(1).ToString();
-            W1T.text = deathStats.getWorldTimeText(1);
-            W1TD.text = deathStats.getWorldDecimalText(1);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 20)
-        {
-            W1D.text = level.getWorldDeaths(2).ToString();
-            W1T.text = deathStats.getWorldTimeText(2);
-            W1TD.text = deathStats.getWorldDecimalText(2);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 30)
-        {
-            W1D.text = level.getWorldDeaths(3).ToString();
-            W1T.text = deathStats.getWorldTimeText(3);
-            W1TD.text = deathStats.getWorldDecimalText(3);
-        }
-        sprnDeaths.text = sprnDeaths2.text = SpeedRunMode.getDeaths().ToString();
-        sprnTime.text =  sprnTime2.text = deathStats.getSpeedRunTime();
-        sprnDec.text = sprnDec2.text = deathStats.getSpeedRunDecimal();
     }
 
     public string setupTimeString(float timeIn)
