@@ -21,7 +21,8 @@ public class deathStats : MonoBehaviour
     public TextMeshProUGUI W1T, W2T, W3T;
     public TextMeshProUGUI W1D, W2D, W3D;
     public TextMeshProUGUI TD, TT, TTD, Levels;
-    private string del;
+    public TextMeshProUGUI sprnDeaths, sprnTime, sprnDec, bestDeaths, bestTime, bestDec, lvl;
+    private static string del;
     // Start is called before the first frame update
     void Start()
     {
@@ -133,7 +134,13 @@ public class deathStats : MonoBehaviour
         TT.text = getTotalTime();
         TTD.text = getTotalDecimals();
         Levels.text = level.getMaxLevel(false).ToString() + "/30";
-        
+        sprnDeaths.text = getSpeedRunDeaths();
+        sprnTime.text = getSpeedRunTime();
+        sprnDec.text = getSpeedRunDecimal();
+        bestDeaths.text = getBestDeaths();
+        bestTime.text = getBestTime();
+        bestDec.text = getBestDecimal();
+        lvl.text = "Level " + SpeedRunMode.getLevel().ToString();
     }
 
     public string getDeathText(int num) {
@@ -151,14 +158,86 @@ public class deathStats : MonoBehaviour
         return text;
     }
 
-    public string getWorldTimeText(int num)
+    public static string getWorldTimeText(int num)
     {
         return getTimeHelper(level.getWorldTime(num));
     }
 
-    public string getWorldDecimalText(int num)
+    public static string getWorldDecimalText(int num)
     {
         return getDecimalHelper(level.getWorldTime(num));
+    }
+
+    public static string getSpeedRunDeaths()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "X";
+        }
+        else
+        {
+            return SpeedRunMode.getDeaths().ToString();
+        }
+    }
+
+    public static string getSpeedRunTime()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "X" + "\u00A0\u00A0";
+        }
+        else
+        {
+            return getTimeHelper(SpeedRunMode.getTime());
+        }
+    }
+
+    public static string getSpeedRunDecimal()
+    {
+        if (SpeedRunMode.getTime() == 0)
+        {
+            return "";
+        }
+        else
+        {
+            return getDecimalHelper(SpeedRunMode.getTime());
+        }
+    }
+
+    public static string getBestDeaths()
+    {
+        if (SpeedRunMode.getBestDeaths() == -1)
+        {
+            return "X";
+        }
+        else
+        {
+            return SpeedRunMode.getBestDeaths().ToString();
+        }
+    }
+
+    public static string getBestTime()
+    {
+        if (SpeedRunMode.getBestTime() == -1f)
+        {
+            return "X" + "\u00A0\u00A0";
+        }
+        else
+        {
+            return getTimeHelper(SpeedRunMode.getBestTime());
+        }
+    }
+
+    public static string getBestDecimal()
+    {
+        if (SpeedRunMode.getBestTime() == -1f)
+        {
+            return "";
+        }
+        else
+        {
+            return getDecimalHelper(SpeedRunMode.getBestTime());
+        }
     }
 
     public string getTimeText(int num)
@@ -189,7 +268,7 @@ public class deathStats : MonoBehaviour
         return getDecimalHelper(level.getTotalTime());
     }
 
-    public string getTimeHelper(float num)
+    public static string getTimeHelper(float num)
     {
         string text = "X";
         string seconds = "X" + "\u00A0\u00A0";
@@ -210,7 +289,7 @@ public class deathStats : MonoBehaviour
         return seconds;
     }
 
-    public string getDecimalText(int num)
+    public static string getDecimalText(int num)
     {
         string decimals = "";
         if(level.getLevelTime(num) != -1)
@@ -222,7 +301,7 @@ public class deathStats : MonoBehaviour
             return decimals;
         }
     }
-    public string getDecimalHelper(float num)
+    public static string getDecimalHelper(float num)
     {
         string text = "X";
         string decimals = "";
@@ -247,7 +326,7 @@ public class deathStats : MonoBehaviour
         return decimals;
     }
 
-    public string setupTimeString(float timeIn)
+    public static string setupTimeString(float timeIn)
     {
         int timeInt = (int)timeIn;
         float seconds = timeIn % 60;

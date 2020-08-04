@@ -8,9 +8,12 @@ public class Unlocker : MonoBehaviour
     public SteamAchievements sa;
     private Achievement achievement;
     private level lv;
+    private phaserManager gm;
     public GameObject achievement_00, achievement_01, achievement_02, achievement_03, achievement_04, 
     achievement_05, achievement_06, achievement_07, achievement_08, achievement_09, achievement_10, achievement_11,
     achievement_12, achievement_13, achievement_14, achievement_15;
+    public GameObject skin_1, skin_2, skin_3, skin_4, skin_5, skin_6, skin_7, skin_8, skin_9, skin_10, skin_11;
+    public GameObject accessory_1, accessory_2, accessory_3;
     private bool showing = false;
     private float timer = 0;
     private GameObject active;
@@ -24,7 +27,7 @@ public class Unlocker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.Find("Game Manager").GetComponent<phaserManager>();
     }
 
     // Update is called once per frame
@@ -80,6 +83,10 @@ public class Unlocker : MonoBehaviour
         if (level.getLevelDeaths(10) != -1)
         {
             unlock(achievement_00);
+            unlockSkin(skin_4);
+            unlockSkin(skin_5);
+            unlockSkin(skin_6);
+            unlockSkin(skin_7);
         }
         if (level.getLevelDeaths(10) != -1 && level.getWorldDeaths(1) < 25)
         {
@@ -114,6 +121,7 @@ public class Unlocker : MonoBehaviour
         if (level.getLevelDeaths(30) != -1)
         {
             unlock(achievement_08);
+            unlockSkin(skin_2);
         }
         if (level.getLevelDeaths(30) != -1 && level.getWorldDeaths(3) < 25)
         {
@@ -138,10 +146,20 @@ public class Unlocker : MonoBehaviour
         if (level.getLevelDeaths(30) != -1 && level.getTotalDeaths() == 0)
         {
             unlock(achievement_14);
+            unlockSkin(skin_3);
         }
         if (Achievement.getLength() == 15)
         {
             unlock(achievement_15);
+            unlockAccessory(accessory_1);
+        }
+        if(gm.getDeathCount() >= 100)
+        {
+            unlockSkin(skin_1);
+        }
+        if (Achievement.getUnlocked(9))
+        {
+            sa.UnlockSteamAchievement(achievement.name);
         }
     }
 
@@ -160,6 +178,32 @@ public class Unlocker : MonoBehaviour
             popups.Add(ach);
             ach.SetActive(true);
             showing = true;
+        }
+    }
+
+    public void unlockSkin(GameObject skin)
+    {
+        char[] MyChar = { 's', 'k', 'i', 'n', '_' };
+        string a = skin.name.TrimStart(MyChar);
+        int x = Int32.Parse(a);
+        if (!MainMenu.FindSkin(x))
+        {
+            MainMenu.AddSkin(x);
+            popups.Add(skin);
+            skin.SetActive(true);
+        }
+    }
+
+    public void unlockAccessory(GameObject accessory)
+    {
+        char[] MyChar = { 'a', 'c', 'c', 'e', 's', 's', 'o', 'r', 'y', '_' };
+        string a = accessory.name.TrimStart(MyChar);
+        int x = Int32.Parse(a);
+        if (!MainMenu.FindAccessory(x))
+        {
+            MainMenu.AddAccessory(x);
+            popups.Add(accessory);
+            accessory.SetActive(true);
         }
     }
 }

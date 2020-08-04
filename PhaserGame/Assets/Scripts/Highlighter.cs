@@ -11,7 +11,16 @@ public class Highlighter : MonoBehaviour
     void Start()
     {
         char[] MyChar = { 'S', 'k', 'i', 'n'};
-        string skinNum = this.gameObject.name.TrimStart(MyChar);
+        char[] arrChar = { 'A', 'c', 'c' };
+        string skinNum = "";
+        if (this.gameObject.name.Contains("Skin"))
+        {
+            skinNum = this.gameObject.name.TrimStart(MyChar);
+        }
+        if (this.gameObject.name.Contains("Acc"))
+        {
+            skinNum = this.gameObject.name.TrimStart(arrChar);
+        }
         num = Int32.Parse(skinNum);
 
     }
@@ -19,13 +28,27 @@ public class Highlighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MainMenu.GetSkin() == num)
+        if (this.gameObject.name.Contains("Skin"))
         {
-            frame.SetActive(true);
+            if (MainMenu.GetSkin() == num)
+            {
+                frame.SetActive(true);
+            }
+            else
+            {
+                frame.SetActive(false);
+            }
         }
-        else
+        if (this.gameObject.name.Contains("Acc"))
         {
-            frame.SetActive(false);
+            if (MainMenu.GetAccessory() == num)
+            {
+                frame.SetActive(true);
+            }
+            else
+            {
+                frame.SetActive(false);
+            }
         }
     }
 }
