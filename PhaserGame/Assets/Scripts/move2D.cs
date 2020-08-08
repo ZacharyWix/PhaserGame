@@ -17,6 +17,7 @@ public class move2D : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    public SpriteRenderer accessory;
 
     private float jumpTimeCounter;
     public float jumpTime;
@@ -69,11 +70,13 @@ public class move2D : MonoBehaviour
             {
                 rigidBody.velocity = new Vector2(movement * moveSpeed, rigidBody.velocity.y);
                 spriteRenderer.flipX = false;
+                accessory.flipX = false;
             }
             else if (movement < 0f)
             {
                 rigidBody.velocity = new Vector2(movement * moveSpeed, rigidBody.velocity.y);
                 spriteRenderer.flipX = true;
+                accessory.flipX = true;
             }
             else
             {

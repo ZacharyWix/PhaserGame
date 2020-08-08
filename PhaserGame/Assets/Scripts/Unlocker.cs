@@ -13,7 +13,7 @@ public class Unlocker : MonoBehaviour
     achievement_05, achievement_06, achievement_07, achievement_08, achievement_09, achievement_10, achievement_11,
     achievement_12, achievement_13, achievement_14, achievement_15;
     public GameObject skin_1, skin_2, skin_3, skin_4, skin_5, skin_6, skin_7, skin_8, skin_9, skin_10, skin_11;
-    public GameObject accessory_1, accessory_2, accessory_3;
+    public GameObject accessory_1, accessory_2, accessory_3, accessory_4, accessory_5, accessory_6, accessory_7;
     private bool showing = false;
     private float timer = 0;
     private GameObject active;
