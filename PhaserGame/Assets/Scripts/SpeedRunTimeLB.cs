@@ -4,9 +4,9 @@ using System.Collections;
 using System.Threading;
 using System;
 
-public class SteamLeaderboards : MonoBehaviour
+public class SpeedRunTimeLB : MonoBehaviour
 {
-    private const string s_leaderboardName = "Time";
+    private const string s_leaderboardName = "SRT";
     private const ELeaderboardUploadScoreMethod s_leaderboardMethod = ELeaderboardUploadScoreMethod.k_ELeaderboardUploadScoreMethodForceUpdate;
     private const ELeaderboardDataRequest s_leaderboardRequest = ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal;
 
@@ -84,14 +84,14 @@ public class SteamLeaderboards : MonoBehaviour
 
     static private void OnLeaderboardFindResult(LeaderboardFindResult_t pCallback, bool failure)
     {
-        UnityEngine.Debug.Log("STEAM LEADERBOARDS: Found - " + pCallback.m_bLeaderboardFound + " leaderboardID - " + pCallback.m_hSteamLeaderboard.m_SteamLeaderboard);
+        UnityEngine.Debug.Log("Speed Run Time: Found - " + pCallback.m_bLeaderboardFound + " leaderboardID - " + pCallback.m_hSteamLeaderboard.m_SteamLeaderboard);
         s_currentLeaderboard = pCallback.m_hSteamLeaderboard;
         s_initialized = true;
     }
 
     static private void OnLeaderboardUploadResult(LeaderboardScoreUploaded_t pCallback, bool failure)
     {
-        UnityEngine.Debug.Log("STEAM LEADERBOARDS: failure - " + failure + " Completed - " + pCallback.m_bSuccess + " NewScore: " + pCallback.m_nGlobalRankNew + " Score " + pCallback.m_nScore + " HasChanged - " + pCallback.m_bScoreChanged);
+        UnityEngine.Debug.Log("Speed Run Time: failure - " + failure + " Completed - " + pCallback.m_bSuccess + " NewScore: " + pCallback.m_nGlobalRankNew + " Score " + pCallback.m_nScore + " HasChanged - " + pCallback.m_bScoreChanged);
     }
 
     static private void OnLeaderBoardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
@@ -99,7 +99,7 @@ public class SteamLeaderboards : MonoBehaviour
         s_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
     }
 
-    static private void OnUserBoardDownloadResult (LeaderboardScoresDownloaded_t pCallback, bool failure)
+    static private void OnUserBoardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
     {
         u_leaderboardEntries = pCallback.m_hSteamLeaderboardEntries;
     }

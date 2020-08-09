@@ -79,6 +79,11 @@ public class Unlocker : MonoBehaviour
             {
                 SteamLeaderboards.UpdateScore(level.getTotalTime());
             }
+            if(SpeedRunMode.getBestTime() != -2)
+            {
+                SpeedRunTimeLB.UpdateScore(SpeedRunMode.getBestTime());
+                SpeedRunDeathsLB.UpdateScore(SpeedRunMode.getBestDeaths());
+            }
         }
         if (level.getLevelDeaths(10) != -1)
         {

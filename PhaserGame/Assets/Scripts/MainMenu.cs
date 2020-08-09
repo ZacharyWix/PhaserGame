@@ -73,6 +73,8 @@ public class MainMenu : MonoBehaviour
         if (SteamManager.getActive())
         {
             SteamLeaderboards.Init();
+            SpeedRunTimeLB.Init();
+            SpeedRunDeathsLB.Init();
         }
     }
 

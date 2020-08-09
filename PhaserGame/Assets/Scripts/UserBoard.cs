@@ -13,6 +13,9 @@ public class UserBoard : MonoBehaviour
     int index;
     public ScrollRect scroll;
     public GameObject complete;
+    private static int type = 0;
+    public TextMeshProUGUI score;
+    public GameObject frame0, frame1, frame2;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,27 @@ public class UserBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(type == 0)
+        {
+            score.text = "Time";
+            frame0.SetActive(true);
+            frame1.SetActive(false);
+            frame2.SetActive(false);
+        }
+        else if(type == 1)
+        {
+            score.text = "Time";
+            frame0.SetActive(false);
+            frame1.SetActive(true);
+            frame2.SetActive(false);
+        }
+        else
+        {
+            score.text = "Deaths";
+            frame0.SetActive(false);
+            frame1.SetActive(false);
+            frame2.SetActive(true);
+        }
         if (!x)
         {
             if (SteamLeaderboards.getUserBoard()[0].Length <= 0)
@@ -52,7 +76,18 @@ public class UserBoard : MonoBehaviour
     public void topRanked()
     {
         print("top");
-        SteamLeaderboards.DownloadLeaderBoard(0, 50);
+        if (type == 0)
+        {
+            SteamLeaderboards.DownloadLeaderBoard(0, 50);
+        }
+        if (type == 1)
+        {
+            SpeedRunTimeLB.DownloadLeaderBoard(0, 50);
+        }
+        if (type == 2)
+        {
+            SpeedRunDeathsLB.DownloadLeaderBoard(0, 50);
+        }
         scroll.verticalNormalizedPosition = 1;
     }
 
@@ -74,5 +109,15 @@ public class UserBoard : MonoBehaviour
             SteamLeaderboards.DownloadLeaderBoard(min, max);
             scroll.verticalNormalizedPosition = 0.5f;
         }
+    }
+
+    public void setType(int t)
+    {
+        type = t;
+        topRanked();
+    }
+    public static int getType()
+    {
+        return type;
     }
 }

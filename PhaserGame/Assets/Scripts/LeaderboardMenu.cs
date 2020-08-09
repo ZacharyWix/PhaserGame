@@ -35,11 +35,26 @@ public class LeaderboardMenu : MonoBehaviour
 
     public void updateStats()
     {
-        string[] hi = SteamLeaderboards.getLeaderBoardIndex(num);
+        string[] hi = { };
+        if (UserBoard.getType() == 0)
+        {
+            hi = SteamLeaderboards.getLeaderBoardIndex(num);
+            print("play");
+        }
+        if(UserBoard.getType() == 1)
+        {
+            hi = SpeedRunTimeLB.getLeaderBoardIndex(num);
+            print("srt");
+        }
+        if (UserBoard.getType() == 2)
+        {
+            hi = SpeedRunDeathsLB.getLeaderBoardIndex(num);
+            print("srd");
+        }
         if (hi[0].Length > 0)
         {
             user.text = hi[0];
-            if(user.text == SteamFriends.GetPersonaName())
+            if (user.text == SteamFriends.GetPersonaName())
             {
                 image.sprite = highlight;
             }
@@ -48,7 +63,20 @@ public class LeaderboardMenu : MonoBehaviour
                 image.sprite = normal;
             }
             rank.text = hi[1];
-            score.text = deathStats.setupTimeString(Int32.Parse(hi[2]));
+            if (UserBoard.getType() != 2)
+            {
+                score.text = deathStats.setupTimeString(Int32.Parse(hi[2]));
+            }
+            else
+            {
+                score.text = hi[2];
+            }
+        }
+        else
+        {
+            rank.text = (num + 1).ToString();
+            score.text = "X";
+            user.text = "Username";
         }
     }
 }
