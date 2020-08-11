@@ -248,7 +248,7 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
-                if (buttons[i].name.Contains("Skin") && buttons[i].name != "Skin0" && 1 == 0)
+                if (buttons[i].name.Contains("Skin") && buttons[i].name != "Skin0")
                 {
                     string skinNum = buttons[i].name.TrimStart(skinChar);
                     bool ul = false;
@@ -269,7 +269,7 @@ public class MainMenu : MonoBehaviour
                         buttons[i].interactable = false;
                     }
                 }
-                if (buttons[i].name.Contains("Acc") && buttons[i].name != "Acc0" && 1 == 0)
+                if (buttons[i].name.Contains("Acc") && buttons[i].name != "Acc0")
                 {
                     string accNum = buttons[i].name.TrimStart(accChar);
                     bool ul = false;
