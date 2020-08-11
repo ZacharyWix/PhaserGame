@@ -1,34 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
-public class phaserManager : MonoBehaviour
-{
-    private static int deathCount;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        deathCount = 0;
-    }
-
-    // Keeps the game manager loaded throughout scenes
-    private void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
-
-    public void incDeathCount()
-    {
-        deathCount++;
-    }
-
-    public int getDeathCount()
-    {
-        return deathCount;
-    }
-}
-*/
 
 public class phaserManager : MonoBehaviour
 {
