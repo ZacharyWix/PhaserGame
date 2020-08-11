@@ -22653,7 +22653,7 @@ PrefabInstance:
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
       propertyPath: m_text
-      value: Four Eyes
+      value: Cool Customer
       objectReference: {fileID: 0}
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
@@ -25806,7 +25806,7 @@ PrefabInstance:
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
       propertyPath: m_text
-      value: Sherriff in Town
+      value: Sheriff in Town
       objectReference: {fileID: 0}
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
@@ -26392,7 +26392,7 @@ PrefabInstance:
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
       propertyPath: m_text
-      value: Colorful Cap
+      value: Colorfully Capped
       objectReference: {fileID: 0}
     - target: {fileID: 487654292253673782, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
@@ -26704,7 +26704,7 @@ PrefabInstance:
     - target: {fileID: 1321441350941542428, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1321441350941542428, guid: 2d52553b0f56e4e418e24f7e3b1d2e39,
         type: 3}

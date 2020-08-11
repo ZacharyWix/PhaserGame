@@ -1090,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: No Accessories
+      value: No Accessory
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -8524,6 +8524,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1241168737}
+        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5537623653934932470}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &242058859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12587,6 +12599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &359403857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1651655385384864091, guid: 141ffe5754b22f947b212cee06f2c436,
+    type: 3}
+  m_PrefabInstance: {fileID: 22811621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &361101887 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2611828660786177601, guid: 8b7d4d64ceb692f45a73cf9f37fe35b0,
@@ -13114,6 +13132,54 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 644341891}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 495601384}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1586024685}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 242058856}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &388366020
 MonoBehaviour:
@@ -24192,7 +24258,10 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: Default Yellow
+      value: 'Cool Customer
+
+
+        Find the sunglasses'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -30447,7 +30516,10 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: Default Green
+      value: 'Sheriff in Town
+
+
+        Find the cowboy hat'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -41241,7 +41313,10 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: Default Red
+      value: 'Bling
+
+
+        Find the chain'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -52008,6 +52083,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1241168737}
+        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 359403857}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1586024688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53936,7 +54023,10 @@ PrefabInstance:
     - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_text
-      value: Default Blue
+      value: 'Colorfully Capped
+
+
+        Find the cap'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}

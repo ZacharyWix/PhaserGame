@@ -131,8 +131,8 @@ public class MainMenu : MonoBehaviour
 
     public void SetSkin(int num)
     {
-        skin = num;
-        SaveGame();
+            skin = num;
+            SaveGame();
     }
 
     public static int GetSkin()
@@ -142,8 +142,8 @@ public class MainMenu : MonoBehaviour
 
     public void SetAccessory(int num)
     {
-        accessory = num;
-        SaveGame();
+            accessory = num;
+            SaveGame();
     }
     
     public static int GetAccessory()
