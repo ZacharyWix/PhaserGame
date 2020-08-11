@@ -415,8 +415,8 @@ public class MainMenu : MonoBehaviour
             SpeedRunMode.setDeaths(save.runDeaths);
             SpeedRunMode.setTime(save.runTime);
             SpeedRunMode.setLevel(save.runLevel);
-            SpeedRunMode.setBestDeaths(save.bestDeaths);
-            SpeedRunMode.setBestTime(save.bestTime);
+            //SpeedRunMode.setBestDeaths(save.bestDeaths);
+            //SpeedRunMode.setBestTime(save.bestTime);
         }
         else
         {

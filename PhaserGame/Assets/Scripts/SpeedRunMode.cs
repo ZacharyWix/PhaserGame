@@ -10,8 +10,8 @@ public class SpeedRunMode : MonoBehaviour
     private static int level = 1;
     private static int deaths = 0;
     private static float time = 0;
-    private static int bestDeaths = 10;
-    private static float bestTime = 300f;
+    private static int bestDeaths = -1;
+    private static float bestTime = -1;
     // Start is called before the first frame update
     void Start()
     {
