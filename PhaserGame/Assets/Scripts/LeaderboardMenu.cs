@@ -39,17 +39,14 @@ public class LeaderboardMenu : MonoBehaviour
         if (UserBoard.getType() == 0)
         {
             hi = SteamLeaderboards.getLeaderBoardIndex(num);
-            print("play");
         }
         if(UserBoard.getType() == 1)
         {
             hi = SpeedRunTimeLB.getLeaderBoardIndex(num);
-            print("srt");
         }
         if (UserBoard.getType() == 2)
         {
             hi = SpeedRunDeathsLB.getLeaderBoardIndex(num);
-            print("srd");
         }
         if (hi[0].Length > 0)
         {

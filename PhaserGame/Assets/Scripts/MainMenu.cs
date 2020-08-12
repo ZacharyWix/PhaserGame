@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Steamworks;
 using TMPro;
 using System.Globalization;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class MainMenu : MonoBehaviour
     private static int accessory = 0;
     private static string delimiter = ".";
     public GameObject sprnLocked;
+    public GameObject main, leaderboard, but;
+    private static bool lb = false;
+    public EventSystem even;
 
     private void Start()
     {
@@ -69,6 +73,14 @@ public class MainMenu : MonoBehaviour
             {
                 sprnLocked.SetActive(true);
             }
+            if (lb)
+            {
+                print("hits");
+                main.SetActive(false);
+                leaderboard.SetActive(true);
+                even.SetSelectedGameObject(but);
+                lb = false;
+            }
         }
         if (SteamManager.getActive())
         {
@@ -76,6 +88,12 @@ public class MainMenu : MonoBehaviour
             SpeedRunTimeLB.Init();
             SpeedRunDeathsLB.Init();
         }
+    }
+
+    public void setLB()
+    {
+        print("hi");
+        lb = true;
     }
 
     public static string getDelimiter()

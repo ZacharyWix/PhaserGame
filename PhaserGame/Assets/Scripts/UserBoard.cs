@@ -68,14 +68,12 @@ public class UserBoard : MonoBehaviour
 
     public void userCentered()
     {
-        print("centered");
         SteamLeaderboards.DownloadUserBoard();
         x = false;
     }
     
     public void topRanked()
     {
-        print("top");
         if (type == 0)
         {
             SteamLeaderboards.DownloadLeaderBoard(0, 50);
