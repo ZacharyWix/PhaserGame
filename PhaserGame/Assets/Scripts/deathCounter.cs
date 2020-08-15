@@ -85,6 +85,7 @@ public class deathCounter : MonoBehaviour
             {
                 sprnTime2.text = timer.text;
                 sprnDec2.text = decimals.text;
+                sprnDeaths2.text = gm.getDeathCount().ToString();
             }
         }
     }
@@ -94,7 +95,14 @@ public class deathCounter : MonoBehaviour
         deathCountText.text = gm.getDeathCount().ToString();
         if (level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex) != -1)
         {
-            lowestDeathsText.text = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex).ToString();
+            if (level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex) > gm.getDeathCount())
+            {
+                lowestDeathsText.text = gm.getDeathCount().ToString();
+            }
+            else
+            {
+                lowestDeathsText.text = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex).ToString();
+            }
         }
         else
         {
@@ -107,8 +115,7 @@ public class deathCounter : MonoBehaviour
            // d = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex);
         //}
         //totalDeathsText.text = (level.getTotalDeaths() - d + gm.getDeathCount()).ToString();
-        lowestDeathsText1.text = lowestDeathsText.text;
-        totalDeathsText1.text = totalDeathsText.text;
+        lowestDeathsText1.text = level.getLevelDeaths(SceneManager.GetActiveScene().buildIndex).ToString();
         string number = SceneManager.GetActiveScene().buildIndex.ToString();
         char[] split = number.ToCharArray();
         string thing = "";
@@ -134,6 +141,10 @@ public class deathCounter : MonoBehaviour
         if (level.getLevelTime(SceneManager.GetActiveScene().buildIndex) != -1)
         {
             float preTime = level.getLevelTime(SceneManager.GetActiveScene().buildIndex);
+            if(time < preTime)
+            {
+                preTime = time;
+            }
             string thirdTemp = setupTimeString(preTime);
             if (thirdTemp.Contains(del))
             {
@@ -161,9 +172,9 @@ public class deathCounter : MonoBehaviour
             bestTime.text = "X" + "\u00A0\u00A0\u00A0\u00A0";
             bestDec.text = "";
         }
-        bestTime1.text = bestTime.text;
-        bestDec1.text = bestDec.text;
-        if(SceneManager.GetActiveScene().buildIndex == 10){
+        bestTime1.text = deathStats.getTimeText(SceneManager.GetActiveScene().buildIndex);
+        bestDec1.text = deathStats.getDecimalText(SceneManager.GetActiveScene().buildIndex);
+        if (SceneManager.GetActiveScene().buildIndex == 10){
             W1D.text = level.getWorldDeaths(1).ToString();
             W1T.text = deathStats.getWorldTimeText(1);
             W1TD.text = deathStats.getWorldDecimalText(1);
@@ -180,7 +191,7 @@ public class deathCounter : MonoBehaviour
             W1T.text = deathStats.getWorldTimeText(3);
             W1TD.text = deathStats.getWorldDecimalText(3);
         }
-        sprnDeaths.text = sprnDeaths2.text = SpeedRunMode.getDeaths().ToString();
+        sprnDeaths.text = SpeedRunMode.getDeaths().ToString();
         sprnTime.text = deathStats.getSpeedRunTime();
         sprnDec.text = deathStats.getSpeedRunDecimal();
     }

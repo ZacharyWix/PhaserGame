@@ -122,7 +122,6 @@ public class Respawn : MonoBehaviour
             soundPlay.PlaySound("win");
             if (SpeedRunMode.getSpeedRun())
             {
-                unlocker.updateUnlocks();
                 SpeedRunMode.incLevel(1);
                 SpeedRunMode.setDeaths(gm.getDeathCount());
                 float time = deathCount.getTime();
@@ -133,14 +132,7 @@ public class Respawn : MonoBehaviour
                 replay.SetActive(false);
                 stats.SetActive(false);
                 speedRun.SetActive(true);
-            }
-            if (!MainMenu.getPractice() && !SpeedRunMode.getSpeedRun())
-            {
-                level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
-                CreateLevel(false);
                 unlocker.updateUnlocks();
-                deathCount.updateDeathCounter();
-                menu.SaveGame();
             }
             if (SceneManager.GetActiveScene().buildIndex == 1 && options.getIsOn() && !SpeedRunMode.getSpeedRun())
             {
@@ -154,7 +146,7 @@ public class Respawn : MonoBehaviour
                 tutorial.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(next);
             }
-            else if((SceneManager.GetActiveScene().buildIndex == 10 && level.getLevelDeaths(10) != -1) || (SceneManager.GetActiveScene().buildIndex == 20 && level.getLevelDeaths(20) != -1) || (SceneManager.GetActiveScene().buildIndex == 30 && level.getLevelDeaths(10) != -1))
+            else if ((SceneManager.GetActiveScene().buildIndex == 10 && level.getLevelDeaths(10) == -1) || (SceneManager.GetActiveScene().buildIndex == 20 && level.getLevelDeaths(20) == -1) || (SceneManager.GetActiveScene().buildIndex == 30 && level.getLevelDeaths(30) == -1))
             {
                 world.gameObject.SetActive(true);
                 endgame.gameObject.SetActive(true);
@@ -164,6 +156,18 @@ public class Respawn : MonoBehaviour
             {
                 endgame.gameObject.SetActive(true);
                 eventSys.SetSelectedGameObject(nextLevel);
+            }
+            if (!MainMenu.getPractice() && !SpeedRunMode.getSpeedRun())
+            {
+                level.removeActiveLevel(SceneManager.GetActiveScene().buildIndex);
+                CreateLevel(false);
+                unlocker.updateUnlocks();
+                deathCount.updateDeathCounter();
+                menu.SaveGame();
+            }
+            else if (!MainMenu.getPractice())
+            {
+                unlocker.updateUnlocks();
             }
         }
     

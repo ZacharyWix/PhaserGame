@@ -74,6 +74,7 @@ public class LeaderboardMenu : MonoBehaviour
             rank.text = (num + 1).ToString();
             score.text = "X";
             user.text = "Username";
+            image.sprite = normal;
         }
     }
 }

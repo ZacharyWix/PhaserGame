@@ -164,7 +164,23 @@ public class Unlocker : MonoBehaviour
         }
         if (Achievement.getUnlocked(9))
         {
-            sa.UnlockSteamAchievement(achievement.name);
+            sa.UnlockSteamAchievement("acheivement_9");
+        }
+        if(SpeedRunMode.getLevel() > 10)
+        {
+            unlockSkin(skin_8);
+        }
+        if(SpeedRunMode.getBestDeaths() != -1)
+        {
+            unlockSkin(skin_9);
+        }
+        if(SpeedRunMode.getBestDeaths() < 100 && SpeedRunMode.getBestDeaths() != -1)
+        {
+            unlockSkin(skin_10);
+        }
+        if(SpeedRunMode.getBestTime() < 1800 && SpeedRunMode.getBestDeaths() != -1)
+        {
+            unlockSkin(skin_11);
         }
     }
 

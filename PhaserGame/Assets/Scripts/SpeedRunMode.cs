@@ -70,6 +70,20 @@ public class SpeedRunMode : MonoBehaviour
     public static void incLevel(int lvl)
     {
         level += lvl;
+        if (level > 30)
+        {
+            level = 1;
+            if (bestDeaths == -1 || deaths < bestDeaths)
+            {
+                bestDeaths = deaths;
+            }
+            if (bestTime == -1f || time < bestTime)
+            {
+                bestTime = time;
+            }
+            deaths = 0;
+            time = 0;
+        }
     }
 
     public static void setDeaths(int d)

@@ -240,7 +240,7 @@ public class deathStats : MonoBehaviour
         }
     }
 
-    public string getTimeText(int num)
+    public static string getTimeText(int num)
     {
         string seconds = "X" + "\u00A0\u00A0";
         if (level.getLevelTime(num) != -1)
