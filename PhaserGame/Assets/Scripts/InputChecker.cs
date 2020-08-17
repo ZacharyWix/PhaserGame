@@ -44,6 +44,7 @@ public class InputChecker : MonoBehaviour
             case InputType.Controller:
                 if (isMouseKeyboard())
                 {
+                    controller = false;
                     InputState = InputType.MouseKeyboard;
                     Debug.Log("Switched Input to Mouse/Keyboard");
                 }

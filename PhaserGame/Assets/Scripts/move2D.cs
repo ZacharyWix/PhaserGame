@@ -28,6 +28,8 @@ public class move2D : MonoBehaviour
     private float coyoteTimer;
     public GameObject down, up, left, right, bdown, bup, bleft, bright;
     public GameObject space, a, d, bspace, ba, bd;
+    public GameObject cdown, cup, cleft, cright, cbdown, cbup, cbleft, cbright;
+    public GameObject cspace, ca, cd, cbspace, cba, cbd;
 
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
@@ -115,71 +117,99 @@ public class move2D : MonoBehaviour
             {
                 a.SetActive(false);
                 ba.SetActive(true);
+                ca.SetActive(false);
+                cba.SetActive(true);
             }
             else
             {
                 a.SetActive(true);
                 ba.SetActive(false);
+                ca.SetActive(true);
+                cba.SetActive(false);
             }
             if (movement > 0f)
             {
                 d.SetActive(false);
                 bd.SetActive(true);
+                cd.SetActive(false);
+                cbd.SetActive(true);
             }
             else
             {
                 d.SetActive(true);
                 bd.SetActive(false);
+                cd.SetActive(true);
+                cbd.SetActive(false);
             }
             if (Input.GetButton("Jump"))
             {
                 space.SetActive(false);
                 bspace.SetActive(true);
+                cspace.SetActive(false);
+                cbspace.SetActive(true);
             }
             else
             {
                 space.SetActive(true);
                 bspace.SetActive(false);
+                cspace.SetActive(true);
+                cbspace.SetActive(false);
             }
             if (Input.GetButton("ColorGreen"))
             {
                 down.SetActive(false);
                 bdown.SetActive(true);
+                cdown.SetActive(false);
+                cbdown.SetActive(true);
             }
             else
             {
                 down.SetActive(true);
                 bdown.SetActive(false);
+                cdown.SetActive(true);
+                cbdown.SetActive(false);
             }
             if (Input.GetButton("ColorYellow"))
             {
                 up.SetActive(false);
                 bup.SetActive(true);
+                cup.SetActive(false);
+                cbup.SetActive(true);
             }
             else
             {
                 up.SetActive(true);
                 bup.SetActive(false);
+                cup.SetActive(true);
+                cbup.SetActive(false);
             }
             if (Input.GetButton("ColorBlue"))
             {
                 left.SetActive(false);
                 bleft.SetActive(true);
+                cleft.SetActive(false);
+                cbleft.SetActive(true);
             }
             else
             {
                 left.SetActive(true);
                 bleft.SetActive(false);
+                cleft.SetActive(true);
+                cbleft.SetActive(false);
             }
             if (Input.GetButton("ColorRed"))
             {
                 right.SetActive(false);
                 bright.SetActive(true);
+                cright.SetActive(false);
+                cbright.SetActive(true);
             }
             else
             {
                 right.SetActive(true);
                 bright.SetActive(false);
+                cright.SetActive(true);
+                cbright.SetActive(false);
             }
         }
         previous = isTouchingGround;

@@ -32,7 +32,7 @@ public class Respawn : MonoBehaviour
     public GameObject world;
     public GameObject accessory;
     public GameObject replay, stats, speedRun, stats2, speedRun2;
-    public GameObject controls;
+    public GameObject controls, keys, controller;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -77,6 +77,8 @@ public class Respawn : MonoBehaviour
             }
         }
         controls.SetActive(OptionsMenu.getControls());
+        keys.SetActive(!InputChecker.getController());
+        controller.SetActive(InputChecker.getController());
     }
 
     private void OnCollisionEnter2D(Collision2D col)
