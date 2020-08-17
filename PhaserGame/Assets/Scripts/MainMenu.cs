@@ -373,6 +373,14 @@ public class MainMenu : MonoBehaviour
         {
             save.optionsSave.Add(0f);
         }
+        if (OptionsMenu.getControls())
+        {
+            save.optionsSave.Add(1f);
+        }
+        else
+        {
+            save.optionsSave.Add(0f);
+        }
         save.skin = skin;
         save.accessory = accessory;
         save.skins = skins;
@@ -425,6 +433,14 @@ public class MainMenu : MonoBehaviour
             else
             {
                 options.Toggle(false);
+            }
+            if(save.optionsSave[3] == 1)
+            {
+                options.ToggleControls(true);
+            }
+            else
+            {
+                options.ToggleControls(false);
             }
             skin = save.skin;
             accessory = save.accessory;

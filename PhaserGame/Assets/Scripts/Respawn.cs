@@ -32,6 +32,7 @@ public class Respawn : MonoBehaviour
     public GameObject world;
     public GameObject accessory;
     public GameObject replay, stats, speedRun, stats2, speedRun2;
+    public GameObject controls;
 
     public float respawnDelay; //in seconds
     private float respawnTimer;
@@ -75,6 +76,7 @@ public class Respawn : MonoBehaviour
                 spawn();
             }
         }
+        controls.SetActive(OptionsMenu.getControls());
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -83,7 +85,6 @@ public class Respawn : MonoBehaviour
         {
             if (col.transform.CompareTag("Death"))
             {
-                print("one");
                 killPlayer();
             }
 
@@ -91,7 +92,6 @@ public class Respawn : MonoBehaviour
             {
                 if (!platformStatus) //Only kill the player if they aren't on a moving platform
                 {
-                    print("two");
                     killPlayer();
                 }
             }

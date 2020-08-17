@@ -26,6 +26,8 @@ public class move2D : MonoBehaviour
     public ParticleSystem jumpParticles;
     public float coyoteTimeMax;
     private float coyoteTimer;
+    public GameObject down, up, left, right, bdown, bup, bleft, bright;
+    public GameObject space, a, d, bspace, ba, bd;
 
     public bool controlsEnabled = true; //Disables controls if set to false (for respawning)
 
@@ -108,6 +110,76 @@ public class move2D : MonoBehaviour
             {
                 checkpoint.transform.position = gameObject.transform.position;
                 checkpoint.transform.Translate(0, 0.13f, 0);
+            }
+            if (movement < 0f)
+            {
+                a.SetActive(false);
+                ba.SetActive(true);
+            }
+            else
+            {
+                a.SetActive(true);
+                ba.SetActive(false);
+            }
+            if (movement > 0f)
+            {
+                d.SetActive(false);
+                bd.SetActive(true);
+            }
+            else
+            {
+                d.SetActive(true);
+                bd.SetActive(false);
+            }
+            if (Input.GetButton("Jump"))
+            {
+                space.SetActive(false);
+                bspace.SetActive(true);
+            }
+            else
+            {
+                space.SetActive(true);
+                bspace.SetActive(false);
+            }
+            if (Input.GetButton("ColorGreen"))
+            {
+                down.SetActive(false);
+                bdown.SetActive(true);
+            }
+            else
+            {
+                down.SetActive(true);
+                bdown.SetActive(false);
+            }
+            if (Input.GetButton("ColorYellow"))
+            {
+                up.SetActive(false);
+                bup.SetActive(true);
+            }
+            else
+            {
+                up.SetActive(true);
+                bup.SetActive(false);
+            }
+            if (Input.GetButton("ColorBlue"))
+            {
+                left.SetActive(false);
+                bleft.SetActive(true);
+            }
+            else
+            {
+                left.SetActive(true);
+                bleft.SetActive(false);
+            }
+            if (Input.GetButton("ColorRed"))
+            {
+                right.SetActive(false);
+                bright.SetActive(true);
+            }
+            else
+            {
+                right.SetActive(true);
+                bright.SetActive(false);
             }
         }
         previous = isTouchingGround;
