@@ -79,16 +79,21 @@ public class Respawn : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.transform.CompareTag("Death"))
+        if (!isDead)
         {
-            killPlayer();
-        }
-
-        if (col.transform.CompareTag("SpikePlayerKillers"))
-        {
-            if(!platformStatus) //Only kill the player if they aren't on a moving platform
+            if (col.transform.CompareTag("Death"))
             {
+                print("one");
                 killPlayer();
+            }
+
+            if (col.transform.CompareTag("SpikePlayerKillers"))
+            {
+                if (!platformStatus) //Only kill the player if they aren't on a moving platform
+                {
+                    print("two");
+                    killPlayer();
+                }
             }
         }
     }
