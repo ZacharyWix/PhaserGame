@@ -149,8 +149,11 @@ public class MainMenu : MonoBehaviour
 
     public void SetSkin(int num)
     {
+        if (FindSkin(num))
+        {
             skin = num;
             SaveGame();
+        }
     }
 
     public static int GetSkin()
@@ -160,8 +163,11 @@ public class MainMenu : MonoBehaviour
 
     public void SetAccessory(int num)
     {
+        if (FindAccessory(num))
+        {
             accessory = num;
             SaveGame();
+        }
     }
     
     public static int GetAccessory()
@@ -278,14 +284,16 @@ public class MainMenu : MonoBehaviour
                             ul = true;
                         }
                     }
-                    if (ul)
-                    {
-                        buttons[i].interactable = true;
-                    }
-                    else
-                    {
-                        buttons[i].interactable = false;
-                    }
+                        ColorBlock onColors = buttons[i].colors;
+                        if (!ul)
+                        {
+                            onColors.normalColor = new Color32(8, 25, 79, 143);
+                        }
+                        else
+                        {
+                            onColors.normalColor = new Color32(8, 25, 79, 0);
+                        }
+                        buttons[i].colors = onColors;
                 }
                 if (buttons[i].name.Contains("Acc") && buttons[i].name != "Acc0")
                 {
@@ -299,14 +307,16 @@ public class MainMenu : MonoBehaviour
                             ul = true;
                         }
                     }
-                    if (ul)
+                    ColorBlock onColors = buttons[i].colors;
+                    if (!ul)
                     {
-                        buttons[i].interactable = true;
+                        onColors.normalColor = new Color32(8, 25, 79, 143);
                     }
                     else
                     {
-                        buttons[i].interactable = false;
+                        onColors.normalColor = new Color32(8, 25, 79, 0);
                     }
+                    buttons[i].colors = onColors;
                 }
                 if (buttons[i].name.Contains("SpeedPlay"))
                 {
