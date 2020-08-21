@@ -2268,7 +2268,7 @@ PrefabInstance:
       value: 'Frozen Over
 
 
-        Complete Speed Run Mode with under 100 deaths'
+        Complete Speedrun Mode with under 100 deaths'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -13975,7 +13975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Speed Run Mode
+  m_text: Speedrun Mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -18871,7 +18871,7 @@ GameObject:
   - component: {fileID: 545217886}
   - component: {fileID: 545217887}
   m_Layer: 5
-  m_Name: Speed Run Mode
+  m_Name: Speedrun Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37131,7 +37131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Speed Run Mode is available after completing all 30 levels in Play mode
+  m_text: Speedrun Mode is available after completing all 30 levels in Play mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -38606,7 +38606,7 @@ PrefabInstance:
       value: 'Pyramid Protector
 
 
-        Complete Speed Run Mode in under 30 minutes'
+        Complete Speedrun Mode in under 30 minutes'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -46153,7 +46153,7 @@ GameObject:
   - component: {fileID: 1381788669}
   - component: {fileID: 1381788668}
   m_Layer: 5
-  m_Name: Speed Run Mode
+  m_Name: Speedrun Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46198,7 +46198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Speed Run Mode
+  m_text: Speedrun Mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
@@ -46474,7 +46474,7 @@ PrefabInstance:
       value: 'Out of This World
 
 
-        Complete all 30 levels in Speed Run Mode'
+        Complete all 30 levels in Speedrun Mode'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -50190,7 +50190,7 @@ PrefabInstance:
       value: 'Mini Monster
 
 
-        Complete World 1 in Speed Run Mode'
+        Complete World 1 in Speedrun Mode'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -61874,7 +61874,7 @@ GameObject:
   - component: {fileID: 1845954864}
   - component: {fileID: 1845954863}
   m_Layer: 5
-  m_Name: Speed Run Mode
+  m_Name: Speedrun Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63176,7 +63176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Are you sure you want to reset your current speed run?
+  m_text: Are you sure you want to reset your current speedrun?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3, type: 2}
   m_sharedMaterial: {fileID: 21532631401162048, guid: 9e4a61e3a5c4dea4e98396a6c2cf48a3,
