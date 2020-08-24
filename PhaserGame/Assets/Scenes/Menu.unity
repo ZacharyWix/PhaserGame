@@ -64038,6 +64038,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_text
+      value: 'Cozy Scarf
+
+
+        Find the scarf'
+      objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Sprite
@@ -67526,6 +67534,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_text
+      value: 'Viking Voyager
+
+
+        Find the helmet'
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
