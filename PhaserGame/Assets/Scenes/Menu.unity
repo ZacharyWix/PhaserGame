@@ -8125,7 +8125,7 @@ PrefabInstance:
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSkin
+      value: SetAccessory
       objectReference: {fileID: 0}
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -8137,10 +8137,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1651655385384864091, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin8
+      value: Acc8
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974074735626, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -8152,21 +8157,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 850
       objectReference: {fileID: 0}
+    - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_text
+      value: 'Friendly Goose
+
+
+        Find the goose'
+      objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0c3ada45e98ddf449b9f8121333ade1a,
+      objectReference: {fileID: 21300000, guid: 96c496668e55e7f48bd3bf01aab4c9ea,
         type: 3}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839125, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -8276,12 +8294,12 @@ PrefabInstance:
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin8
+      value: Acc8
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141ffe5754b22f947b212cee06f2c436, type: 3}
@@ -25122,6 +25140,10 @@ MonoBehaviour:
   ap5: {fileID: 21300000, guid: 5035074b18a512945b2ed5d0fdc983fd, type: 3}
   ap6: {fileID: 21300000, guid: 4495cf74ef0f2f24fa2b531f45df65d2, type: 3}
   ap7: {fileID: 21300000, guid: ff33796fb47d7c649ac4c657e956f7b7, type: 3}
+  ap8: {fileID: 21300000, guid: 96c496668e55e7f48bd3bf01aab4c9ea, type: 3}
+  ap9: {fileID: 21300000, guid: 41129d76f0f9a334184da7ee179fdecd, type: 3}
+  ap10: {fileID: 21300000, guid: 9b3f89b65fd2be24583807dad455d7a8, type: 3}
+  ap11: {fileID: 21300000, guid: 586259a667a10104aa0d3bf88cac38ad, type: 3}
   pic: {fileID: 2071315440}
   pic1: {fileID: 11389632}
   pic2: {fileID: 1789490658}
@@ -61533,7 +61555,7 @@ PrefabInstance:
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSkin
+      value: SetAccessory
       objectReference: {fileID: 0}
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -61545,10 +61567,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1651655385384864091, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin9
+      value: Acc9
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974074735626, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -61560,26 +61587,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 5171537974185362290, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_text
+      value: 'Friendly Fox
+
+
+        Find the fox'
+      objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614456, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7bf961a9c7a86fb4bba0f91e7293aae8,
+      objectReference: {fileID: 21300000, guid: 41129d76f0f9a334184da7ee179fdecd,
         type: 3}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839125, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -61689,12 +61724,12 @@ PrefabInstance:
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin9
+      value: Acc9
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141ffe5754b22f947b212cee06f2c436, type: 3}
@@ -63466,6 +63501,10 @@ MonoBehaviour:
   ap5: {fileID: 21300000, guid: 5035074b18a512945b2ed5d0fdc983fd, type: 3}
   ap6: {fileID: 21300000, guid: 4495cf74ef0f2f24fa2b531f45df65d2, type: 3}
   ap7: {fileID: 21300000, guid: ff33796fb47d7c649ac4c657e956f7b7, type: 3}
+  ap8: {fileID: 21300000, guid: 96c496668e55e7f48bd3bf01aab4c9ea, type: 3}
+  ap9: {fileID: 21300000, guid: 41129d76f0f9a334184da7ee179fdecd, type: 3}
+  ap10: {fileID: 21300000, guid: 9b3f89b65fd2be24583807dad455d7a8, type: 3}
+  ap11: {fileID: 21300000, guid: 586259a667a10104aa0d3bf88cac38ad, type: 3}
   pic: {fileID: 2071315440}
   pic1: {fileID: 11389632}
   pic2: {fileID: 1789490658}
@@ -63967,7 +64006,7 @@ PrefabInstance:
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSkin
+      value: SetAccessory
       objectReference: {fileID: 0}
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -63979,10 +64018,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1651655385384864091, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin11
+      value: Acc11
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974074735626, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -63998,17 +64042,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d833803a6b11ac440b2069a2838abb91,
+      objectReference: {fileID: 21300000, guid: 586259a667a10104aa0d3bf88cac38ad,
         type: 3}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -64123,12 +64167,12 @@ PrefabInstance:
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin11
+      value: Acc11
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141ffe5754b22f947b212cee06f2c436, type: 3}
@@ -67451,7 +67495,7 @@ PrefabInstance:
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSkin
+      value: SetAccessory
       objectReference: {fileID: 0}
     - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -67463,10 +67507,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 930948274011131075, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1651655385384864091, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin10
+      value: Acc10
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974074735626, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -67482,17 +67531,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ac4c0a2823ffc77408447a387ab92ef6,
+      objectReference: {fileID: 21300000, guid: 9b3f89b65fd2be24583807dad455d7a8,
         type: 3}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171537974619614457, guid: 141ffe5754b22f947b212cee06f2c436,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839125, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
@@ -67602,12 +67656,12 @@ PrefabInstance:
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_Name
-      value: Skin10
+      value: Acc10
       objectReference: {fileID: 0}
     - target: {fileID: 5171537975015839126, guid: 141ffe5754b22f947b212cee06f2c436,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141ffe5754b22f947b212cee06f2c436, type: 3}

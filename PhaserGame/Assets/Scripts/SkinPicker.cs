@@ -9,7 +9,7 @@ public class SkinPicker : MonoBehaviour
     int num = 0;
     int anum = 0;
     public Sprite sp0, sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13, sp14, sp15;
-    public Sprite ap1, ap2, ap3, ap4, ap5, ap6, ap7;
+    public Sprite ap1, ap2, ap3, ap4, ap5, ap6, ap7, ap8, ap9, ap10, ap11;
     public Image pic, pic1, pic2, pic3;
     public SpriteRenderer accessory;
     // Start is called before the first frame update
@@ -116,6 +116,22 @@ public class SkinPicker : MonoBehaviour
             if (anum == 7)
             {
                 accessory.sprite = ap7;
+            }
+            if (anum == 8)
+            {
+                accessory.sprite = ap8;
+            }
+            if (anum == 9)
+            {
+                accessory.sprite = ap9;
+            }
+            if (anum == 10)
+            {
+                accessory.sprite = ap10;
+            }
+            if (anum == 11)
+            {
+                accessory.sprite = ap11;
             }
         }
     }
@@ -238,6 +254,22 @@ public class SkinPicker : MonoBehaviour
         if (anum == 7)
         {
             pic1.sprite = ap7;
+        }
+        if (anum == 8)
+        {
+            pic1.sprite = ap8;
+        }
+        if (anum == 9)
+        {
+            pic1.sprite = ap9;
+        }
+        if (anum == 10)
+        {
+            pic1.sprite = ap10;
+        }
+        if (anum == 11)
+        {
+            pic1.sprite = ap11;
         }
         pic3.sprite = pic1.sprite;
 

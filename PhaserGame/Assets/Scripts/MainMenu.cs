@@ -149,7 +149,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetSkin(int num)
     {
-        if (FindSkin(num))
+        if (FindSkin(num) || num == 0)
         {
             skin = num;
             SaveGame();
@@ -163,7 +163,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetAccessory(int num)
     {
-        if (FindAccessory(num))
+        if (FindAccessory(num) || num == 0)
         {
             accessory = num;
             SaveGame();
