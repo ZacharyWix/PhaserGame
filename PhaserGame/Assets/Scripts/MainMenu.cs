@@ -459,8 +459,17 @@ public class MainMenu : MonoBehaviour
             SpeedRunMode.setDeaths(save.runDeaths);
             SpeedRunMode.setTime(save.runTime);
             SpeedRunMode.setLevel(save.runLevel);
-            SpeedRunMode.setBestDeaths(save.bestDeaths);
-            SpeedRunMode.setBestTime(save.bestTime);
+            if (save.bestTime != 0)
+            {                
+                SpeedRunMode.setBestDeaths(save.bestDeaths);
+                SpeedRunMode.setBestTime(save.bestTime);
+            }
+            else
+            {
+                SpeedRunMode.setBestDeaths(-1);
+                SpeedRunMode.setBestTime(-1);
+            }
+            print(save.accessories.Count);
             SaveGame();
         }
         else

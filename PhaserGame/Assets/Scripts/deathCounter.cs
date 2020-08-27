@@ -274,7 +274,10 @@ public class deathCounter : MonoBehaviour
 
     public void saveStats()
     {
-        SpeedRunMode.setDeaths(gm.getDeathCount());
-        SpeedRunMode.setTime(time);
+        if (SpeedRunMode.getSpeedRun())
+        {
+            SpeedRunMode.setDeaths(gm.getDeathCount());
+            SpeedRunMode.setTime(time);
+        }
     }
 }
