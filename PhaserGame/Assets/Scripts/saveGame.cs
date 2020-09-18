@@ -13,4 +13,5 @@ public class saveGame
     public int runDeaths, bestDeaths, runLevel;
     public float runTime, bestTime;
     public int skin, accessory;
+    public int newVersion;
 }

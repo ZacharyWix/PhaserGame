@@ -400,6 +400,7 @@ public class MainMenu : MonoBehaviour
         save.runLevel = SpeedRunMode.getLevel();
         save.bestDeaths = SpeedRunMode.getBestDeaths();
         save.bestTime = SpeedRunMode.getBestTime();
+        save.newVersion = 1;
         return save;
     }
 
@@ -452,24 +453,26 @@ public class MainMenu : MonoBehaviour
             {
                 options.ToggleControls(false);
             }
-            skin = save.skin;
-            accessory = save.accessory;
-            skins = save.skins;
-            accessories = save.accessories;
-            SpeedRunMode.setDeaths(save.runDeaths);
-            SpeedRunMode.setTime(save.runTime);
-            SpeedRunMode.setLevel(save.runLevel);
-            if (save.bestTime != 0)
-            {                
-                SpeedRunMode.setBestDeaths(save.bestDeaths);
-                SpeedRunMode.setBestTime(save.bestTime);
-            }
-            else
+            if (save.newVersion == 1)
             {
-                SpeedRunMode.setBestDeaths(-1);
-                SpeedRunMode.setBestTime(-1);
+                skin = save.skin;
+                accessory = save.accessory;
+                skins = save.skins;
+                accessories = save.accessories;
+                SpeedRunMode.setDeaths(save.runDeaths);
+                SpeedRunMode.setTime(save.runTime);
+                SpeedRunMode.setLevel(save.runLevel);
+                if (save.bestTime != 0)
+                {
+                    SpeedRunMode.setBestDeaths(save.bestDeaths);
+                    SpeedRunMode.setBestTime(save.bestTime);
+                }
+                else
+                {
+                    SpeedRunMode.setBestDeaths(-1);
+                    SpeedRunMode.setBestTime(-1);
+                }
             }
-            print(save.accessories.Count);
             SaveGame();
         }
         else
