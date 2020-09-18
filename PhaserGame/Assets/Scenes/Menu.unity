@@ -28802,7 +28802,7 @@ PrefabInstance:
     - target: {fileID: 1974197183, guid: 7993e72f0b32ce64cb79bbaf7c1b4689, type: 3}
       propertyPath: vibrantValleyMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 00d8f6825a9c3af4ebab31114ca3ca22, type: 3}
+      objectReference: {fileID: 8300000, guid: 0bbf8f0469cd3cc4e9415e325b9b5f2f, type: 3}
     - target: {fileID: 9018115477972507641, guid: 7993e72f0b32ce64cb79bbaf7c1b4689,
         type: 3}
       propertyPath: m_Name
