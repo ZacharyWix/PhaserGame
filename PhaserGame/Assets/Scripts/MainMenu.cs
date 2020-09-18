@@ -412,7 +412,6 @@ public class MainMenu : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + user + "/gamesave.sav", FileMode.Open);
             saveGame save = (saveGame)bf.Deserialize(file);
             file.Close();
-
             // 3
             foreach (List<float> i in save.levelSave)
             {
@@ -445,16 +444,17 @@ public class MainMenu : MonoBehaviour
             {
                 options.Toggle(false);
             }
-            if(save.optionsSave[3] == 1)
-            {
-                options.ToggleControls(true);
-            }
-            else
-            {
-                options.ToggleControls(false);
-            }
+            
             if (save.newVersion == 1)
             {
+                if (save.optionsSave[3] == 1)
+                {
+                    options.ToggleControls(true);
+                }
+                else
+                {
+                    options.ToggleControls(false);
+                }
                 skin = save.skin;
                 accessory = save.accessory;
                 skins = save.skins;
